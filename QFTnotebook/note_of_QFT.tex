@@ -1,0 +1,768 @@
+\documentclass{article}
+\usepackage{ctex}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{physics}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancyhead[L]{The Note of Quantum Mechanics}
+\fancyfoot[C]{\thepage}
+
+%\setlength{\textwidth}{1.2\textwidth}
+%\setlength{\textheight}{0.8\textheight}
+
+\newtheorem{theorem}{定理}
+\newtheorem{definition}{定义}
+
+
+
+
+\geometry{
+paper = a4paper,    %纸张类型
+top = 3cm,          %上页边距
+bottom = 3cm,       %下页边距
+left = 3cm,         %左页边距
+right = 3cm         %右页边距
+}
+
+\newcommand{\ds}{\displaystyle}
+\newcommand{\bb}[1]{\mathbb{#1}}
+\newcommand{\h}[1]{\hat{#1}}
+\newcommand{\pmtwo}[4]{\begin{pmatrix}#1&#2\\#3&#4\end{pmatrix}}
+\newcommand{\pmthree}[9]{
+    \begin{pmatrix}
+        #1&#2&#3\\
+        #4&#5&#6\\
+        #7&#8&#9
+    \end{pmatrix}
+}
+\newcommand{\vmtwo}[4]{\begin{vmatrix}#1&#2\\#3&#4\end{vmatrix}}
+\newcommand{\vmthree}[9]{
+    \begin{vmatrix}
+        #1&#2&#3\\
+        #4&#5&#6\\
+        #7&#8&#9
+    \end{vmatrix}
+}
+
+\newcommand{\vmthreedot}[9]{
+    \begin{vmatrix}
+        #1&#2&\cdots&#3\\
+        #4&#5&\cdots&#6\\
+        \vdots&\vdots&\ddots&\vdots\\
+        #7&#8&\cdots&#9
+    \end{vmatrix}
+}
+
+\newcommand{\expectation}[1]{\langle #1 \rangle}
+
+\newcommand{\Da}[2]{\frac{\partial}{\partial#2}#1}
+
+\newcommand{\D}[2]{\frac{d}{d#2}#1}
+
+\newcommand{\id}[1]{\ket{#1}\bra{#1}}
+
+
+
+
+
+\title{Note of QFT}
+\author{Kaiser\\University of South China}
+
+
+
+
+
+
+
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+    \normalsize
+    这一篇笔记是自己为了扩充自己的眼界以及学习更多的内容所准备的，同时也是为了在组会当中进行汇报而打的一个“小抄”
+\end{abstract}
+
+\begin{center}
+    \large
+    \begin{thebibliography}{99} 
+        \bibitem{1} David Tong,\textit{Quantum Field Theory}
+        \bibitem{2} M.Peskin and D.Schroeder,\textit{An Introduction of Quantum Field Theory}
+        \bibitem{3} A.Zee,\textit{Quantum Field Theory in a Nutshell}
+        \bibitem{4} S.Weinberg,\textit{The Quantum Theory of Field (Volume 1)}
+        \bibitem{5} Landau,Lev D.,and Lifshitz,E.M.,\textit{The Classical Theory of Field}
+    \end{thebibliography}
+\end{center}
+
+
+
+
+\begin{center}
+    \tableofcontents
+\end{center}
+\newpage
+
+
+
+
+
+\section{经典力学与狭义相对论复习}
+
+\subsection{伽利略变换}
+考虑两个沿着$x$轴方向相对运动的惯性观察者，在$t=0$时，两者是互相重合的，并且我们假设它们之间的相对运动的速度（即相对速度）为常数，他们将会分别对应到两个参考系$S$和$S^\prime$,我们可以给出它们此时之间的坐标变换关系：
+\begin{align*}
+    S\to S^\prime:
+    \begin{cases}
+        &t^\prime=t\\
+        &x^\prime=x-vt\\
+        &y^\prime=y\\
+        &z^\prime=z
+    \end{cases}
+\end{align*}
+
+我们将其使用矩阵语言来进行表示就是：
+\begin{align*}
+    \begin{pmatrix}
+        t^\prime\\x^\prime\\y^\prime\\z^\prime
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        1&0&0&0\\
+        -v&1&0&0\\
+        0&0&1&0\\
+        0&0&0&1
+    \end{pmatrix}
+    \begin{pmatrix}
+        t\\x\\y\\z
+    \end{pmatrix}
+\end{align*}
+
+同时，值得注意的是，我们连续地做两次伽利略变换得到的还会是伽利略变换，对于任意一个伽利略变换也都存在一个逆变换（将速度从$v$改成$-v$即可）,当$v=0$时的伽利略变换将会是一个恒等变换，当然，伽利略变换也满足结合律，这也就是说，伽利略变换在数学上是构成了一个群的，并且，由于该群的变换参数$v$是一个可以连续变化的，因此他将对应着一个连续群（李群）的数学结构，叫作“伽利略变换群”，并且，容易发现，经典力学中的牛顿运动定律
+\begin{align*}
+    \vec{F}=m\vec{a}=m\frac{d^2}{dt^2}\vec{x}
+\end{align*}
+
+在伽利略变换下可以保持数学形式不变，用现代理论物理的语言来说，这意味着伽利略变换时牛顿运动定律的一个对称性，但是，其所导出的速度的相对关系为
+\begin{align*}
+    u^\prime&=\frac{d x^\prime}{dt^\prime}\\
+    &=\frac{d(x-vt)}{dt}\\
+    &=u-v
+\end{align*}
+
+很显然，这是非常符合日常生活经验和直觉的，直到迈克尔逊莫雷实验的出现，告诉我们，\textbf{真空中光速不变},但是很显然，伽利略
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{经典场论}
+有一定的量子场论基础的人都知道，即使没有经典场论的基础（或者说是没有经典连续场的基础）也是无伤大雅的，因为量子场可以不依赖于经典连续场引入，但是就我个人认为，学习和重温量子场论中的基本概念以及很多的处理方法是必要的。同时，从经典场出发进行量子化得到粗糙的量子场，再根据其存在的漏洞进行正规化、重整化以获得具有预言能力的量子场论。
+
+在这一部分，或者说这一次汇报中，我将讨论经典场论的几个方面。
+
+\subsection{场的动力学与举例}
+场是被定义在所有时间空间点上的$(\vec{x},t)$,记作$$\phi_a(\vec{x},t)$$
+
+尽管在经典力学中我们描述一个有限维空间中的粒子的广义坐标为$q_a(t)$,但是$\phi_a(\vec{x},t)$中，这里的$a$和$\vec{x}$仅仅是一个符号而已，我们所讨论的场，是具有无限自由度的
+\paragraph{电磁场}\ \\
+在经典物理当中，最好的例子应该就是电场$E(\vec{x},t)$和磁场$B(\vec{x},t)$了,并且，我们在电动力学当中，利用这两个场所定义出来的标势$\phi$和矢势$\vec{A}$将这两个三矢量合并为了一个四分量场$A_\mu(\phi,\vec{A})$,且电场和磁场可以由标势和矢势给出
+\begin{align*}
+    \vec{E}=-\nabla\phi-\frac{\partial\vec{A}}{\partial t}\quad\quad\vec{B}=\nabla\times\vec{A}
+\end{align*}
+
+同时还需要两个麦克斯韦方程组中的内容进行规定
+\begin{align*}
+    \nabla\cdot\vec{B}=0\quad\quad\frac{\partial}{\partial t}\vec{B}=-\nabla\times\vec{E}
+\end{align*}
+
+
+
+
+\subsection{拉格朗日场论}
+在之前的经典力学的复习当中，我们给出了一个系统的拉格朗日量与作用量的关系
+\[S=\int dt L(q,\dot{q},t)\]
+
+在场论当中，拉格朗日量是以$\phi,\nabla\phi$作为变量的，同时为了和别的四矢量进行统一，我们需要改变一下拉格朗日量的形式，即
+\begin{equation*}
+    L=\int d^3x\mathcal{L}(\phi,\partial_\mu\phi)
+\end{equation*}
+
+于是作用量将被写成
+\begin{align*}
+    S&=\int dt\int d^3x\mathcal{L}(\phi,\partial_\mu\phi)\\
+    &=\int d^4x \mathcal{L}(\phi,\partial_\mu\phi)
+\end{align*}
+
+作用量显然是关于场算符$\phi$的泛函，最小作用量原理表明，当系统在四维空间演化时，在所有可能的演化中，符合物理真实动力学的演化路径应当是使得作用量取最小的路径，因此，我们考虑泛函$S[\phi]$的变分为$0$。
+\begin{align*}
+    0&=\delta S[\phi]\\
+    &=\int d^4x \left\{\frac{\partial\mathcal{L}}{\partial \phi}\delta\phi+\frac{\partial \mathcal{L}}{\partial(\partial_\mu \phi)}\delta(\partial_\mu \phi)\right\}\\
+    &=\int d^4x \left\{\textcolor{blue}{\frac{\partial\mathcal{L}}{\partial \phi}\delta \phi-\partial_\mu\left(\frac{\partial \mathcal{L}}{\partial(\partial_\mu\phi)}\right)\delta \phi}+\textcolor{red}{\partial_{\mu}\left(\frac{\partial \mathcal{L}}{\partial(\partial_\mu\phi)}\delta\phi\right)}\right\}
+\end{align*}
+
+这其中的第三项（也就是标红的部分）可以转化为四维时空积分区域的边界上的表面积分，一般场在其边界处为$0$,这也就是在告诉我们$\delta \phi=0$,因此这一项将会消失，但为了使得作用量的变分恒为$0$,我们就必须要让蓝色的部分为$0$,于是，我们得到了经典场的运动方程
+\begin{equation*}
+    \partial_\mu\left(\frac{\partial \mathcal{L}}{\partial(\partial_\mu\phi)}\right)-\frac{\partial\mathcal{L}}{\partial \phi}=0
+\end{equation*}
+
+如果拉格朗日量当中有多个场，那么对于每个场都有一个这样的方程与之对应。
+
+
+
+
+
+\subsection{哈密顿场论}
+在离散系统里面，我们给每一个广义坐标都对应的定义了一个广义动量（又被称为共轭动量）$p(\vec{x})\equiv\frac{\partial L}{\partial \dot{q}}$，于是哈密顿量$H\equiv\sum p\dot{q}-L$在场论当中，我们假装空间点$\vec{x}$是离散的间隔，于是可以定义出
+\begin{align*}
+    p(\vec{x})&\equiv\frac{\partial L}{\partial \phi(\vec{x})}\\
+    &=\frac{\partial}{\partial \phi(\vec{x})}\int\mathcal{L}(\phi(\vec{y}),\partial_\mu\phi(\vec{y}))d^3y\\
+    &\sim \frac{\partial}{\partial \phi(\vec{x})}\sum_{\vec{y}}\mathcal{L}(\phi(\vec{y}),\partial_\mu\phi(\vec{y}))d^3y\\
+    &=\pi(\vec{x})d^3x
+\end{align*}
+
+其中
+\begin{align*}
+    \pi(\vec{x})=\frac{\partial \mathcal{L}}{\partial \partial_\mu\phi(\vec{x})}
+\end{align*}
+
+这个就是$\phi(\vec{x})$的\textbf{共轭动量密度}。于是哈密顿量写作
+\begin{align*}
+    H=\sum p(\vec{x})\partial_\mu\phi(\vec{x})-L
+\end{align*}
+
+将其推广至连续的情况，即
+\begin{align*}
+    H&=\int d^3x \left[\pi(\vec{x})\dot{\phi}(\vec{x})-\mathcal{L}\right]\\
+    &=\int d^3x \mathcal{H}
+\end{align*}
+
+其中，$\mathcal{H}$被称之为哈密顿密度。
+
+
+在讲完了这两个场理论之后，我们将举一个简单的实标量场$\phi(\vec{x},t)$，他的拉格朗日量可以写为
+\begin{align*}
+    \mathcal{L}&=\frac{1}{2}\eta^{\mu\nu}\partial_\mu\phi\partial_\nu\phi-\frac{1}{2}m^2\phi^2\\
+    &=\frac{1}{2}\dot{\phi}^2-\frac{1}{2}(\nabla \phi)^2-\frac{1}{2}m^2\phi^2
+\end{align*}
+
+将其带入到拉格朗日方程当中，
+\begin{align*}
+    \partial_\mu\left(\frac{\partial(\frac{1}{2}\eta^{\mu\nu}\partial_\mu\phi\partial_\nu\phi-\frac{1}{2}m^2\phi^2)}{\partial(\partial_\mu\phi)}\right)&=\frac{\partial(\frac{1}{2}\eta^{\mu\nu}\partial_\mu\phi\partial_\nu\phi-\frac{1}{2}m^2\phi^2)}{\partial \phi}\\
+    \left(\partial^\mu\partial_\mu+m^2\right)\phi&=0\\
+    \left(\frac{\partial^2}{\partial t^2}-\nabla^2+m^2\right)\phi&=0
+\end{align*}
+
+这个例子所计算出来的便是大名鼎鼎的Klein-Gordon 方程。
+
+同时，这个例子当中，可以看出这个场的动能项$T$为
+\begin{align*}
+    T=\int d^3x\frac{1}{2}\dot{\phi}^2
+\end{align*}
+
+场的势能项$V$为
+\begin{align*}
+    V=\int d^3x \left(\frac{1}{2}(\nabla\phi)^2+\frac{1}{2}m^2\phi^2\right)
+\end{align*}
+
+此外，还可以计算出共轭动量密度
+\begin{align*}
+    \pi(\vec{x})&=\left(\partial_\mu\phi\right)^2
+\end{align*}
+
+于是，可以得出哈密顿密度
+\begin{align*}
+    \mathcal{H}&=\frac{1}{2}\left(\partial_\mu\phi\right)^2+\frac{1}{2}m^2\phi^2
+\end{align*}
+
+写为哈密顿量就是
+\begin{align*}
+    H=\int d^3x \mathcal{H}&=\int d^3x \left(\frac{1}{2}\left(\partial_\mu\phi\right)^2+\frac{1}{2}m^2\phi^2\right)\\
+    &=\int d^3x \left(\frac{1}{2}\dot{\phi}^2+\frac{1}{2}\left(\nabla\phi\right)^2+\frac{1}{2}m^2\phi^2\right)
+\end{align*}
+
+这三项中，第一项是时间中移动的能量、第二项是空间中切变的能量、最后一项是场本身的能量
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsection{Lorentz Invariance}
+
+之前的经典力学当中只是比较草率地讲解了一点点洛伦兹变换,这一次则是希望可以将洛伦兹变换进行一次系统的讲解。
+\begin{align*}
+    \varLambda_\nu^\mu\to
+    \begin{pmatrix}
+        \gamma&-\gamma v&0&0\\
+        -\gamma v&\gamma&0&0\\
+        0&0&1&0\\
+        0&0&0&1   
+    \end{pmatrix}
+\end{align*}
+
+我们都知道，洛伦兹变换是为了保证四矢量$x^\mu\to\begin{pmatrix}
+    t\\x\\y\\z
+\end{pmatrix}$在Minkowski空间度规$\eta^{\mu\nu}\to\begin{pmatrix}
+    1&0&0&0\\
+    0&-1&0&0\\
+    0&0&-1&0\\
+    0&0&0&-1
+\end{pmatrix}$下间隔$ds^2=\eta_{\mu\nu}dx^\mu dx^\nu$不变。
+
+
+\subsubsection{具体形式}
+
+除去洛伦兹变换以后，我们还知道一些可以保证四矢量长度不变的变换：平移、反射、旋转。
+
+首先讲讲旋转，我们知道，平移是三维空间中的操作，并不会对时间有所改变，所以我们先写出分别绕$x,y,z$轴的旋转$\theta_x,\theta_y,\theta_z$，对应的矩阵分别为：
+\begin{align*}
+    R_x&=
+    \begin{pmatrix}
+    1&0&0\\
+    0&\cos\theta_x&-\sin\theta_x\\
+    0&\sin\theta_x&\cos\theta_x    
+    \end{pmatrix}\\
+    R_y&=
+    \begin{pmatrix}
+    \cos\theta_x&0&-\sin\theta_x\\
+    0&1&0\\
+    \sin\theta_x&0&\cos\theta_x   
+    \end{pmatrix}\\
+    R_z&=
+    \begin{pmatrix}
+        \cos\theta_x&-\sin\theta_x&0\\
+        \sin\theta_x&\cos\theta_x&0\\
+        0&0&1   
+        \end{pmatrix}\\
+\end{align*}
+
+而对于相对论时空下的旋转操作只需要再直和上一个一维的单位矩阵即可得到对应的相对论时空下的旋转矩阵：
+\begin{align*}
+    R_x&=\textbf{1}\oplus
+    \begin{pmatrix}
+        1&0&0\\
+        0&\cos\theta_x&-\sin\theta_x\\
+        0&\sin\theta_x&\cos\theta_x    
+        \end{pmatrix}\\
+    &=
+    \begin{pmatrix}
+        1&0&0&0\\
+        0&1&0&0\\
+        0&0&\cos\theta_x&-\sin\theta_x\\
+        0&0&\sin\theta_x&\cos\theta_x
+    \end{pmatrix}\\
+\end{align*}
+
+以上为普通三维欧氏空间转动，接下来直接给出洛伦兹推动变化矩阵，其中$\eta_\mu$为洛伦兹推动参数
+\begin{align*}
+    \varLambda^\mu_\nu&=
+    \begin{pmatrix}
+        \cosh{\eta_x}&\sinh{\eta_x}&0&0\\
+        \sinh{\eta_x}&\cosh{\eta_x}&0&0\\
+        0&0&1&0\\
+        0&0&0&1
+    \end{pmatrix}\\
+    \varLambda^\mu_\nu&=
+    \begin{pmatrix}
+        \cosh{\eta_y}&0&\sinh{\eta_y}&0\\
+        0&1&0&0\\
+        \sinh{\eta_y}&0&\cosh{\eta_y}&0\\
+        0&0&0&1
+    \end{pmatrix}\\
+    \varLambda^\mu_\nu&=
+    \begin{pmatrix}
+        \cosh{\eta_z}&0&0&\sinh{\eta_z}\\
+        0&1&0&0\\
+        0&0&1&0\\
+        \sinh{\eta_z}&0&0&\cosh{\eta_z}
+    \end{pmatrix}
+\end{align*}
+
+\subsubsection{生成元(genetator)}
+
+\paragraph{转动}\ \\
+直接先来讨论一下转动，我们知道，一个关于$x$轴转动的旋转矩阵写为
+\begin{align*}
+    \begin{pmatrix}
+        1&0&0&0\\
+        0&1&0&0\\
+        0&0&\cos\theta_x&-\sin\theta_x\\
+        0&0&\sin\theta_x&\cos\theta_x
+    \end{pmatrix}\\
+\end{align*}
+
+我们知道，旋转矩阵旋转$\theta$角的操作是可以通过旋转$N$次$\dfrac{\theta}{N}$次得到，因此有
+\begin{align*}
+    \begin{pmatrix}
+        1&0&0&0\\
+        0&1&0&0\\
+        0&0&\cos\theta_x&-\sin\theta_x\\
+        0&0&\sin\theta_x&\cos\theta_x
+    \end{pmatrix}\\
+    =
+    \begin{pmatrix}
+        1&0&0&0\\
+        0&1&0&0\\
+        0&0&\cos{\frac{\theta_x}{N}}&-\sin\frac{\theta_x}{N}\\
+        0&0&\sin\frac{\theta_x}{N}&\cos{\frac{\theta_x}{N}}
+    \end{pmatrix}^N\\
+\end{align*}
+
+当$N$非常大的时候，近似有：
+\begin{align*}
+    R(\theta)=
+    \begin{pmatrix}
+        1&0&0&0\\
+        0&1&0&0\\
+        0&0&1&\frac{\theta}{N}\\
+        0&0&\frac{\theta}{N}&1
+    \end{pmatrix}^N
+\end{align*}
+
+这表明，我们的一个无穷小转动可以被表示为一个单位阵上又跌价了一个无穷小转动$\varepsilon$,即
+\begin{align*}
+    g(\delta)=I+\varepsilon=I+\delta
+    \begin{pmatrix}
+        0&0&0&0\\
+        0&0&0&0\\
+        0&0&0&-1\\
+        0&0&1&0
+    \end{pmatrix}
+\end{align*}
+
+同理可以求出绕$y$轴转动和绕$z$轴转动的情况,于是有
+\begin{align*}
+    X_1=
+    \begin{pmatrix}
+        0&0&0&0\\
+        0&0&0&0\\
+        0&0&0&-1\\
+        0&0&1&0    
+    \end{pmatrix}
+\end{align*}
+\begin{align*}
+    X_2=
+    \begin{pmatrix}
+        0&0&0&0\\
+        0&0&0&1\\
+        0&0&0&0\\
+        0&-1&0&0  
+    \end{pmatrix}
+\end{align*}
+\begin{align*}
+    X_3=
+    \begin{pmatrix}
+        0&0&0&0\\
+        0&0&-1&0\\
+        0&1&0&0\\
+        0&0&0&0   
+    \end{pmatrix}
+\end{align*}
+
+但是我们一般将转动生成元定义为
+\begin{align*}
+    J_i\equiv iX_i
+\end{align*}
+
+\paragraph{boost}\ \\
+接下来我们来看一下推动生成元，我们知道，相对论力学的背景下，光速就是速度的极限，我们设存在$N$个参考系，并且为了方便，我们让每一个参考系都相对于前一个参考系有着沿$x$轴的速度$v$，对应的洛伦兹转换为
+\begin{align*}
+    \varLambda(v)=
+    \begin{pmatrix}
+        \gamma&-\gamma v&0&0\\
+        -\gamma v&\gamma&0&0\\
+        0&0&1&0\\
+        0&0&0&1   
+    \end{pmatrix}
+\end{align*}
+
+那么第$N$个参考系相对于第一个参考系的洛伦兹变换为
+\begin{align*}
+    \varLambda(v^\prime)=
+    \begin{pmatrix}
+        \gamma^\prime&-\gamma^\prime v^\prime&0&0\\
+        -\gamma^\prime v^\prime&\gamma^\prime&0&0\\
+        0&0&1&0\\
+        0&0&0&1   
+    \end{pmatrix}
+\end{align*}
+
+很显然，当我们的$v\ll 1$时，我们将会有
+\begin{align*}
+    \varLambda(v)=
+    \begin{pmatrix}
+        1&-v&0&0\\
+        -v&1&0&0\\
+        0&0&1&0\\
+        0&0&0&1   
+    \end{pmatrix}
+\end{align*}
+
+从而，我们将可以得到
+\begin{align*}
+    \varLambda(v^\prime)&=
+    \begin{pmatrix}
+        1&-v&0&0\\
+        -v&1&0&0\\
+        0&0&1&0\\
+        0&0&0&1   
+    \end{pmatrix}^N\\
+    &=\lim_{v\to0}(I-vK)^N\\
+    &=e^{-NvK}\\
+    &=\sum_{n=0}^{\infty}(-NvK)\frac{K^n}{n!}
+\end{align*}
+
+这其中的$K=\begin{pmatrix}
+    0&1&0&0\\
+    1&0&0&0\\
+    0&0&0&0\\
+    0&0&0&0
+\end{pmatrix},K^2=\begin{pmatrix}
+    1&0&0&0\\
+    0&1&0&0\\
+    0&0&0&0\\
+    0&0&0&0
+\end{pmatrix}$
+
+故
+\begin{align*}
+    \varLambda(v^\prime)&=
+    \begin{pmatrix}
+        \displaystyle\sum_{n=0}^{\infty}\frac{(-Nv)^{2n}}{(2n)!}&\displaystyle\sum_{n=0}^{\infty}\frac{(-Nv)^{2n+1}}{(2n+1)!}&0&0\\
+        \displaystyle\sum_{n=0}^{\infty}\frac{(-Nv)^{2n+1}}{(2n+1)!}&\displaystyle\sum_{n=0}^{\infty}\frac{(-Nv)^{2n}}{(2n)!}&0&0\\
+        0&0&1&0\\
+        0&0&0&1   
+    \end{pmatrix}\\
+    &=\begin{pmatrix}
+        \cosh(\-Nv)&\sinh(\-Nv)&0&0\\
+        \sinh(\-Nv)&\cosh(\-Nv)&0&0\\
+        0&0&1&0\\
+        0&0&0&1   
+    \end{pmatrix}
+\end{align*}
+
+通过比较可以发现，$v^\prime=\tanh(Nv)$，我们定义出一个叫做快度的量$\eta$，有速度快度关系
+\begin{align*}
+    v=\tanh\eta\quad\quad\eta=\frac{1}{2}\ln\frac{1+v}{1-v}
+\end{align*}
+
+在定义完快度之后，我们可以认为一个无穷小伪转动的量可以被写为$I+\eta K$
+同理可得$y$轴，$z$轴的$K$
+\begin{align*}
+    K_2=
+    \begin{pmatrix}
+        0&0&1&0\\
+        0&0&0&0\\
+        1&0&0&0\\
+        0&0&0&0
+    \end{pmatrix}\\
+    K_3=
+    \begin{pmatrix}
+        0&0&0&1\\
+        0&0&0&0\\
+        0&0&0&0\\
+        1&0&0&0
+    \end{pmatrix}
+\end{align*}
+
+但是一般我们在写的时候会乘上虚数$i$
+
+进一步的我们给出生成元
+\begin{align*}
+    \left(S^{\alpha\beta}\right)=-i\left(\eta^{\alpha\mu}\delta^\beta_\nu-\delta^\alpha_\nu\eta^{\beta\mu}\right)
+\end{align*}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsection{诺特定理}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{自由场论}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{附录}
+\subsection{张量代数}
+
+
+
+
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
