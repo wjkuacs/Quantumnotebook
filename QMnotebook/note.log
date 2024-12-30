@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.11.23)  19 DEC 2024 15:19
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.11.23)  30 DEC 2024 02:07
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -953,12 +953,21 @@ Missing character: There is no ！ (U+FF01) in font [lmroman10-regular]:mapping=
 [36] [37] [38] [39]
 File: figure/stern_gerlach.png Graphic file (type bmp)
 <figure/stern_gerlach.png>
- [40] [41] [42] [43] [44] [45] [46] [47]
+ [40] [41] [42] [43] [44] [45]
+
+LaTeX Warning: Command \u invalid in math mode on input line 2473.
+
+Missing character: There is no ̆ ("306) in font cmmi7!
+
+LaTeX Warning: Command \u invalid in math mode on input line 2473.
+
+Missing character: There is no ̆ ("306) in font cmmi7!
+[46] [47] [48] [49]
 File: figure/存在微扰的一维无限位能阱.png Graphic file (type bmp)
 <figure/存在微扰的一维无限位能阱.png>
 File: figure/一维无限位能阱.png Graphic file (type bmp)
 <figure/一维无限位能阱.png>
- [48] [49] [50] [51] [52] [53] [54] [55] [56] [57] [58] [59] [60] (./note.aux)
+ [50] [51] [52] [53] [54] [55] [56] [57] [58] [59] [60] [61] [62] (./note.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2022/07/14>
@@ -967,19 +976,16 @@ L3 programming layer <2022/07/14>
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package rerunfilecheck Info: File `note.out' has not changed.
 (rerunfilecheck)             Checksum: 1B7440AA7EC1C6CC56050D844AF36350;8014.
  ) 
 Here is how much of TeX's memory you used:
- 39451 strings out of 474773
- 976819 string characters out of 5759063
+ 39506 strings out of 474773
+ 979633 string characters out of 5759063
  1964842 words of memory out of 5000000
- 60975 multiletter control sequences out of 15000+600000
+ 61030 multiletter control sequences out of 15000+600000
  569412 words of font info for 114 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  103i,20n,107p,721b,2405s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on note.pdf (60 pages).
+Output written on note.pdf (62 pages).

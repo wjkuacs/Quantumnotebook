@@ -1429,7 +1429,7 @@ The Pauli Matrix is defined as
 
 Please proof that
 \begin{enumerate}
-    \item[(1)] \[[\sigma_i,\sigma_j]=2\epsilon_{ijk}\sigma_k\]
+    \item[(1)] \[[\sigma_i,\sigma_j]=2i\epsilon_{ijk}\sigma_k\]
     \item[(2)] \[\{\sigma_i,\sigma_j\}=\sigma_i\sigma_j+\sigma_j\sigma_i=2\delta_{ij}I\] where $\{A,B\} $ is anti-commutation relation. 
     \item[(3)] \[\sigma_i\sigma_j=\delta_{ij}I+i\epsilon_{ijk}\sigma_k\]
     \item[(4)] By define 
@@ -1454,11 +1454,11 @@ Please proof that
         \end{align*}
         而我们知道自旋算符的对易关系为
         \begin{align*}
-            [S_i,S_j]=i\hbar\epsilon_{ijk}S_k
+            [S_i,S_j]=i\epsilon_{ijk}S_k
         \end{align*}
         于是也有
         \begin{align*}
-            [\sigma_i,\sigma_j]=i\hbar\epsilon_{ijk}\sigma_k
+            [\sigma_i,\sigma_j]=2i\epsilon_{ijk}\sigma_k
         \end{align*}
         \item[(2)] 这一题老老实实的计算一下
         
@@ -1502,14 +1502,22 @@ Please proof that
         \begin{align*}
             [\sigma_i,\sigma_j]+\{\sigma_i,\sigma_j\}&=(\sigma_i\sigma_j-\sigma_j\sigma_i)+(\sigma_i\sigma_j+\sigma_j\sigma_i)\\
             &=2\sigma_i\sigma_j\\
-            &=2\epsilon_{ijk}\sigma_k+2\delta_{ij}I
+            &=2i\epsilon_{ijk}\sigma_k+2\delta_{ij}I
         \end{align*}
 
         于是，我们得到了最终需要证明的表达式
         \begin{align*}
-            \sigma_i\sigma_j&=\epsilon_{ijk}\sigma_k+\delta_{ij}I
+            \sigma_i\sigma_j&=i\epsilon_{ijk}\sigma_k+\delta_{ij}I
         \end{align*}
         \item[(4)] 
+        这一题在一开始给我们定义了Pauli矩阵与矢量的内积，我们可以直接利用这个定义来计算
+        \begin{align*}
+            (\vec{A}\cdot\vec{\sigma})(\vec{B}\cdot\vec{\sigma})&=(A_i\sigma_i)(B_j\sigma_j)\\
+            &=A_iB_j(\sigma_i\sigma_j)\\
+            &=A_iB_j(\delta_{ij}I+i\epsilon_{ijk}\sigma_k)\\
+            &=(\delta_{ij}A_iB_j)I+(\varepsilon_{ijk}A_iB_j\sigma_k)\\
+            &=(\vec{A}\cdot\vec{B})I+i(\vec{A}\times\vec{B})\vec{\sigma}
+        \end{align*}
         \item[(5)] 直接开始计算吧
         \begin{align*}
             \frac{\vec{\sigma}}{2}\times\frac{\vec{\sigma}}{2}&=\frac{1}{4}(\vec{\sigma}\times\vec{\sigma})\\
@@ -1550,11 +1558,50 @@ Using perturbation method for the 2D infinite wall:
     \item Find out the first order correction of ground state and the first excited state for wave function and energy spectrum.
 \end{enumerate}
 
+\begin{solution}
+    本题是一个二维空间中的薛定谔方程，首先给出我们的定态薛定谔方程
+    \begin{align*}
+        \frac{\hbar^2}{2m}\nabla^2\psi+(E-V)\psi=0
+    \end{align*}
+
+    \begin{enumerate}
+        \item 首先是求解没有微扰的情况，此时的$V(x,y)=0(0\leq x \leq L,0\leq y\leq L)$
+        
+        这时的薛定谔方程为
+        \begin{align*}
+            \frac{\hbar^2}{2m}\nabla^2\psi+E\psi&=0
+        \end{align*}
+
+        将波函数分解为
+        \[
+            \psi(x,y)=\psi_x(x)\psi_y(y)
+        \]
+
+        因此问我我们可以分别求解$\psi_x(x)$和$\psi_y(y)$的方程，而在这道题当中，很显然，$\psi_x(x)$与$\psi_y(y)$的形式是一致的，因此我们只需要求解一个方程即可，而这个方程就是一维无限深势阱的方程，于是，直接拿出答案吧
+        \begin{align*}
+            \psi_{xn}(x)&=\sqrt{\frac{2}{L}}\sin(\frac{n\pi}{L}x)\\
+            E_{xn}&=\frac{\pi^2n_x^2\hbar^2}{2mL^2}
+        \end{align*}
+
+        于是我们可以有
+        \begin{align*}
+            \psi_{n_xn_y}(x,y)&=\frac{2}{L}\sin(\frac{n_x\pi}{L}x)\sin(\frac{n_y\pi}{L}y)\\
+            E_{n_xn_y}&=\frac{\pi^2\hbar^2}{2mL^2}(n_x^2+n_y^2)
+        \end{align*}
+        \item 这道题给定了我们微扰，要求我们找到基态和第一级激发态的波函数与能谱的一阶修正
+    \end{enumerate}
+\end{solution}
+
+
+
+
+
+
 \section{变分原理}
 \subsection{变分原理20241212}
 Consider 2D infinite wall 
 \begin{align*}
-    \psi(x,y)=
+    V(x,y)=
     \begin{cases}
         0,&0\leq x \leq L,0\leq y\leq L\\
         \infty,&otherwise    
@@ -1562,6 +1609,36 @@ Consider 2D infinite wall
 \end{align*}
 
 Try out an arbitrary wave function and find out the upper limit of ground state energy $E_g$.
+
+
+\begin{solution}
+    根据边界条件
+    \[
+        \psi(0,y)=\psi(L,y)=\psi(x,0)=\psi(x,L)
+    \]
+
+    于是，我们可以猜测波函数的形式为一个三角函数，即
+    \begin{align*}
+        \psi(x,y)=A\sin(\frac{\pi}{L}x)\sin(\frac{\pi}{L}y)
+    \end{align*}
+
+    利用归一化条件
+    \begin{align*}
+        \int_{0}^{L}\int_{0}^{L}|\psi(x,y)|^2dxdy&=1\\
+        \Rightarrow A&=\frac{2}{L}
+    \end{align*}
+
+    有了这个猜测解，我们就可以去预估一下基态能量的上界
+    \begin{align*}
+        \expectation{H}&=\int_{0}^{L}\psi^*H\psi dxdy\\
+        &=A^2\int_{0}^{L}\int_{0}^{L}\left(\sin(\frac{\pi}{L}x)\sin(\frac{\pi}{L}y)\right)\left(-\frac{\hbar^2}{2m}\right)\left(\sin(\frac{\pi}{L}x)\sin(\frac{\pi}{L}y)\right)dxdy\\
+        &=\frac{4}{L^2}\frac{\pi^2}{L^2}\frac{\hbar^2}{2m}\cdot2\cdot\frac{\pi^2}{4}\\
+        &=\frac{\pi^2\hbar^2}{mL^2}
+    \end{align*}
+
+    因此，根据该波函数所猜测出的基态能量上确界为$\dfrac{\pi^2\hbar^2}{mL^2}$
+\end{solution}
+
 
 
 \section{WKB 近似}
@@ -1580,6 +1657,43 @@ By using WKB approximation,please try to analysis
     \item E>V
     \item E<V
 \end{enumerate}
+
+
+\begin{solution}
+    \begin{enumerate}
+        \item 第一小问当中，需要分析的区域是$E>V$，这是经典力学所允许的区域，因此，我们直接代入到经典区域的WKB近似公式
+        \begin{align*}
+            \psi(x)\cong \frac{1}{\sqrt{p(x)}}\left[C_+e^{i\phi(x)}+C_-e^{-i\phi(x)}\right]
+        \end{align*}
+
+        其中
+        \begin{align*}
+            \psi(x)=\frac{1}{\hbar}\int_{0}^{x}p(x^\prime)dx^\prime
+        \end{align*}
+
+        
+        
+        将这个条件带入到我们的WKB近似公式当中
+        \item 第二小问当中，需要分析的区域是$E<V$，这是经典力学所禁止的区域，也就是所谓的“隧穿”效应
+        
+        考虑到这是一个一维有限方势垒，因此我们知道其将会有一个透射波，一个入射波和一个反射波，而入射波与反射波是存在于$x<0$的区域，而透射波则是存在于$x>0$的区域，在这样的区域当中势能为0，即$V=0$,此时我们会有
+        \begin{align*}
+            \psi_1(x)&=Ae^{ikx}+Be^{-ikx},x<0\\
+            \psi_3(x)&=Fe^{ikx},x>L
+        \end{align*}
+
+        而对于中间部分，我们可以用WKB近似为
+        \begin{align*}
+            \psi_2(x)=\frac{C}{\sqrt{|p(x)|}}e^{\displaystyle\frac{1}{\hbar}\int_{0}^{x}|p(x)|dt}+\frac{D}{\sqrt{|p(x)|}}e^{\displaystyle-\frac{1}{\hbar}\int_{0}^{x}|p(x)|dt}
+        \end{align*}
+
+    根据这个式子，我们知道，当势垒足够宽的时候，此时的$C$将可以忽略不计，于是入射波与透射波的强度比将会近似的等于波函数在势垒当中的衰减程度，即
+    \begin{align*}
+        T=\frac{|F|}{|A|}&\cong  e^{\displaystyle\frac{1}{\hbar}\int_{0}^{L}|p(x)|dx}\\
+        &= e^{\displaystyle\frac{2m(E-V)}{\hbar}L}
+    \end{align*}
+    \end{enumerate}
+\end{solution}
 
 
 
