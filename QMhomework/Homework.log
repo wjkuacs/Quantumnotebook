@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.11.23)  30 DEC 2024 19:19
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.11.23)  31 DEC 2024 05:11
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -935,21 +935,30 @@ Underfull \hbox (badness 10000) in paragraph at lines 1449--1450
 
  []
 
-[37] [38] [39] [40] [41] [42] [43] [44] (./Homework.aux)
+[37] [38] [39] [40] [41] [42] [43] [44] [45] [46] [47]
+
+LaTeX Font Warning: Font shape `TU/SimSun(0)/b/it' undefined
+(Font)              using `TU/SimSun(0)/b/n' instead on input line 1901.
+
+[48] [49] (./Homework.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2022/07/14>
  ***********
+
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
 Package rerunfilecheck Info: File `Homework.out' has not changed.
 (rerunfilecheck)             Checksum: F869A22C31624754C1B048B63B106A6C;4738.
  ) 
 Here is how much of TeX's memory you used:
- 38481 strings out of 474773
- 944065 string characters out of 5759063
- 1938842 words of memory out of 5000000
- 60017 multiletter control sequences out of 15000+600000
- 567811 words of font info for 101 fonts, out of 8000000 for 9000
+ 38550 strings out of 474773
+ 948559 string characters out of 5759063
+ 1947842 words of memory out of 5000000
+ 60084 multiletter control sequences out of 15000+600000
+ 567819 words of font info for 102 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  103i,15n,107p,725b,767s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on Homework.pdf (44 pages).
+Output written on Homework.pdf (49 pages).

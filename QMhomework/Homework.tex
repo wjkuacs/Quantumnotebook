@@ -1542,6 +1542,87 @@ Consider a 1-D infinite square wall which contains 3 particles.Please write down
     \item Three identical fermions
 \end{enumerate}
 
+\begin{solution}
+    在写之前，首先给出一维无限深势阱的波函数与能谱
+    \begin{align*}
+        \psi(x)=\sqrt{\frac{2}{L}}\sin(\frac{n\pi}{L}x)\\
+        E_n=\frac{\pi^2\hbar^2}{2mL^2}n^2=K n^2
+    \end{align*}
+
+    接下来开始每一小问的分析：
+    \begin{enumerate}
+        \item 对于三个可分辨的粒子，我们可以直接写出基态波函数,两个粒子分别占据$n=1,n=2,n=3$三个能级，于是有基态的波函数与能量
+        \begin{align*}
+            E_g&=K(1^2+2^2+3^2)=14K\\
+            \psi(x_1,x_2,x_3)&=\left(\sqrt{\frac{2}{L}}\right)^3\sin(\frac{\pi}{L}x_1)\sin(\frac{2\pi}{L}x_2)\sin(\frac{3\pi}{L}x_3)
+        \end{align*}
+
+        对于这种情况的第一激发态，应该是三个粒子分别占据$n=1,n=2,n=4$，于是有第一激发态波函数和能量
+        \begin{align*}
+            E_1=K(1^2+2^2+4^2)=21K\\
+            \psi(x_1,x_2,x_3)&=\frac{1}{\sqrt{3}}\left(\left(\sqrt{\frac{2}{L}}\right)^3\sin(\frac{\pi}{L}x_1)\sin(\frac{2\pi}{L}x_2)\sin(\frac{4\pi}{L}x_3)\right.\\
+        \end{align*}
+       
+        \item 对于两个相同的玻色子和一个费米子，我们知道，玻色子可以处在同一个态上，而费米子不可以有两个在同一个态上，因此，这道题的基态并没有出现简并，于是有
+        \begin{align*}
+            \psi(x_1,x_2,x_3)&=\left(\sqrt{\frac{2}{L}}\right)^3\sin(\frac{\pi}{L}x_1)\sin(\frac{\pi}{L}x_2)\sin(\frac{\pi}{L}x_3)\\
+            E_g&=3K
+        \end{align*}
+
+        对于第一激发态，其能量为$6K$,是三重简并的，因此我们可以写出波函数
+        \begin{align*}
+            \psi(x_1,x_2,x_3)=\frac{1}{\sqrt{3}}&\left(\left(\sqrt{\frac{2}{L}}\right)^3\sin(\frac{\pi}{L}x_1)\sin(\frac{\pi}{L}x_2)\sin(\frac{2\pi}{L}x_3)\right.\\
+            &+\left(\sqrt{\frac{2}{L}}\right)^3\sin(\frac{\pi}{L}x_1)\sin(\frac{2\pi}{L}x_2)\sin(\frac{\pi}{L}x_3)\\
+            &\left.+\left(\sqrt{\frac{2}{L}}\right)^3\sin(\frac{2\pi}{L}x_1)\sin(\frac{\pi}{L}x_2)\sin(\frac{\pi}{L}x_3)\right)
+        \end{align*}
+        \item 对于一个玻色子，两个费米子的情况，根据泡利不相容原理，费米子只能处于不同的能态上，因此，基态时，将会有一个玻色子和一个费米子处在$n=1$的能态上，另一个费米子处在$n=2$的能态上，于是有
+        \begin{align*}
+            E_g&=K(1^2+1^2+2^2)=6K\\
+            \psi(x_1,x_2,x_3)&=\frac{1}{\sqrt{2}}\left(\sin(\frac{\pi}{L}x_1)\sin(\frac{2\pi}{L}x_2)-\sin(\frac{2\pi}{L}x_1)\sin(\frac{\pi}{L}x_2)\right)\sin(\frac{\pi}{L}x_3)
+        \end{align*}
+
+        对于第一激发态，可以是一个费米子在$n=1$的能态上，另外一个费米子与玻色子在$n=2$的能态上，于是有
+        \begin{align*}
+            E_1&=K(1^2+2^2+2^2)=9K\\
+            \psi(x_1,x_2,x_3)&=\frac{1}{\sqrt{2}}\left(\sin(\frac{\pi}{L}x_1)\sin(\frac{2\pi}{L}x_2)-\sin(\frac{2\pi}{L}x_1)\sin(\frac{\pi}{L}x_2)\right)\sin(\frac{2\pi}{L}x_3)
+        \end{align*}
+        \item 对于三个玻色子而言，他们可以处在同一个态上，因此基态应该是三个粒子都处在$n=1$的能态上，于是有
+        \begin{align*}
+            E_g&=3K\\
+            \psi(x_1,x_2,x_3)&=\left(\sqrt{\frac{2}{L}}\right)^3\sin(\frac{\pi}{L}x_1)\sin(\frac{\pi}{L}x_2)\sin(\frac{\pi}{L}x_3)
+        \end{align*}
+
+        但当处于第一激发态时，我们可以有两个粒子处在$n=1$的能态上，一个粒子处在$n=2$的能态上，于是有
+        \begin{align*}
+            E_1&=K(1^2+1^2+2^2)=6K\\
+            \psi(x_1,x_2,x_3)=\frac{1}{\sqrt{3}}&\left(\left(\sqrt{\frac{2}{L}}\right)^3\sin(\frac{\pi}{L}x_1)\sin(\frac{\pi}{L}x_2)\sin(\frac{2\pi}{L}x_3)\right.\\
+            &+\left(\sqrt{\frac{2}{L}}\right)^3\sin(\frac{\pi}{L}x_1)\sin(\frac{\pi}{L}x_2)\sin(\frac{2\pi}{L}x_3)\\
+            &\left.+\left(\sqrt{\frac{2}{L}}\right)^3\sin(\frac{\pi}{L}x_1)\sin(\frac{2\pi}{L}x_2)\sin(\frac{\pi}{L}x_3)\right)
+        \end{align*}
+        \item 对于三个费米子而言，根据泡利不相容原理，这三个费米子只能处在三个不一样的能态中，于是基态应该在$n=1,n=2,n=3$三个能态上，于是有
+        \begin{align*}
+            E_g&=K(1^2+2^2+3^2)=14K\\
+            \psi(x_1,x_2,x_3)&=\frac{1}{\sqrt{6}}
+            \begin{vmatrix}
+                \psi_1(x_1)&\psi_1(x_2)&\psi_1(x_3)\\
+                \psi_2(x_1)&\psi_2(x_2)&\psi_2(x_3)\\
+                \psi_3(x_1)&\psi_3(x_2)&\psi_3(x_3)
+            \end{vmatrix}
+        \end{align*}
+
+        而对于第一激发态，应该是三个粒子分别占据$n=1,n=2,n=4$，于是有第一激发态波函数和能量
+        \begin{align*}
+            E_1&=K(1^2+2^2+4^2)=21K\\
+            \psi(x_1,x_2,x_3)&=\frac{1}{\sqrt{6}}
+            \begin{vmatrix}
+                \psi_1(x_1)&\psi_1(x_2)&\psi_1(x_3)\\
+                \psi_2(x_1)&\psi_2(x_2)&\psi_2(x_3)\\
+                \psi_4(x_1)&\psi_2(x_2)&\psi_4(x_3)
+            \end{vmatrix}
+        \end{align*}
+    \end{enumerate}
+\end{solution}
+
 \section{微扰法}
 \subsection{微扰法20241212}
 Using perturbation method for the 2D infinite wall:
@@ -1588,7 +1669,104 @@ Using perturbation method for the 2D infinite wall:
             \psi_{n_xn_y}(x,y)&=\frac{2}{L}\sin(\frac{n_x\pi}{L}x)\sin(\frac{n_y\pi}{L}y)\\
             E_{n_xn_y}&=\frac{\pi^2\hbar^2}{2mL^2}(n_x^2+n_y^2)
         \end{align*}
-        \item 这道题给定了我们微扰，要求我们找到基态和第一级激发态的波函数与能谱的一阶修正
+        \item 这道题给定了我们微扰，要求我们找到基态和第一级激发态的波函数与能谱的一阶修正那么接下来就来启动一下微扰，“点击”微扰“开关”$\lambda$.
+        
+        借用一下第一问的答案，这个情况（二维无限深势阱）下的定态和能谱为
+        \begin{align*}
+            \psi_{n_xn_y}^0(x,y)&=\frac{2}{L}\sin(\frac{n_x\pi}{L}x)\sin(\frac{n_y\pi}{L}y)\\
+            E_{n_xn_y}^0&=\frac{\pi^2\hbar^2}{2mL^2}(n_x^2+n_y^2)
+        \end{align*}
+        
+        注意到，基态($\psi_{11}$)为非简并的，其能量为
+        \begin{align*}
+            E_0^0&=\frac{\pi^2\hbar^2}{2mL^2}(1^2+1^2)=\frac{\pi^2\hbar^2}{mL^2}
+        \end{align*}
+
+        但是不难发现，他的第一激发态是二重简并的，
+        \begin{align*}
+            \psi_a\equiv\psi_{12},\psi_b\equiv\psi_{21}
+        \end{align*}
+
+        而他们的能量都是相同的，为
+        \begin{equation*}
+            E_1^0=\frac{\pi^2\hbar^2}{2mL^2}(1^2+2^2)=\frac{5\pi^2\hbar^2}{2mL^2}
+        \end{equation*}
+
+        现在我们引入微扰（也就是题目当中的那个$V$）：
+        \begin{equation*}
+            H^\prime=
+            \begin{cases}
+                V,\frac{L}{2}\leq x \leq L,0\leq y\leq L\\
+                0,otherwise    
+            \end{cases}
+        \end{equation*}
+
+        这将是原来的立方体的$\displaystyle\frac{1}{2}$区域的势能提高了$V$,因此，基态能量的修正为
+        \begin{align*}
+            E_0^1&=\bra{\psi_{11}^0}H^\prime\ket{\psi_{11}^0}\\
+            &=\frac{4}{L^2}V\int_{\frac{L}{2}}^{L}\sin^2(\frac{\pi}{L}x)\int_{0}^{L}\sin^(\frac{\pi}{L}y)dy\\
+            &=\frac{V}{2}
+        \end{align*}
+
+        于是，我们可以计算出一级修正的基态能量为
+        \begin{align*}
+            E_0&=E_0^0+E_0^1=\frac{\pi^2\hbar^2}{mL^2}+\frac{V}{2}
+        \end{align*}
+
+        而一级修正的基态波函数为
+        \begin{align*}
+            \psi_0(x,y)&=\psi_{11}^0+\psi_0^1(x,y)\\
+            &=\psi_{11}^0+\sum_{n_xn_y\neq 11}\frac{\bra{\psi_{n_xn_y}^0}H^\prime\ket{\psi_{11}^0}}{E_0^0-E_{n_xn_y}^0}\psi_{n_xn_y}^0
+        \end{align*}
+
+        接下来是计算第一激发态，这个时候我们需要使用简并微扰理论，首先是构造出$W$矩阵
+        \begin{equation*}
+            W=
+            \begin{pmatrix}
+                W_{aa} & W_{ab}\\
+                W_{ba} & W_{bb}
+            \end{pmatrix}
+        \end{equation*}
+
+        很明显，可以看出这个矩阵是对称矩阵
+
+        因此，我们有
+        \begin{align*}
+            W_{ab}=W_{ba}&=\bra{\psi_{a}}H^\prime\ket{\psi_{b}}\\
+            &=\frac{4}{L^2}V\int_{\frac{L}{2}}^{L}\sin(\frac{\pi}{L}x)\sin(\frac{2\pi}{L}x)dx\int_{0}^{L}\sin(\frac{\pi}{L}y)\sin(\frac{2\pi}{L}y)dy\\
+            &=0\\
+            W_{aa}&=\bra{\psi_{a}}H^\prime\ket{\psi_{a}}\\
+            &=\frac{4}{L^2}\int_{\frac{L}{2}}^{L}\sin^2(\frac{\pi}{L}x)dx\int_{0}^{L}\sin^2(\frac{2\pi}{L}y)dy\\
+            &=\frac{V}{2}\\
+            W_{bb}&=\bra{\psi_{b}}H^\prime\ket{\psi_{b}}\\
+            &=\frac{4}{L^2}\int_{\frac{L}{2}}^{L}\sin^2(\frac{2\pi}{L}x)dx\int_{0}^{L}\sin^2(\frac{\pi}{L}y)dy\\
+            &=\frac{V}{2}
+        \end{align*}
+
+        于是，我们成功求出了$W$矩阵
+        \begin{equation*}
+            W=
+            \begin{pmatrix}
+                \frac{V}{2} & 0\\
+                0 & \frac{V}{2}
+            \end{pmatrix}
+            =\frac{V}{2}
+            \begin{pmatrix}
+                1 & 0\\
+                0 & 1
+            \end{pmatrix}
+        \end{equation*}
+
+        事实上，求出来的$W$矩阵的本征值$\omega=1$，因此第一激发态的能量修正为
+        \begin{align*}
+            E_1&=E_1^0+\omega\frac{V}{2}=\frac{5\pi^2\hbar^2}{2mL^2}+\frac{V}{2}
+        \end{align*}
+
+        其所对应的一级修正的波函数为
+        \begin{align*}
+            \psi_1&=\alpha\psi_{12}^0+\beta\psi_{21}^0\\
+            &=\frac{1}{\sqrt{2}}\left(\psi_{12}^0+\psi_{21}^0\right)
+        \end{align*}
     \end{enumerate}
 \end{solution}
 
@@ -1636,7 +1814,7 @@ Try out an arbitrary wave function and find out the upper limit of ground state 
         &=\frac{\pi^2\hbar^2}{mL^2}
     \end{align*}
 
-    因此，根据该波函数所猜测出的基态能量上确界为$\dfrac{\pi^2\hbar^2}{mL^2}$
+    因此，根据该波函数所猜测出的基态能量上确界为$\dfrac{\pi^2\hbar^2}{mL^2}$,这个值挺好的，和我们在微扰论的作业当中算出来的基态能量是一致的，这也说明了变分原理的有效性。
 \end{solution}
 
 
@@ -1668,8 +1846,12 @@ By using WKB approximation,please try to analysis
 
         其中
         \begin{align*}
-            \psi(x)=\frac{1}{\hbar}\int_{0}^{x}p(x^\prime)dx^\prime
+            \phi(x)=\frac{1}{\hbar}\int_{0}^{x}p(x^\prime)dx^\prime
         \end{align*}
+
+        在此区域（$0<x<L$），波函数表现为振荡的形式，代表粒子在经典允许区域内的传播特性。
+
+        而对于$x<0$与$x>L$的区域，这里完完全全是自由粒子的波包形式。
 
         
         
@@ -1684,15 +1866,39 @@ By using WKB approximation,please try to analysis
 
         而对于中间部分，我们可以用WKB近似为
         \begin{align*}
-            \psi_2(x)=\frac{C}{\sqrt{|p(x)|}}e^{\displaystyle\frac{1}{\hbar}\int_{0}^{x}|p(x)|dt}+\frac{D}{\sqrt{|p(x)|}}e^{\displaystyle-\frac{1}{\hbar}\int_{0}^{x}|p(x)|dt}
+            \psi_2(x)=\frac{C}{\sqrt{|p(x)|}}e^{\displaystyle\frac{1}{\hbar}\int_{0}^{x}|p(x)|dx}+\frac{D}{\sqrt{|p(x)|}}e^{\displaystyle-\frac{1}{\hbar}\int_{0}^{x}|p(x)|dx}
         \end{align*}
 
     根据这个式子，我们知道，当势垒足够宽的时候，此时的$C$将可以忽略不计，于是入射波与透射波的强度比将会近似的等于波函数在势垒当中的衰减程度，即
     \begin{align*}
-        T=\frac{|F|}{|A|}&\cong  e^{\displaystyle\frac{1}{\hbar}\int_{0}^{L}|p(x)|dx}\\
-        &= e^{\displaystyle\frac{2m(E-V)}{\hbar}L}
+        T=\frac{|F|^2}{|A|^2}&\cong  e^{\displaystyle 2\cdot\frac{1}{\hbar}\int_{0}^{L}|p(x)|dx}\\
+        &= e^{\displaystyle\frac{4m(V-E)}{\hbar}L}
     \end{align*}
     \end{enumerate}
+
+    接下来认真一点点不抄书了，给出我们的边界条件
+    \begin{align*}
+        \psi_1(0)=\psi_2(0)\\
+        \psi_2(L)=\psi_3(L)\\
+        \psi_2^\prime(L)=\psi_3^\prime(L)\\
+        \psi_1^\prime(0)=\psi_2^\prime(0)
+    \end{align*}
+
+    有必要提一嘴，这里的$V$是一个常数，因此我们的动量$p(x)=const$，所以之前的$\psi_2(x)$可以重新写为
+    \begin{align*}
+        \psi_2(x)=Ce^{k_vx}+De^{-k_vx}
+    \end{align*}
+    其中$\displaystyle k_v=\frac{2m\sqrt{V-E}}{\hbar}$
+
+    将其艰难的写开，可以得到
+    \begin{align*}
+        A+B&=C+D\\
+        ik(A-B)&=k_v(C-D)\\
+        Ce^{k_vL}+De^{-k_vL}&=Fe^{ikL}\\
+        k_v(Ce^{k_vL}-De^{-k_vL})&=ikFe^{ikL}
+    \end{align*}
+
+    这个结果事实上已经是原来的一维有限方势垒了，就不再过多的去计算了，不过直接根据WKB近似的方法计算的话，可以非常直观的得到\textbf{当势垒足够宽的时候，此时的$C$将可以忽略不计，于是入射波与透射波的强度比将会近似的等于波函数在势垒当中的衰减程度}的结论。
 \end{solution}
 
 
