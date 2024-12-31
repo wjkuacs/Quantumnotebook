@@ -1,0 +1,108 @@
+\documentclass{article}
+\usepackage{ctex}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{physics}
+\usepackage[top=2cm, bottom=2cm, left=3cm, right=3cm]{geometry}
+\usepackage{graphicx}
+
+
+
+\newtheorem{theorem}{定理}
+\newtheorem{definition}{定义}
+\newtheorem{solution}{解}
+
+
+
+
+\newcommand{\pmtwo}[4]{
+    \begin{pmatrix}
+        #1&#2\\
+        #3&#4
+    \end{pmatrix}
+    }
+\newcommand{\pmthree}[9]{
+    \begin{pmatrix}
+        #1&#2&#3\\
+        #4&#5&#6\\
+        #7&#8&#9
+    \end{pmatrix}
+}
+\newcommand{\vmtwo}[4]{
+    \begin{vmatrix}
+        #1&#2\\
+        #3&#4
+    \end{vmatrix}
+    }
+\newcommand{\vmthree}[9]{
+    \begin{vmatrix}
+        #1&#2&#3\\
+        #4&#5&#6\\
+        #7&#8&#9
+    \end{vmatrix}
+}
+
+\newcommand{\expectation}[1]{\langle #1 \rangle}
+
+\newcommand{\Da}[2]{\frac{\partial}{\partial#2}#1}
+
+\newcommand{\D}[2]{\frac{d}{d#2}#1}
+
+\newcommand{\id}[1]{\ket{#1}\bra{#1}}
+
+
+
+\title{University of South China Quantum Mechanics
+Midterm Exam}
+\author{Kaiser}
+\date{November 11, 2024}
+
+
+\begin{document}
+
+\maketitle
+
+
+\begin{enumerate}
+    \item (20 points) If $[A, H] = 0$, $[B, H] = 0$,but $[A, B] \neq 0$, please prove that
+    there is degeneracy happened in the system.
+    \item (40 points in total) Consider an electron in a box with the potential of the
+    box to be defined as:
+    $$
+        V (x, y, z) =
+        \begin{cases}
+            0,& 0 \leq  x \leq  L, 0 \leq  y \leq  L, and\ 0 \leq  z \leq  L,\\
+            \infty ,&otherwise.
+        \end{cases}
+    $$
+    \begin{enumerate}
+        \item (10 points) Please write down the time-dependent Schrödinger equation of the system.
+        \item (10 points) Please find out the normalized general solution of the Schrödinger equation and energy spectrum.
+        \item (10 points) Please find out the commutation relation between the operators $x$, $y$, $z$,$ p_x$, $p_y$, and $p_z.$
+        \item (10 points) By using the ground state solution, please find out theexpectation values $\langle x\rangle$, $\langle x^2\rangle$, $\langle p_x\rangle$,and $\langle p^2_x\rangle$,and check the uncertainty principle.
+    \end{enumerate}
+    \item (40 points in total) Consider the following potential:
+        \[V (x) = 4x^4 − 2L^2x^2 + L^4\]
+        \begin{enumerate}
+            \item (10 points) In this potential, there are two minimums. Please sketch the potential and find out the position α of the two minimums.
+            \item (10 points) Please write down the raising and lowering operators $a_+$ and $a_−$ and work out the commutation relation $[a_+, a_−]$ for the two minimums individually.
+            \item (10 points) Please find out the unnormalized ground state solutions and the spectrum of the two minimums.
+            \item (10 points) Please find out the commutation relation between the raising and lowering operators and the position $x$.
+        \end{enumerate}
+
+
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
