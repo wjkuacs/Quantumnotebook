@@ -24,7 +24,9 @@
 
 \newtheorem{theorem}{定理}
 \newtheorem{definition}{定义}
-
+\newtheorem{example}{例}
+\newtheorem{solution}{解}
+\newtheorem{question}{题目}
 
 
 
@@ -680,6 +682,322 @@ right = 3cm         %右页边距
 
 
 \subsection{诺特定理}
+
+这一章主要是讲解一下诺特定理(Noether's theorem)，首先给出这个定理的具体内容，之后在对这个定理进行讲解和证明。
+
+\begin{theorem}
+    If a system has a continuous ,globally symmetry,and it is on shell,then there is a  conserved current,we can write it as $J^\mu$.
+    \begin{equation*}
+        \partial_\mu J^\mu=0
+    \end{equation*}
+\end{theorem}
+
+这个定理告诉我们，对于一个系统，如果它具有连续全局的对称性，那么将会存在一个守恒律。同时在这个定理当中提到了"on shell"一词，这个词说的是体系的能量动量四矢量需要满足
+\begin{equation*}
+    P^\mu P_\mu=-E^2+\vec{p}^2=-m^2
+\end{equation*}
+
+\subsubsection{Symmetry}
+
+首先介绍一下对称的两种观点
+\begin{enumerate}
+    \item active:点和场的变化(坐标系往左动，相当于坐标系向右变)
+    \item passive:坐标系的变化（场论中主要使用）
+\end{enumerate}
+
+
+而什么是对称性呢，我给出的回答是动力学不变，而动力学的不变（此处的不变指的是形式上不会变）又会分为两种
+\begin{enumerate}
+    \item Action不变(不代表是$\mathcal{L}$不变，可以差一些边界项)
+    \item 运动方程不变
+\end{enumerate}
+
+\begin{example}
+    考虑一个标量场，他的拉格朗日密度为
+    \begin{align*}
+        \mathcal{L}=-\frac{1}{2}(\partial_\mu\phi)(\partial^\mu\phi)-\frac{1}{2}m^2\phi^2+\frac{\lambda}{4}\phi^4
+    \end{align*}
+
+    \begin{enumerate}
+        \item 首先是$\phi\to-\phi$,很显然，在这个变换下，系统的拉格朗日密度$\mathcal{L}$是不变的，因此在这个变换下是对称的
+        \item $x^\nu\to x^\mu=\varLambda^\mu_\nu x^\nu$使用场变的观点，即
+        \begin{align*}
+            \phi(x)\to\phi^\prime(x)=\phi(\varLambda^{-1}x)
+        \end{align*}
+
+        则拉格朗日密度会变为
+        \begin{align*}
+            \mathcal{L}^\prime&=\mathcal{L}(\phi(\varLambda^{-1}x),\partial_\mu\phi(\varLambda^{-1}x))\\
+            \partial_\mu\phi^\prime(x)&=\partial_\mu\phi(\varLambda^{-1}x)=\left(\varLambda^{-1}\right)^\nu_\mu \partial^\prime_\nu\phi(x^\prime)\\
+            \Rightarrow \left(\partial_\mu\phi^\prime(x)\right)\left(\partial^\mu\phi^\prime(x)\right)\eta^{\mu\nu}&=\left(\varLambda^{-1}\right)^\rho_\mu\left(\varLambda^{-1}\right)^\sigma_\nu\left(\partial^\prime_\mu\phi^\prime(x)\right)\left(\partial^{\prime\mu}\phi^\prime(x)\right)\eta^{\rho\sigma}\\
+            &=\eta^{\rho\sigma}\left(\partial^\prime_\rho\phi^\prime(x^\prime)\right)\left(\partial^{\prime}_\sigma\phi^\prime(x^\prime)\right)
+        \end{align*}
+
+        化简到这一步之后，我们可以发现，拉格朗日密度的第一项的部分形式是完全一致的，而至于之后两项，很显然是一致的，因此，在洛伦兹变换下，这个系统的拉格朗日量是不变的，这也就意味着作用量或者运动方程式不变的，因此该系统在洛伦兹变换下具有对称性。
+    \end{enumerate}
+\end{example}
+
+对称性的两种分类
+\begin{enumerate}
+    \item 时空对称性(坐标系变换)：rotation、boost、translation、conformal transformation
+    \item 内禀对称性(场的位形变化)：时间反演、空间反演
+    
+    \begin{example}
+        除了上面的三种内禀变换，还有U(1)对称性，即对于一个复的标量场
+        \begin{equation*}
+            \phi\to\phi^\prime=e^{i\theta}\phi\quad\quad\phi^*\to\phi^{\prime*}=e^{-i\theta}\phi^*
+        \end{equation*}
+
+        给定这个系统的拉格朗日量写作
+        \begin{align*}
+            \mathcal{L}=-(\partial_\mu\phi)(\partial^\mu\phi^*)-m^2\phi\phi^*
+        \end{align*}
+
+        很显然，这个系统在$U(1)$的变换下是对称的
+    \end{example}
+\end{enumerate}
+
+同时，对称性还可以被分为两种
+\begin{enumerate}
+    \item 连续对称性(可以被写为无穷小)：
+    \begin{example}
+        洛伦兹变换可以被写为无穷小的形式$\varLambda_{\ \nu}^\mu=\delta^\mu_{\ \nu}+\omega^\mu_{\ \nu}$，同时，我们在计算的时候，都是对一个态做运算，因此还需要写为算符的形式，那么自然就是写为
+        \begin{equation*}
+            u(\varLambda)=I+\frac{i}{2}\omega_{\mu\nu}J^{\mu\nu}   
+        \end{equation*}
+
+        这其中$\omega_{\mu\nu}$是无穷小转动的参数，而$J^{\mu\nu}$则是洛伦兹变换的生成元。
+        
+        因此，一种变换可以认为是粒子的变换，也就是态的变换，这也就是算符的变换，而算符的变换，而无穷小变换下，算符将会是趋近于单位阵的，也就是趋近于态不变，这时候，我们的态的变化我们就可以算到一阶小量，也就可以使用一个参数表示，这个参数就是上面的$\omega^\mu_{\ \nu}$和$\omega_{\mu\nu}$,同时我们也希望这个变换是Hemitian的，于是我们提出一个$i$，最后剩下的$J^{\mu\nu}$就是生成元。
+    \end{example}
+
+    同时，再举一个平移变换的例子
+    \begin{example}
+        对于平移变换，我们可以使用一个平移系数来表示$a^\mu$,那么我们可以写为
+        \begin{equation*}
+            u(a)=I-ia^\mu P_\mu
+        \end{equation*}
+
+        这个当中的$P_\mu$我们就称为平移变换的生成元
+    \end{example}
+    
+    \item 分立对称性：就是我们经常说到的C.P.T
+    \begin{enumerate}
+        \item C:表“电荷共轭操作”。一个系统是否有电荷共轭对称性（C对称性）取决于在交换所有相加性量子数后系统是否发生变化。这基本上意味着交换物质和反物质，因而正电荷变成负电荷。如果系统并无变化，说明它在C对称性下为偶。
+        \item P:代表空间反演操作，即宇称。它比较容易理解：交换左右位置，或者说反转系统。它可以改变自旋的方向。CP对称性可以说是标准模型的严格对称性，也就是说，物理学并不在意我们是由物质还是反物质构成的。但我们观测到的宇宙显然在意——它几乎完全由物质构成。从如此对称的理论中推断出如此不对称的宇宙是个巨大挑战，而且需要一些CP对称性破坏的来源。而许多新理论（例如“超对称理论”SuperSymmetry）可以提供CP破坏的来源。
+        \item T:代表的是时间反演
+    \end{enumerate}
+\end{enumerate}
+
+\subsubsection{Proof of Noether's theorem}
+
+首先把定理抄过来
+\begin{theorem}
+    If a system has a continuous ,globally symmetry,and it is on shell,then there is a  conserved current,we can write it as $J^\mu$.
+    \begin{equation*}
+        \partial_\mu J^\mu=0
+    \end{equation*}
+\end{theorem}
+
+下面我们来证明一下，现在我们给定一个标量场$f$一个微小变动$\delta f$，那么有
+\begin{align*}
+    \delta f&=f^\prime(x^\prime)-f(x)\\
+    &=f^\prime(x+\delta x)-f(x)\\
+    &=f^\prime(x)-f(x)+\delta x^\mu\partial_\mu f^\prime(x)\\
+    &=\delta_0 f+\delta x^\mu\partial_\mu f(x)
+\end{align*}
+
+这里的第一项我们称为场的位形的变化，
+
+下面给一个例子来理解一下这一段抽象的计算
+\begin{example}
+    对于一个平移变换，我们可以将其写为
+    \begin{align*}
+        x^\mu\to x^{\prime\mu}&=x^\mu+a^\mu\\
+        \delta_0 f&=-a^\mu\partial_\mu f(x)\\
+        f^\prime(x)&=f(x)+a^\mu\partial_\mu f(x)\\
+        f^\prime(x)&=f(x-a)
+    \end{align*}
+
+    这也就是说，我们的场变和坐标变是等价的，只不过相反而已
+\end{example}
+
+现在来理解一下坐标变换，给定一个拉格朗日量，我们可以生成一个作用量
+\begin{align*}
+    S=\int d^4x\mathcal{L}
+\end{align*}
+
+做个变分
+\begin{align*}
+    0=\delta S&=\int \left[\delta\left(
+    d^4x\right)\mathcal{L}+d^4x\delta\mathcal{L}\right]
+\end{align*}
+
+这里插入一个小计算证明
+\begin{proof}
+    \ \\对于一个坐标变换\[x^\mu\to x^{\prime \mu}=x^\mu+\delta x^\mu\]
+
+    那么对于新体元，我们可以写作
+    \begin{equation*}
+        d^4x^\prime=\left|\frac{\partial x^{\prime\mu}}{\partial x^\nu}\right|d^4x
+    \end{equation*}
+
+    在变分的小量下，同时有线性代数的定理,
+    \begin{theorem}
+        \ \\对于矩阵
+        \begin{equation*}
+            M=I+\varepsilon A
+        \end{equation*}
+
+        其行列式为
+        \begin{equation*}
+            \det M=1+\varepsilon\text{Tr}A
+        \end{equation*}
+    \end{theorem}
+    
+    于是我们的雅可比行列式可以化简为
+    \begin{equation*}
+        \left|\frac{\partial x^{\prime\mu}}{\partial x^\nu}\right|=1+\partial_\mu(\delta x^\mu)
+    \end{equation*}
+
+    因此，坐标变换下的体元为
+    \begin{equation*}
+        d^4x^\prime=(1+\partial_\mu\delta x^\mu)d^4x
+    \end{equation*}
+
+    因此
+    \begin{align*}
+        \delta(d^4x)&=(1+\partial_\mu\delta x^\mu)d^4x-d^4x\\
+        &=\partial_\mu\delta x^\mu d^4x
+    \end{align*}
+\end{proof}
+
+证明完这个定理之后，我们可以继续往下推导
+\begin{align*}
+    \delta S&=\int d^4x \left[\left(\partial_\mu\delta x^\mu\right)\mathcal{L}+\delta\mathcal{L}\right]\\
+    &=\int d^4x \left[\left(\partial_\mu\delta x^\mu\right)\mathcal{L}+\delta x^\mu\partial_\mu\mathcal{L}+\frac{\partial \mathcal{L}}{\partial\phi}\delta_0\phi+\frac{\partial \mathcal{L}}{\partial (\partial_mu\phi)}\delta_0(\partial_\mu\phi)\right]\\
+    &=\int d^4x \partial_\mu\left[\left(\delta x^\mu \mathcal{L}\right)+\frac{\partial\mathcal{L}}{\partial(\partial_\mu\phi)}\delta_0\phi\right]\\
+    &=\int d^4x \partial_\mu \left(\delta^\mu_{\ \nu}\delta x^\nu\mathcal{L}+\frac{\partial\mathcal{L}}{\partial(\partial_\mu\phi)}\left(\delta+\delta x^\nu\partial_\nu\right)\phi\right)\\
+    &=\int d^4x \partial_\mu\left[\left(\delta^\mu_{\ \nu}\mathcal{L}-\frac{\partial\mathcal{L}}{\partial(\partial_\mu\phi)}\partial_\nu\phi\right)\delta x^\nu+\frac{\partial\mathcal{L}}{\partial(\partial_\mu\phi)}\delta\phi\right]\\
+    &=0
+\end{align*}
+
+在这个方括号当中的部分，就是我们所说的守恒流，也就是我们的Noether流，我们可以写为$J^\mu$
+\begin{equation*}
+    J^\mu=\left(\delta^\mu_{\ \nu}\mathcal{L}-\frac{\partial\mathcal{L}}{\partial(\partial_\mu\phi)}\partial_\nu\phi\right)\delta x^\nu+\frac{\partial\mathcal{L}}{\partial(\partial_\mu\phi)}\delta\phi
+\end{equation*}
+
+接下来，我们来看一下这个积分可以给我们带来什么
+\begin{align*}
+    0&=\int d^4x\partial_\mu J^\mu\\
+    &=\int_{t_1}^{t_2}dt\int d^3x\left(\partial_0j^0+\nabla\cdot\vec{J}\right)\\
+    &=\int_{t_1}^{t_2}dt\int d^3x\partial_0j^0\\
+    &=\int_{t_1}^{t_2}dt \frac{d}{dt}\int d^3x j^0\\
+    &=\int_{t_1}^{t_2}dt \frac{d}{dt}Q(t)\\
+    &=Q(t_2)-Q(t_1)\\
+    &\Rightarrow Q(t_2)=Q(t_1)=const
+\end{align*}
+
+这个式子当中的$Q$就是我们的守恒荷，比如电荷
+
+接下来给几个例子
+\begin{example}
+    对于空间平移变换 Translation,我们知道其坐标变换为
+    \begin{align*}
+        x^\mu\to x^{\prime\mu}=x^\mu+a^\mu
+    \end{align*}
+
+    于是我们可以知道
+    \begin{align*}
+        \delta x^\mu=a^\mu\quad\quad\delta\phi=0
+    \end{align*}
+
+    因此，守恒流将可以化简为
+    \begin{align*}
+        J^\mu=\left(\mathcal{L}\delta^\mu_\nu-\frac{\partial\mathcal{L}}{\partial(\partial_\mu\phi)}\partial_\nu\phi\right)a^\nu
+    \end{align*}
+
+    由于$a^\nu$是一个常数，对于守恒无影响，因此，我们可以直接定义出能量动量张量
+    \begin{equation*}
+        T^{\mu\nu}=\frac{\partial\mathcal{L}}{\partial(\partial_\mu\phi)}\partial_\nu\phi-\delta^\mu_\nu\mathcal{L}
+    \end{equation*}
+
+    而所对应的守恒律变为
+    \begin{equation*}
+        \partial_\mu T^{\mu\nu}=0
+    \end{equation*}
+
+    接下来我们继续检验一下，给定一个系统的拉格朗日量
+    \begin{equation*}
+        \mathcal{L}=\frac{1}{2}(\partial_\mu\phi)(\partial^\mu\phi)-\frac{1}{2}m^2\phi^2
+    \end{equation*}
+
+    接下来我们来计算一下这个能量动量张量，只计算一下$T^{00}$
+    \begin{align*}
+        T^{00}&=\frac{\partial\mathcal{L}}{\partial(\partial_0\phi)}\partial_0\phi-\delta^0_0\mathcal{L}\\
+        &=\frac{\partial\mathcal{L}}{\partial(\partial_0\phi)}\partial_0\phi-\mathcal{L}\\
+        &=\Pi\partial^0\phi-\frac{1}{2}(\partial_0\phi)(\partial^0\phi)+\frac{1}{2}m^2\phi^2\\
+        &=\Pi\partial^0\phi-\left(\frac{1}{2}(\partial_0\phi)(\partial^0\phi)-\frac{1}{2}m^2\phi^2\right)\\
+        &=\Pi\partial^0\phi-\mathcal{L}\\
+        &=\mathcal{H}
+    \end{align*}
+\end{example}
+
+、再计算一个例子
+\begin{example}
+    给定一个简单的内禀变换（即场的位形变换），我们可以写为
+    \begin{align*}
+        \phi\to\phi^\prime=\phi+\alpha
+    \end{align*}
+
+    考虑其拉格朗日量为
+    \begin{align*}
+        \mathcal{L}=-\frac{1}{2}(\partial_\mu\phi)(\partial^\mu\phi)
+    \end{align*}
+
+    因此，对于这个情况，守恒流写作
+    \begin{align*}
+        J^\mu=\left(\partial^\mu\phi\right)\alpha
+    \end{align*}
+
+    最后我们可以得到
+    \begin{align*}
+        \partial_\mu J^\mu=\partial_\mu\left(\partial^\mu\phi\right)\alpha=0
+    \end{align*}
+\end{example}
+
+再给一个$U(1)$变换的情况
+\begin{example}
+    对于一个复的标量场
+    \begin{align*}
+        \phi\to\phi^\prime=e^{i\theta}\phi\quad\quad\phi^*\to\phi^{\prime*}=e^{-i\theta}\phi^*
+    \end{align*}
+
+    给定这个系统的拉格朗日量写作
+    \begin{align*}
+        \mathcal{L}=-(\partial_\mu\phi)(\partial^\mu\phi^*)-m^2\phi\phi^*
+    \end{align*}
+
+    很显然，这个系统在$U(1)$的变换下具有对称性，因此我们可以写出守恒流
+    \begin{align*}
+        J^\mu=-i\left(\phi^*\partial^\mu\phi-\phi\partial^\mu\phi^*\right)
+    \end{align*}
+
+    最后我们可以得到
+    \begin{align*}
+        \partial_\mu J^\mu=0
+    \end{align*}
+
+    然后再看一下守恒荷是什么
+    \begin{align*}
+        Q&=\int d^3x J^0\\
+        &=-i\int \left(\phi^*\partial^0\phi-\phi\partial^0\phi^*\right)d^3x
+    \end{align*}
+\end{example}
+
+
+
+
 
 
 
