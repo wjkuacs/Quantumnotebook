@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.11.23)  2 JAN 2025 08:55
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.11.23)  2 JAN 2025 16:47
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -857,21 +857,21 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \openout5 = `note_of_QFT.toc'.
 
 LaTeX Font Info:    Font shape `TU/SimSun(0)/m/sl' in size <10> not available
-(Font)              Font shape `TU/SimSun(0)/m/it' tried instead on input line 118.
+(Font)              Font shape `TU/SimSun(0)/m/it' tried instead on input line 122.
  [2] [3] [4] [5] [6] [7] [8] [9] [10] [11] [12] [13] [14] [15] [16] [17] (./note_of_QFT.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2022/07/14>
  ***********
 Package rerunfilecheck Info: File `note_of_QFT.out' has not changed.
-(rerunfilecheck)             Checksum: 56C34A040FA723C39D5BC2969FCF2265;1666.
+(rerunfilecheck)             Checksum: 61B2C17EEA65A3F70FD8DE199B0C4F0C;2132.
  ) 
 Here is how much of TeX's memory you used:
- 38465 strings out of 474773
- 944812 string characters out of 5759063
- 1943842 words of memory out of 5000000
- 59996 multiletter control sequences out of 15000+600000
- 567875 words of font info for 109 fonts, out of 8000000 for 9000
+ 38497 strings out of 474773
+ 946514 string characters out of 5759063
+ 1946842 words of memory out of 5000000
+ 60027 multiletter control sequences out of 15000+600000
+ 567883 words of font info for 110 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  103i,16n,107p,728b,579s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
