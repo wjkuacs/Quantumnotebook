@@ -1,0 +1,131 @@
+\documentclass{article}
+\usepackage{ctex}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{physics}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancyhead[L]{
+    \begin{minipage}[c]{0.06\textwidth}
+        \centering
+        \includegraphics[height=7.5mm]{院徽.jpg}
+    \end{minipage}
+    \begin{minipage}[c]{0.4\textwidth}
+    The Note of Group Theory
+    \end{minipage}
+}
+\fancyfoot[C]{\thepage}
+
+%\setlength{\textwidth}{1.2\textwidth}
+%\setlength{\textheight}{0.8\textheight}
+
+\newtheorem{theorem}{定理}
+\newtheorem{definition}{定义}
+\newtheorem{example}{例}
+\newtheorem{solution}{解}
+\newtheorem{question}{题目}
+
+
+
+\geometry{
+paper = a4paper,    %纸张类型
+top = 3cm,          %上页边距
+bottom = 3cm,       %下页边距
+left = 3cm,         %左页边距
+right = 3cm         %右页边距
+}
+
+\newcommand{\ds}{\displaystyle}
+\newcommand{\bb}[1]{\mathbb{#1}}
+\newcommand{\h}[1]{\hat{#1}}
+\newcommand{\pmtwo}[4]{\begin{pmatrix}#1&#2\\#3&#4\end{pmatrix}}
+\newcommand{\pmthree}[9]{
+    \begin{pmatrix}
+        #1&#2&#3\\
+        #4&#5&#6\\
+        #7&#8&#9
+    \end{pmatrix}
+}
+\newcommand{\vmtwo}[4]{\begin{vmatrix}#1&#2\\#3&#4\end{vmatrix}}
+\newcommand{\vmthree}[9]{
+    \begin{vmatrix}
+        #1&#2&#3\\
+        #4&#5&#6\\
+        #7&#8&#9
+    \end{vmatrix}
+}
+
+\newcommand{\vmthreedot}[9]{
+    \begin{vmatrix}
+        #1&#2&\cdots&#3\\
+        #4&#5&\cdots&#6\\
+        \vdots&\vdots&\ddots&\vdots\\
+        #7&#8&\cdots&#9
+    \end{vmatrix}
+}
+
+\newcommand{\expectation}[1]{\langle #1 \rangle}
+
+\newcommand{\Da}[2]{\frac{\partial}{\partial#2}#1}
+
+\newcommand{\D}[2]{\frac{d}{d#2}#1}
+
+\newcommand{\id}[1]{\ket{#1}\bra{#1}}
+
+
+
+
+
+\title{Note of Group Theory}
+\author{Kaiser\\University of South China}
+
+
+
+
+\begin{document}
+
+\maketitle
+
+
+
+
+\begin{abstract}
+    \normalsize
+    这一篇笔记是本科阶段学习群论的笔记。
+\end{abstract}
+
+\begin{center}
+    \large
+    \begin{thebibliography}{99} 
+        \bibitem{1} ~
+    \end{thebibliography}
+\end{center}
+
+
+\begin{center}
+    \tableofcontents
+\end{center}
+
+\newpage
+
+
+
+
+
+
+
+
+
+
+\end{document}
