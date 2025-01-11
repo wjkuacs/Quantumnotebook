@@ -22,7 +22,7 @@
         \includegraphics[height=7.5mm]{院徽.jpg}
     \end{minipage}
     \begin{minipage}[c]{0.4\textwidth}
-    The Note of Group Theory
+    Note of Group Theory
     \end{minipage}
 }
 \fancyfoot[C]{\thepage}
@@ -108,7 +108,11 @@ right = 3cm         %右页边距
 \begin{center}
     \large
     \begin{thebibliography}{99} 
-        \bibitem{1} ~
+        \bibitem{1} Joseph J. Rotman, An Introduction to the Theory of Groups
+        \bibitem{2} 周彬, Lie 群与 Lie 代数
+        \bibitem{3} Pierre Ramond, Group Theory : A Physicist's Survey
+        \bibitem{4} 崔建伟, 群论讲义
+        \bibitem{5} A. Das and S. Okubo, Lie Groups and Lie Algebras for Physicists
     \end{thebibliography}
 \end{center}
 
@@ -121,10 +125,91 @@ right = 3cm         %右页边距
 
 
 
+\section{有限群(Finite Group)}
+
+
+\subsection{群与群乘法}
+
+废话也就不多说，我们直接给出群的定义，并在之后讲解一下为什么要这样去定义
+
+\begin{definition}[Definition of a group]
+    \ \\ $\indent$Suppose we give a set $\mathbb{G}=\{g_0,g_1,g_2,\cdots\}$ and an operator $\cdot$, if they satisfy the following properties
+    \begin{enumerate}
+        \item \textbf{Closure} For every ordered pair of elements, $g_i$ and $g_ j$, there exists a unique element
+        \begin{equation}
+            a_i\cdot a_j = a_k
+        \end{equation}
+        for any three $i, j, k$.
+        \item \textbf{Associativity} The $\cdot$ operation is associative
+        \begin{equation}
+            g_i\cdot\left(g_j\cdot g_k\right) = \left(g_i\cdot g_j\right)\cdot g_k
+        \end{equation}
+        \item \textbf{Unit element} The set G contains a unique element e(here we will use $g_0$ to symbol it) such that
+        \begin{equation}
+            g_0\cdot g_i = g_i \cdot g_0 =g_i
+        \end{equation}
+        for all i. In particular, this means that
+        \begin{equation*}
+            g_0 \cdot g_0 = g_0.
+        \end{equation*}
+        \item \textbf{Inverse element} Corresponding to every element $g_i$, there exists a unique element
+        of G, the inverse $(g_i)^{−1}$ such that
+        \begin{equation}
+            g_i \cdot (g_i)^{-1}=(g_i)^{-1} \cdot g_i =g_0
+        \end{equation}
+        In particular,this means that
+        \begin{equation*}
+            g_0 = (g_0)^{-1}
+        \end{equation*}
+    \end{enumerate}
+
+    then we called the set $\mathbb{G}$ a Group.
+\end{definition}
+
+同时，我们根据集合$\mathbb{G}$的元素个数
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage
+\subsection{群同态(Group Homomorphisms)与群的直乘}
+
+
+\subsection{群的线性表示理论}
+
+
+
+
+
+
+
+
+
+\section{表示论}
+
+
+
+\section{李群(Lie Group)}
+
+
+
+
+\section{李代数(Lie Algebra)}
 
 
 

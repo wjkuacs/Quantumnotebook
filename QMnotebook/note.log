@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.11.23)  30 DEC 2024 02:07
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.11.23)  11 JAN 2025 23:37
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -955,11 +955,11 @@ File: figure/stern_gerlach.png Graphic file (type bmp)
 <figure/stern_gerlach.png>
  [40] [41] [42] [43] [44] [45]
 
-LaTeX Warning: Command \u invalid in math mode on input line 2473.
+LaTeX Warning: Command \u invalid in math mode on input line 2476.
 
 Missing character: There is no ̆ ("306) in font cmmi7!
 
-LaTeX Warning: Command \u invalid in math mode on input line 2473.
+LaTeX Warning: Command \u invalid in math mode on input line 2476.
 
 Missing character: There is no ̆ ("306) in font cmmi7!
 [46] [47] [48] [49]
