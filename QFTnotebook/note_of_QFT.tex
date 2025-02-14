@@ -119,6 +119,7 @@ right = 3cm         %右页边距
         \bibitem{7} 陈童，\textit{经典场论}
         \bibitem{8} 埃格先生，\textit{微分流形与分析力学初步}
         \bibitem{9} 陈童，\textit{经典力学新讲}
+        \bibitem{10} Tom Lancaster,Stephen J.Blundell,\textit{Quantum Field Theory For Gifted Amature}
     \end{thebibliography}
 \end{center}
 
@@ -225,10 +226,290 @@ right = 3cm         %右页边距
 
 在这一部分，或者说这一次汇报中，我将讨论经典场论的几个方面。
 
-\subsection{场的动力学与举例}
+
+
+\subsection{场算符(Field operators)}
+
+\subsubsection{坐标与动量表象}
+在此之前我们先回顾一下量子力学我们在描述一个态 $\ket{\alpha}$ 时可以使用坐标来描述 $\psi_\alpha(\vec{x}) = \braket{\vec{x}}{\alpha}$ 或者是用动量来描述 $\tilde{\psi}_\alpha(\vec{p}) = \braket{\vec{p}}{\alpha}$ 
+\begin{equation*}
+    \braket{\vec{p}}{\alpha} = \int d^3 x \braket{\vec{p}}{\vec{x}}\braket{\vec{x}}{\alpha}
+\end{equation*}
+
+接着在使用傅里叶变换
+\begin{equation*}
+    \tilde{\psi}_\alpha (\vec{p}) = \frac{1}{\sqrt{\mathcal{V}}} \int d^3 x e^{-i\vec{p}\cdot \vec{x}} \psi_\alpha (\vec{x})
+\end{equation*}
+
+因此 
+\begin{equation*}
+    \braket{\vec{p}}{\vec{x}} = \frac{1}{\sqrt{\mathcal{V}}} e^{-i\vec{p} \cdot \vec{x}}
+\end{equation*}
+
+如果 $\vec{p}$ 是离散的值时，其逆变换为
+\begin{equation*}
+    \psi_\alpha (\vec{x}) = \frac{1}{\sqrt{\mathcal{V}}} \sum_{\vec{p}} e^{i\vec{p}\cdot \vec{x}} \tilde{\psi}_\alpha (\vec{p})
+\end{equation*}
+
+
+\subsubsection{简单谐振子(Simple harmonic oscillators)}
+接下来回顾一下简单谐振子问题,其势能为 $\displaystyle \hat{V} = \frac{1}{2} K \hat{x}^2$ ,通过求解其薛定谔方程可以得到波函数
+\begin{equation*}
+    \psi_n(\xi) = \frac{1}{\sqrt{2^n n!}}\left(\frac{m\omega}{\pi \hbar}\right)^{1/4} H_n(\xi) e^{\frac{1}{2}\xi^2} ,\qquad \xi = \sqrt{\frac{m\omega}{\hbar}}x
+\end{equation*}
+
+其中的 $\displaystyle H_n(\xi)$ 为厄密多项式，这里给出几幅波函数的图像
+\begin{figure}[hbpt]
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics[width = 0.8\textwidth]{figure/一维简单谐振子解.png}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics[width = 0.8\textwidth]{figure/一维简单谐振子能谱.png}
+    \end{minipage}
+\end{figure}
+
+同时，其能谱（能量本征值）为 
+\begin{equation*}
+    E_n = \left(n + \frac{1}{2}\right)\hbar\omega
+\end{equation*}
+
+另外在求解过程当中我们还得到了一个所谓的频率 $\omega$ 并且将原来的常数 $K$ 进行了定义 $K\equiv m\omega^2$,于是哈密顿量重写为
+\begin{equation*}
+    \hat{H} = \frac{\hat{p}^2}{2m} + \frac{1}{2} m \omega^2 \hat{x}^2
+\end{equation*}
+
+似乎我们可以根据平方差写成这样的形式
+\begin{equation*}
+    \frac{1}{2} m \omega^2\left(\hat{x} - \frac{i}{m\omega}\hat{p}\right)\left(\hat{x} + \frac{i}{m\omega}\hat{p}\right)
+\end{equation*}
+
+但是将其展开所得到的为
+\begin{equation*}
+    \frac{\hat{p}^2}{2m} + \frac{1}{2} m \omega^2 \hat{x}^2 - \frac{1}{2}\hbar\omega = \hat{H} - \frac{1}{2}\hbar\omega
+\end{equation*}
+
+这相差的 $\displaystyle \frac{1}{2}\hbar\omega $ 是由于要修正零点能
+
+在这里，算符 $\hat{x},\hat{p}$ 是厄密的，而算符 $\displaystyle \hat{x} - \frac{i}{m\omega}\hat{p}$ 与算符 $\displaystyle \hat{x} + \frac{i}{m\omega}\hat{p}$ 是互相自伴的，这也导致这两个新的算符是非厄密的，因此无法将其联系到任何的可观测量，我们给这两个算符进行重新定义，得到了所谓的产生和湮灭算符 $\hat{a}^\dagger,\hat{a}$
+\begin{align*}
+    \hat{a}^\dagger = \sqrt{\frac{m\omega}{2\hbar}}\left(\hat{x} - \frac{i}{m\omega}\hat{p}\right) \\
+    \hat{a} = \sqrt{\frac{m\omega}{2\hbar}}\left(\hat{x} + \frac{i}{m\omega}\hat{p}\right)
+\end{align*}
+
+通过计算我们可以得到以下几个关系式
+\begin{align*}
+    \left[\hat{a},\hat{a}^\dagger\right] &= 1 \\
+    \hat{x} &= \sqrt{\frac{\hbar}{2m\omega}} \left(\hat{a} + \hat{a}^\dagger\right) \\
+    \hat{p} &= -i\sqrt{\frac{\hbar m \omega}{2}} \left(\hat{a} - \hat{a}^\dagger\right) \\
+    \hat{H} &= \hbar \omega \left(\hat{a}^\dagger \hat{a} + \frac{1}{2}\right)
+\end{align*}
+
+
+如果我们设算符 $\hat{a}^\dagger \hat{a}$ 有本征值为 $n$ 的本征态 $\ket{n}$ 那么相应的谐振子的哈密顿量也会有相应的本征值为 $\hbar \omega \left(\frac{1}{2} + n\right)$ 的本征态 $\ket{n}$ 这刚刚好和我们算到的能量本征值 $E_n = \hbar \omega \left(\frac{1}{2} + n\right)$ 对应上，接下来我们只需要证明一下 $n$ 取非零整数即可，关于其非负性容易证明
+\begin{equation*}
+    n = \bra{n}\hat{a}^\dagger\hat{a}\ket{n} = \left|\hat{a}\ket{n}\right|^2 \geqslant  0
+\end{equation*}
+
+
+\subsubsection{占有数表象(Occupation number representation)}
+
+在这里为了方便起见，我们用别的符号来定义一下这个算符，并且命名为粒子数算符(number operator)
+\begin{equation*}
+    \hat{n} = \hat{a}^\dagger \hat{a}
+\end{equation*}
+
+
+这样就有
+\begin{equation*}
+    \hat{n}\ket{n} = n\ket{n}
+\end{equation*}
+
+
+然后就是这些关系，这里不做证明，证明很简单，大家可以自己尝试一下
+\begin{align*}
+    \hat{n}\hat{a}^\dagger\ket{n} &= \left(n + 1\right) \ket{n} \\
+    \hat{n}\hat{a}\ket{n} &= \left(n - 1\right) \ket{n} \\
+    \hat{a}^\dagger \ket{n} &= \sqrt{n + 1}\ket{n + 1} \\
+    \hat{a} \ket{n} &= \sqrt{n} \ket{n}
+\end{align*}
+
+很显然，我们的湮灭算符 $\hat{a}$ 可以使简单谐振子的能级下降一级，而我们的产生算符 $\hat{a}^\dagger$ 可以使简单谐振子的能级增加一级，因此如果我们不断地对一个本征态 $\ket{n}$ 作用上湮灭算符 $\hat{a}$ ，那么最终将会降到基态（真空态）$\ket{0}$ ,在这里我们规定：当湮灭算符作用到基态时，为 $0$，即 $\displaystyle \hat{a}\ket{0} = 0$,在这个规定下，我们的哈密顿量在基态的能量本征值为
+\begin{equation*}
+    \hat{H} \ket{0} = \hbar\omega \left(\hat{n} + \frac{1}{2}\right) \ket{0} = \frac{1}{2}\hbar\omega \ket{0}
+\end{equation*}
+
+可以看到这时候的基态就是我们的零点能。
+
+另外，我们也可以不断地对某个态作用上产生算符 $\hat{a}^\dagger$ ，最终我们可以得到第 $n$ 能级的态矢量
+\begin{equation*}
+    \ket{n} = \frac{\left(\hat{a}^\dagger\right)^n}{\sqrt{n!}}\ket{0}
+\end{equation*}
+
+接下来考虑更为一般的情况，哈密顿量为很多独立的哈密顿量的总和
+\begin{equation*}
+    \hat{H} = \sum_{k = 1}^{N} \hat{H}_k =\sum_{k = 1}^{N} \left(\frac{\hat{p}_k^2}{2m_k} + \frac{1}{2} m_k \omega_k^2 \hat{x}_k^2\right)
+\end{equation*}
+
+我们将此时的态矢量记作每一个能级上的粒子数量的个数，例如
+\begin{equation*}
+    \ket{n_1,n_2,\cdots,n_k,\cdots}
+\end{equation*}
+
+当我们的产生湮灭算符作用到这些态上时将会是这样的效果
+\begin{align*}
+    \hat{a}_k^\dagger \ket{n_1,n_2,\cdots,n_k,\cdots} &\propto \ket{n_1,n_2,\cdots,n_k + 1,\cdots} \\
+    \hat{a}_k \ket{n_1,n_2,\cdots,n_k,\cdots} &\propto \ket{n_1,n_2,\cdots,n_k - 1,\cdots}
+\end{align*}
+
+而对于这些升降算符有这样的对易关系
+\begin{align*}
+    \left[\hat{a}_k,\hat{a}_q\right] &= \left[\hat{a}_k^\dagger,\hat{a}_q^\dagger\right] = 0 \\
+    \left[\hat{a}_k,\hat{a}_q^\dagger\right] &= \delta _{kq}
+\end{align*}
+
+此时的哈密顿量也可以像之前的简单谐振子问题一样，写成
+\begin{equation*}
+    \hat{H} = \sum_{k=1}^{N} \hbar\omega_k \left(\hat{a}_k^\dagger \hat{a}_k + \frac{1}{2}\right)
+\end{equation*}
+
+同时我们定义真空态（基态）为 $\displaystyle \ket{0,0,0,\cdots}$,也同样有
+\begin{equation*}
+    \hat{a}_k \ket{0,0,0,\cdots} = 0
+\end{equation*}
+
+而产生算符也有和简单谐振子的相似性质
+\begin{equation*}
+    \ket{n_1,n_2,\cdots,n_N} = \frac{1}{\sqrt{n_1! n_2! \cdots n_N!}}\left(\hat{a}_1^\dagger\right)^{n_1}\left(\hat{a}_2^\dagger\right)^{n_2}\cdots\left(\hat{a}_N^\dagger\right)^{n_N} \ket{0,0,0,\cdots}
+\end{equation*}
+
+简单记作
+\begin{equation*}
+    \ket{\left\{n_k\right\}} = \prod_k \frac{1}{\sqrt{n_k!}}\left(\hat{a}_k^\dagger\right)^{n_k}\ket{0}
+\end{equation*}
+
+在这里，我们所讨论的其实一直是在谐振子背景下产生量子，但不应该仅仅只在谐振子问题下，还应该让粒子在一个特定的动量态(momentum state) $\ket{p_m}$ ,因此我们将下标 $k$ 改为下标 $p_m$ 以此来表示在特定的 momentum state 下的算符，但是这一步操作仍然需要很谨慎的进行，接下来举个例子
+
+\begin{example}
+    给定一个双粒子体系其 momentum states 分别为 $p_1,p_2$ ，那么在 Occupation number representation 下，态矢量表示为 $\ket{n_1,n_2}$,我们做如下定义
+    \begin{equation*}
+        \hat{a}_{p_1}^\dagger \ket{00} = \ket{10} ,\quad \hat{a}_{p_2}^\dagger \ket{00} = \ket{01}
+    \end{equation*}
+
+    根据这个定义，我们有 
+    \begin{equation*}
+        \hat{a}_{p_2}^\dagger\hat{p_1}^\dagger \ket{0} \propto \ket{11} ,\quad \hat{a}_{p_1}^\dagger\hat{p_2}^\dagger \ket{0} \propto \ket{11}
+    \end{equation*}
+
+    这也就是说 
+    \begin{equation*}
+        \hat{a}_{p_2}^\dagger\hat{p_1}^\dagger = \lambda \hat{a}_{p_1}^\dagger\hat{p_2}^\dagger
+    \end{equation*}
+
+    在这里，我们假设 $\lambda = \pm 1$ 至于别的情况我们之后再说，这里的假设将会导致波函数出现对称和反对称两种情况
+    \begin{enumerate}
+        \item[case 1] $\lambda = 1$ ，我们将这时候的粒子称为玻色子
+        \begin{equation*}
+            \hat{a}_{p_2}^\dagger\hat{p_1}^\dagger = \hat{a}_{p_1}^\dagger\hat{p_2}^\dagger
+        \end{equation*}
+
+        根据这个式子我们知道对易关系
+        \begin{equation*}
+            \left[\hat{a}_i^\dagger,\hat{a}_j^\dagger\right] = 0
+        \end{equation*}
+
+        当然对于不同的态的产生湮灭算符之间的对易关系为
+        \begin{equation*}
+            \left[\hat{a}_i,\hat{a}_j^\dagger\right] = \delta_{ij}
+        \end{equation*}
+
+        对其任意的一个态矢量，可以这样表示
+        \begin{equation*}
+            \ket{n_1,n_2,n_3,\cdots} = \prod_m \frac{1}{\left(n_{p_m}!\right)^{\frac{1}{2}}}\left(\hat{a}_{p_m}^\dagger\right)^{n_{p_m}} \ket{0}
+        \end{equation*}
+
+        由于我们知道，对于玻色子，不同的量子态 $\ket{n_{p_m}},\ket{n_{p_q}}$ 其产生算符是可以对易的，这也导致了
+        \begin{equation*}
+            \hat{a}_{p_1}^\dagger \hat{a}_{p_2}^\dagger \ket{0} = \hat{a}_{p_2}^\dagger \hat{a}_{p_1}^\dagger \ket{0} = \ket{1_{p_1},1_{p_2}}
+        \end{equation*}
+
+        这也就是说不论我按照什么顺序去放置粒子，都是一样的效果。（原文：it doesn’t matter which order you put particles in the states,you get exactly the same in either case）
+
+        同时，总的来说我们可以有
+        \begin{align*}
+            \hat{a}_i^\dagger \ket{n_1,n_2,\cdots,n_i,\cdots} &= \sqrt{n_i + 1} \ket{n_1,n_2,\cdots,n_i +1 ,\cdots} \\
+            \hat{a}_i \ket{n_1,n_2,\cdots,n_i,\cdots} &= \sqrt{n_i} \ket{n_1,n_2,\cdots,n_i -1 ,\cdots}
+        \end{align*}
+
+        \item[case 2] $\lambda = -1$ ，我们将这时候的粒子称为费米子
+        
+        首先我们写出费米子的产生算符为 $\hat{c}_i^\dagger$ 这是为了和玻色子做一个区分，并且我们发现其存在反对易关系
+        \begin{equation*}
+            \left\{\hat{c}_i^\dagger,\hat{c}_j^\dagger\right\} \equiv \hat{c}_i^\dagger \hat{c}_j^\dagger + \hat{c}_j^\dagger\hat{c}_i^\dagger = 0
+        \end{equation*}
+        
+        这也将导出
+        \begin{equation*}
+            \hat{c}_i^\dagger \hat{c}_i^\dagger + \hat{c}_i^\dagger\hat{c}_i^\dagger = 0 \quad\Rightarrow \hat{c}_i^\dagger \hat{c}_i^\dagger = 0
+        \end{equation*}
+
+        这其中的意思是，当你尝试将两个费米子强行放在同一个态的话，他们会立刻发生湮灭，这也就是 Pauli exclusion principle ，这里给出原文
+        \begin{theorem}[Pauli exclusion principle]
+            Each state can either be unoccupied or contain a single fermion.
+        \end{theorem}
+
+        同时我们还有反对易关系
+        \begin{align*}
+            \left\{\hat{c}_i,\hat{c}_j\right\} &= 0 \\
+            \left\{\hat{c}_i,\hat{c}_j^\dagger\right\} &= \delta_{ij}
+        \end{align*}
+
+        与玻色子不同的是，当我们用不同的顺序去放置粒子，这将导致不一样的结果.It really does matter which order you put the particles into the states.
+
+        总的来说我们可以有
+        \begin{align*}
+            \hat{c}_i^\dagger \ket{n_1,n_2,\cdots,n_i,\cdots} &= \left(-1\right)^{\sum_i} \sqrt{1 - n_i} \ket{n_1,n_2,\cdots,n_i +1 ,\cdots} \\
+            \hat{c}_i \ket{n_1,n_2,\cdots,n_i,\cdots} &= \left(-1\right)^{\sum_i} \sqrt{n_i} \ket{n_1,n_2,\cdots,n_i -1 ,\cdots} \\
+            \sum_i &= n_1 + n_2 + \cdots + n_{i - 1}
+        \end{align*}
+        
+    \end{enumerate}
+\end{example}
+
+刚刚说的都是离散的情况，对于连续的情况我们直接写成
+\begin{align*}
+    \left[\hat{a}_{\vec{p}},\hat{a}_{\vec{q}}^\dagger\right] &= \delta^{(3)}\left(\vec{p} - \vec{q}\right) \\
+    \hat{H} &= \int d^3p E_{\vec{p}} \  \hat{a}_{\vec{p}}^\dagger \  \hat{a}_{\vec{p}}
+\end{align*}
+
+这就是所谓的连续极限
+
+
+
+\subsubsection{场算符的诞生}
+
+在前面的内容当中，我们使用到了产生算符 $\hat{a}_{\vec{p}}^\dagger$ 和湮灭算符 $\hat{a}_{\vec{p}}$，
+
+
+
+
 场是被定义在所有时间空间点上的$(\vec{x},t)$,记作$$\phi_a(\vec{x},t)$$
 
+
 尽管在经典力学中我们描述一个有限维空间中的粒子的广义坐标为$q_a(t)$,但是$\phi_a(\vec{x},t)$中，这里的$a$和$\vec{x}$仅仅是一个符号而已，我们所讨论的场，是具有无限自由度的
+
+
+
+
+
+
+
+
+
+\subsection{场的动力学与举例}
+
 \paragraph{电磁场}\ \\
 在经典物理当中，最好的例子应该就是电场$E(\vec{x},t)$和磁场$B(\vec{x},t)$了,并且，我们在电动力学当中，利用这两个场所定义出来的标势$\phi$和矢势$\vec{A}$将这两个三矢量合并为了一个四分量场$A_\mu(\phi,\vec{A})$,且电场和磁场可以由标势和矢势给出
 \begin{align*}
@@ -1046,6 +1327,12 @@ right = 3cm         %右页边距
 \subsection{Klein-Gordon Field 的正则量子化}
 
 
+\subsection{相互作用绘景}
+
+
+
+
+
 
 
 \subsection{散射振幅与其计算}
@@ -1055,7 +1342,7 @@ right = 3cm         %右页边距
 
 
 
-\subsection{$\phi^3$ Theory}
+\subsection{$\phi^4$ Theory}
 
 
 \section{Poincare Algebra}
@@ -1081,7 +1368,7 @@ right = 3cm         %右页边距
 
 \subsection{S 矩阵}
 
-\subsection{共性代数(Conformal Algebra)}
+\subsection{共形代数(Conformal Algebra)}
 
 
 
