@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2024.11.23)  14 FEB 2025 17:16
+This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2024.11.23)  6 MAR 2025 21:09
  restricted system commands enabled.
  file:line:error style messages enabled.
 **d:/Code/Code/latex/notebook/QuantumMechanics/QFTnotebook/note_of_QFT
@@ -1115,7 +1115,7 @@ LaTeX Font Info:    Font shape `LTJY3/SimSun(0)/bx/n' in size <10.53937> not ava
 \tf@toc=\write5
 
 \openout5 = note_of_QFT.toc
-<院徽.jpg, id=213, 567.11874pt x 567.11874pt>
+<院徽.jpg, id=239, 567.11874pt x 567.11874pt>
 File: 院徽.jpg Graphic file (type jpg)
 <use 院徽.jpg>
 Package luatex.def Info: 院徽.jpg  used on input line 132.
@@ -1152,12 +1152,12 @@ Overfull \hbox (0.82275pt too wide) in paragraph at lines 234--235
 []|\LTJY3/SimSun(0)/m/n/10.53937 在 |此 |之 |前 |我 |们 |先 |回 |顾 |一 |下 |量 |子 |力 |学 |我 |们 |在 |描 |述 |一 |个 |态 $[]$ |时 |可 |以 |使 |用 |坐 |标 |来 |描 |述 $\OML/cmm/m/it/10.53937  []\OT1/cmr/m/n/10.53937 ([]) =
  []
 
-<figure/一维简单谐振子解.png, id=232, 277.53688pt x 355.3275pt>
+<figure/一维简单谐振子解.png, id=257, 277.53688pt x 355.3275pt>
 File: figure/一维简单谐振子解.png Graphic file (type png)
 <use figure/一维简单谐振子解.png>
 Package luatex.def Info: figure/一维简单谐振子解.png  used on input line 265.
 (luatex.def)             Requested size: 153.64441pt x 196.71027pt.
-<figure/一维简单谐振子能谱.png, id=233, 274.52562pt x 346.79562pt>
+<figure/一维简单谐振子能谱.png, id=258, 274.52562pt x 346.79562pt>
 File: figure/一维简单谐振子能谱.png Graphic file (type png)
 <use figure/一维简单谐振子能谱.png>
 Package luatex.def Info: figure/一维简单谐振子能谱.png  used on input line 270.
@@ -1217,7 +1217,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [7]
 File: 院徽.jpg Graphic file (type jpg)
 <use 院徽.jpg>
-Package luatex.def Info: 院徽.jpg  used on input line 498.
+Package luatex.def Info: 院徽.jpg  used on input line 494.
 (luatex.def)             Requested size: 21.33093pt x 21.33955pt.
 
 
@@ -1230,7 +1230,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [8]
 File: 院徽.jpg Graphic file (type jpg)
 <use 院徽.jpg>
-Package luatex.def Info: 院徽.jpg  used on input line 552.
+Package luatex.def Info: 院徽.jpg  used on input line 544.
 (luatex.def)             Requested size: 21.33093pt x 21.33955pt.
 
 
@@ -1243,7 +1243,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [9]
 File: 院徽.jpg Graphic file (type jpg)
 <use 院徽.jpg>
-Package luatex.def Info: 院徽.jpg  used on input line 603.
+Package luatex.def Info: 院徽.jpg  used on input line 598.
 (luatex.def)             Requested size: 21.33093pt x 21.33955pt.
 
 
@@ -1256,7 +1256,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [10]
 File: 院徽.jpg Graphic file (type jpg)
 <use 院徽.jpg>
-Package luatex.def Info: 院徽.jpg  used on input line 698.
+Package luatex.def Info: 院徽.jpg  used on input line 649.
 (luatex.def)             Requested size: 21.33093pt x 21.33955pt.
 
 
@@ -1266,10 +1266,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-9.33955pt}.
 
-[11](load cache: extra_lmroman7-bold.luc)(load cache: extra_lmroman5-bold.luc)
+[11]
 File: 院徽.jpg Graphic file (type jpg)
 <use 院徽.jpg>
-Package luatex.def Info: 院徽.jpg  used on input line 740.
+Package luatex.def Info: 院徽.jpg  used on input line 744.
 (luatex.def)             Requested size: 21.33093pt x 21.33955pt.
 
 
@@ -1279,10 +1279,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-9.33955pt}.
 
-[12]
+[12](load cache: extra_lmroman7-bold.luc)(load cache: extra_lmroman5-bold.luc)
 File: 院徽.jpg Graphic file (type jpg)
 <use 院徽.jpg>
-Package luatex.def Info: 院徽.jpg  used on input line 784.
+Package luatex.def Info: 院徽.jpg  used on input line 786.
 (luatex.def)             Requested size: 21.33093pt x 21.33955pt.
 
 
@@ -1295,7 +1295,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [13]
 File: 院徽.jpg Graphic file (type jpg)
 <use 院徽.jpg>
-Package luatex.def Info: 院徽.jpg  used on input line 860.
+Package luatex.def Info: 院徽.jpg  used on input line 830.
 (luatex.def)             Requested size: 21.33093pt x 21.33955pt.
 
 
@@ -1308,7 +1308,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [14]
 File: 院徽.jpg Graphic file (type jpg)
 <use 院徽.jpg>
-Package luatex.def Info: 院徽.jpg  used on input line 927.
+Package luatex.def Info: 院徽.jpg  used on input line 906.
 (luatex.def)             Requested size: 21.33093pt x 21.33955pt.
 
 
@@ -1321,7 +1321,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [15]
 File: 院徽.jpg Graphic file (type jpg)
 <use 院徽.jpg>
-Package luatex.def Info: 院徽.jpg  used on input line 1025.
+Package luatex.def Info: 院徽.jpg  used on input line 973.
 (luatex.def)             Requested size: 21.33093pt x 21.33955pt.
 
 
@@ -1334,7 +1334,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [16]
 File: 院徽.jpg Graphic file (type jpg)
 <use 院徽.jpg>
-Package luatex.def Info: 院徽.jpg  used on input line 1078.
+Package luatex.def Info: 院徽.jpg  used on input line 1071.
 (luatex.def)             Requested size: 21.33093pt x 21.33955pt.
 
 
@@ -1347,7 +1347,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [17]
 File: 院徽.jpg Graphic file (type jpg)
 <use 院徽.jpg>
-Package luatex.def Info: 院徽.jpg  used on input line 1127.
+Package luatex.def Info: 院徽.jpg  used on input line 1124.
 (luatex.def)             Requested size: 21.33093pt x 21.33955pt.
 
 
@@ -1357,27 +1357,27 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-9.33955pt}.
 
-[18](load cache: extra_lmroman7-italic.luc)
+[18]
+File: 院徽.jpg Graphic file (type jpg)
+<use 院徽.jpg>
+Package luatex.def Info: 院徽.jpg  used on input line 1173.
+(luatex.def)             Requested size: 21.33093pt x 21.33955pt.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 21.33955pt, for example:
+(fancyhdr)                \setlength{\headheight}{21.33955pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-9.33955pt}.
+
+[19](load cache: extra_lmroman7-italic.luc)
 luaotfload | aux : font no 107 (nil) does not define feature vert for script dflt with language dflt
 luaotfload | aux : font no 107 (nil) does not define feature vrt2 for script dflt with language dflt
 luaotfload | aux : font no 109 (nil) does not define feature vert for script dflt with language dflt
 luaotfload | aux : font no 109 (nil) does not define feature vrt2 for script dflt with language dflt
 File: 院徽.jpg Graphic file (type jpg)
 <use 院徽.jpg>
-Package luatex.def Info: 院徽.jpg  used on input line 1182.
-(luatex.def)             Requested size: 21.33093pt x 21.33955pt.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 21.33955pt, for example:
-(fancyhdr)                \setlength{\headheight}{21.33955pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-9.33955pt}.
-
-[19]
-File: 院徽.jpg Graphic file (type jpg)
-<use 院徽.jpg>
-Package luatex.def Info: 院徽.jpg  used on input line 1227.
+Package luatex.def Info: 院徽.jpg  used on input line 1228.
 (luatex.def)             Requested size: 21.33093pt x 21.33955pt.
 
 
@@ -1390,7 +1390,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [20]
 File: 院徽.jpg Graphic file (type jpg)
 <use 院徽.jpg>
-Package luatex.def Info: 院徽.jpg  used on input line 1288.
+Package luatex.def Info: 院徽.jpg  used on input line 1273.
 (luatex.def)             Requested size: 21.33093pt x 21.33955pt.
 
 
@@ -1401,25 +1401,77 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-9.33955pt}.
 
 [21]
+File: 院徽.jpg Graphic file (type jpg)
+<use 院徽.jpg>
+Package luatex.def Info: 院徽.jpg  used on input line 1334.
+(luatex.def)             Requested size: 21.33093pt x 21.33955pt.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 21.33955pt, for example:
+(fancyhdr)                \setlength{\headheight}{21.33955pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-9.33955pt}.
+
+[22]
+File: 院徽.jpg Graphic file (type jpg)
+<use 院徽.jpg>
+Package luatex.def Info: 院徽.jpg  used on input line 1416.
+(luatex.def)             Requested size: 21.33093pt x 21.33955pt.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 21.33955pt, for example:
+(fancyhdr)                \setlength{\headheight}{21.33955pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-9.33955pt}.
+
+[23]
+File: 院徽.jpg Graphic file (type jpg)
+<use 院徽.jpg>
+Package luatex.def Info: 院徽.jpg  used on input line 1469.
+(luatex.def)             Requested size: 21.33093pt x 21.33955pt.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 21.33955pt, for example:
+(fancyhdr)                \setlength{\headheight}{21.33955pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-9.33955pt}.
+
+[24]
+File: 院徽.jpg Graphic file (type jpg)
+<use 院徽.jpg>
+Package luatex.def Info: 院徽.jpg  used on input line 1525.
+(luatex.def)             Requested size: 21.33093pt x 21.33955pt.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 21.33955pt, for example:
+(fancyhdr)                \setlength{\headheight}{21.33955pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-9.33955pt}.
+
+[25]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1345.
+(hyperref)                removing `math shift' on input line 1556.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\phi' on input line 1345.
+(hyperref)                removing `\phi' on input line 1556.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 1345.
+(hyperref)                removing `superscript' on input line 1556.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1345.
+(hyperref)                removing `math shift' on input line 1556.
 
 File: 院徽.jpg Graphic file (type jpg)
 <use 院徽.jpg>
-Package luatex.def Info: 院徽.jpg  used on input line 1415.
+Package luatex.def Info: 院徽.jpg  used on input line 1626.
 (luatex.def)             Requested size: 21.33093pt x 21.33955pt.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1428,29 +1480,42 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-9.33955pt}.
 
-[22] (./note_of_QFT.aux)
+[26]
+File: 院徽.jpg Graphic file (type jpg)
+<use 院徽.jpg>
+Package luatex.def Info: 院徽.jpg  used on input line 1626.
+(luatex.def)             Requested size: 21.33093pt x 21.33955pt.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 21.33955pt, for example:
+(fancyhdr)                \setlength{\headheight}{21.33955pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-9.33955pt}.
+
+[27] (./note_of_QFT.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2022/07/14>
  ***********
 Package rerunfilecheck Info: File `note_of_QFT.out' has not changed.
-(rerunfilecheck)             Checksum: 0709DCBE8E339CAAFD7F6E81C6A2DD04;4752.
+(rerunfilecheck)             Checksum: 2E44B7E14902F0CE8F25BDBC0BF586BC;5332.
 )
 
 Here is how much of LuaTeX's memory you used:
- 42310 strings out of 476447
+ 42338 strings out of 476447
  195363,1977958 words of node,token memory allocated
- 2622 words of node memory still in use:
-   8 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 16 sub_mlist, 1 glyph, 914 attribute, 59 glue_spec, 93 attribute_list, 2 write, 11 user_defined nodes
-   avail lists: 1:13,2:41151,3:449,4:560,5:323,6:109,7:4461,8:62,9:2183,10:13,11:87
- 63188 multiletter control sequences out of 65536+600000
+ 3588 words of node memory still in use:
+   8 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 26 sub_mlist, 1 glyph, 1343 attribute, 59 glue_spec, 132 attribute_list, 2 write, 11 user_defined nodes
+   avail lists: 1:12,2:40681,3:465,4:630,5:427,6:124,7:4461,8:62,9:2323,10:13,11:90
+ 63195 multiletter control sequences out of 65536+600000
  109 fonts using 144501383 bytes
  103i,18n,115p,784b,840s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <d:/Code/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman10-italic.otf><d:/Code/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman12-bold.otf><d:/Code/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmromanslant10-regular.otf><d:/Code/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf><d:/Code/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman10-bold.otf><c:/Windows/Fonts/simkai.ttf><d:/Code/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman12-italic.otf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simsun.ttc><d:/Code/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman12-regular.otf><d:/Code/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman17-regular.otf><d:/Code/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><d:/Code/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb><d:/Code/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><d:/Code/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><d:/Code/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><d:/Code/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><d:/Code/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><d:/Code/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><d:/Code/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><d:/Code/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><d:/Code/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><d:/Code/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><d:/Code/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on note_of_QFT.pdf (22 pages, 667071 bytes).
+Output written on note_of_QFT.pdf (27 pages, 700438 bytes).
 
-PDF statistics: 469 PDF objects out of 1000 (max. 8388607)
- 390 compressed objects within 4 object streams
- 101 named destinations out of 1000 (max. 131072)
- 304 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 516 PDF objects out of 1000 (max. 8388607)
+ 431 compressed objects within 5 object streams
+ 112 named destinations out of 1000 (max. 131072)
+ 344 words of extra memory for PDF output out of 10000 (max. 100000000)
 

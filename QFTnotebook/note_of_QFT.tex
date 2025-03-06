@@ -484,13 +484,59 @@ right = 3cm         %右页边距
     \hat{H} &= \int d^3p E_{\vec{p}} \  \hat{a}_{\vec{p}}^\dagger \  \hat{a}_{\vec{p}}
 \end{align*}
 
-这就是所谓的连续极限
+这就是所谓的连续极限.
 
 
 
 \subsubsection{场算符的诞生}
 
-在前面的内容当中，我们使用到了产生算符 $\hat{a}_{\vec{p}}^\dagger$ 和湮灭算符 $\hat{a}_{\vec{p}}$，
+在前面的内容当中，我们使用到了产生算符 $\hat{a}_{\vec{p}}^\dagger$ 和湮灭算符 $\hat{a}_{\vec{p}}$，但是当我们有一个真空态，并且使用一个产生算符 $\hat{a}_{\vec{p}}^\dagger$ 作用在它的上面，那么我们将会得到一个态 $\hat{a}_{\vec{p}}^\dagger$ 其包含有一个在动量空间 $\vec{p}$ 的单粒子，但是尽管动量本征态在空间当中被展开，但也仅仅是在动量空间中，现在我们将通过算符的线性组合以及傅里叶变换来生成算符，而我们现在需要的就是场算符(field operators) ，而场算符便是在空间位置产生或湮灭粒子，因此我们将场算符定义为
+\begin{equation*}
+    \hat{\psi}^\dagger (\vec{x}) = \frac{1}{\sqrt{\mathcal{V}}}\sum_{\vec{p}} \hat{a}_{\vec{p}}^\dagger e^{-i\vec{p}\cdot \vec{x}}
+\end{equation*}
+
+这个算符将会在位置 $\vec{x}$ 产生一个粒子，他同时我们也可以定义湮灭场算符
+\begin{equation*}
+    \hat{\psi} (\vec{x}) = \frac{1}{\sqrt{\mathcal{V}}}\sum_{\vec{p}} \hat{a}_{\vec{p}} e^{i\vec{p}\cdot \vec{x}}
+\end{equation*}
+
+接下来，我么来尝试下吧
+\begin{example}
+    给出一个量子态 $\ket{\Psi} = \hat{\psi}^\dagger (\vec{x})\ket{0}$ 并检验一下它是否确定对应于一个特定位置的单粒子
+    \begin{equation*}
+        \ket{\Psi} = \hat{\psi}^\dagger (\vec{x}) \ket{0} = \frac{1}{\sqrt{\mathcal{V}}} \sum_{\vec{p}} e^{-i\vec{p}\cdot\vec{x}} \hat{a}_{\vec{p}}^\dagger \ket{0}
+    \end{equation*}
+
+    为了计算出这个态的粒子数量，我们将使用占有数算符 $\hat{n}_{\vec{p}}$ 作用到这个态上，即 
+    \begin{equation*}
+        \sum_{\vec{q}} \hat{n}_{\vec{q}} \ket{\Psi} = \frac{1}{\sqrt{\mathcal{V}}} \sum_{\vec{q}\vec{p}} e^{-i\vec{p}\cdot\vec{x}} \hat{a}_{\vec{p}}^\dagger \hat{a}_{\vec{p}} \hat{a}_{\vec{p}}^\dagger \ket{0}
+    \end{equation*}
+
+    我们知道 $\bra{0} \hat{a}_{\vec{p}} \hat{a}_{\vec{p}}^\dagger \ket{0}  = \delta_{\vec{q}\vec{p}}$,于是有
+    \begin{equation*}
+        \sum_{\vec{q}} \hat{n}_{\vec{q}} \ket{\Psi} = \ket{\Psi}
+    \end{equation*}
+
+    这也就是说 $\ket{\Psi}$ 就是特征值为 $1$ 的占有数算符的特征态
+
+    为了找到确切的粒子产生的位置，我们先定义 $\ket{\vec{p}} = \hat{a}_{\vec{p}}^\dagger \ket{0}$ 接下来我们就将另外一个位置本征矢 $\ket{\vec{y}}$ 作用到 $\ket{\Psi}$ 上 
+    \begin{align*}
+        \braket{\vec{y}}{\Psi} &= \bra{\vec{y}}\hat{\psi}^\dagger(\vec{x}) \ket{0} \\
+        &= \frac{1}{\sqrt{\mathcal{V}}}\sum_{\vec{p}}e^{-i \vec{p}\cdot \vec{x}}\braket{\vec{y}}{\vec{p}} \\
+        &= \frac{1}{\mathcal{V}} \sum_{\vec{p}}e^{-i\vec{p} \cdot \left(\vec{x} - \vec{y}\right)} \\
+        &= \delta^{(3)}\left(\vec{x} - \vec{y}\right)
+    \end{align*}
+
+    这也就是说，这个产生的粒子，只有当 $\vec{y} = \vec{x}$ 时才能被找到
+\end{example}
+
+此外还有这些性质
+\begin{align*}
+    \left[\hat{\psi}(\vec{x}) , \hat{\psi}^\dagger(\vec{y})\right] &= \delta^{(3)} \left(\vec{x} - \vec{y}\right) \\
+    \left[\hat{\psi}(\vec{x}) , \hat{\psi}(\vec{y})\right]&= \left[\hat{\psi}^\dagger(\vec{x}) , \hat{\psi}^\dagger(\vec{y})\right] = 0 \\
+    \left\{\hat{\psi}(\vec{x}) , \hat{\psi}^\dagger(\vec{y})\right\} &= \delta^{(3)} \left(\vec{x} - \vec{y}\right) \\
+    \left\{\hat{\psi}^\dagger(\vec{x}) , \hat{\psi}^\dagger(\vec{y})\right\} &= \left\{\hat{\psi}(\vec{x}) , \hat{\psi}(\vec{y})\right\} = 0
+\end{align*}
 
 
 
@@ -1324,7 +1370,172 @@ right = 3cm         %右页边距
 
 \section{Klein-Gordon Field}
 
-\subsection{Klein-Gordon Field 的正则量子化}
+\subsection{The Klein-Gordon equation}
+在非相对论情况当中，我们的能量与动量关系是 
+\begin{equation*}
+    E = \frac{p^2}{2m}
+\end{equation*}
+
+由此我们首先将能量动量算符化 $\displaystyle E\to\hat{E} = i\hbar\frac{\partial}{\partial t},p\to\hat{p} = -i\hbar\nabla$, 这也给出了我们的非相对论情况的量子力学的波动方程（薛定谔方程）
+\begin{equation*}
+    i\hbar\frac{\partial}{\partial t} \phi(\vec{x},t) = -\frac{\hbar^2}{2m} \nabla^2 \phi(\vec{x},t)
+\end{equation*} l
+
+但是当我们考虑相对论情况时，我们的能量动量关系发生了修正
+\begin{equation*}
+    E = \left(\vec{p}^2c^2 + m^2 c^4\right)^{\frac{1}{2}}
+\end{equation*}
+
+和之前在非相对论的时候一样，将能量动量变成算符，将会有
+\begin{equation*}
+    i\hbar \frac{\partial}{\partial t}\phi = \left(-\hbar^2c^2 + m^2 c^4\right)^{\frac{1}{2}} \phi = 0
+\end{equation*}
+
+但是这样的方程看着就不是协变的（其时间和空间导数的形式都是不一样的）并且还有一个大根号，这显然是不好解决的，因此，我们对能量动量关系做一个平方处理，得到 
+\begin{equation*}
+    E^2 = \vec{p}^2c^2 + m^2c^4
+\end{equation*}
+
+接下来我们得到的方程为
+\begin{equation*}
+    -\hbar^2\frac{\partial^2}{\partial t^2} \phi(\vec{x},t) = \left(-\hbar^2c^2\nabla^2 + m^2 c^4 \right)\phi(\vec{x},t)
+\end{equation*}
+
+这个方程就是我们的 $\textbf{Klein-Gordon equation}$ 为了方便，我们采用自然单位制 $\hbar = c = 1$ ，因此方程简化为
+\begin{equation*}
+    \left(\frac{\partial^2}{\partial t^2} - \nabla^2 +m^2\right)\phi(\vec{x},t) = 0
+\end{equation*}
+
+使用相对论的协变语言(这里的度规张量取 $g_{\mu\nu} = diag\{1,-1,-1,-1\})$，我们将其及作为
+\begin{equation*}
+    \left(\partial^2 + m^2\right)\phi(x) = 0
+\end{equation*}
+
+\subsection{场的正则量子化}
+这里主要讲解的是正则量子化的主要流程，以及讨论场算符的形式问题。
+\subsubsection{正则量子化机器}
+正则量子化是一个转换方法，包含将经典场量子化为量子场，步骤如下：
+\begin{itemize}
+    \item Step 1：写下经典场的拉格朗日密度，这一步尤为重要
+    \item Step 2：计算出动量密度，并依据动量密度得到哈密顿量
+    \item Step 3：将场和动量密度转化为算符并给出对易关系
+    \item Step 4：通过产生湮灭算符激发场，者将会使用到占有数
+    \item Step 5：
+\end{itemize}
+
+
+
+接下来我们直接来开始正则量子化 Klein-Gordon 场
+\begin{itemize}
+    \item[Step 1] 写下 Klein-Gordon 场的拉格朗日密度
+    \begin{equation*}
+        \mathcal{L} = \frac{1}{2}\left[\partial_\mu \phi(x)\right]^2 - \frac{1}{2}m^2\left[\phi (x)\right]^2
+    \end{equation*}
+
+    这个拉格朗日量的运动方程为 $\displaystyle \left(\partial^2 + m^2\right)\phi = 0$,这也导致了色散关系 $\displaystyle E_{\vec{p}}^2 = \vec{p}^2 + m^2$
+    \item[Step 2] 找到动量密度
+    \begin{equation*}
+        \Pi^\mu(x) = \frac{\partial \mathcal{L}}{\partial\left(\partial_\mu \phi(x)\right)} = \partial^\mu \phi(x)
+    \end{equation*}
+
+    这个动量密度的类时部分为 $\displaystyle \Pi^0(x) = \pi(x) = \partial^0 \phi(x)$ 于是我们可以得到哈密顿量为
+    \begin{equation*}
+        \mathcal{H} = \Pi^0(x)\partial_0\phi (x) - \mathcal{L} = \frac{1}{2}\left[\left(\partial_0\phi(x)\right)^2 + \left(\nabla\phi(x)\right)^2 +m^2\phi^2(x)\right]
+    \end{equation*}
+    \item[Step 3] 我们将要将场转变为场算符，这个说的是我们将其称为 operator-valued fields :我们在时空中的一个点插入这么一个东西作为算符，即 
+    \begin{equation*}
+        \phi(x) \to \hat{\phi}(x)\quad\quad \Pi^0(x) \to \hat{\Pi}^0(x)
+    \end{equation*}
+
+    我们知道，在单粒子量子力学当中，我们有对易关系
+    \begin{equation*}
+        \left[\hat{x},\hat{p}\right] = i\hbar
+    \end{equation*}
+
+    在场论当中，我们定义出一个场算符的等时对易关系
+    \begin{equation*}
+        \left[\hat{\phi}(t,\vec{x}),\hat{\Pi}^0(t,\vec{y})\right] = i\delta^{(3)}(\vec{x} - \vec{y})
+    \end{equation*}
+
+    但是现在我们像 $\hat{\phi}(x)$ 这样的算符如何作用到占有数态并不知道，但是我们知道产生湮灭算符作用到占有数态有什么作用，但这也意味着我们需要像单粒子态的量子力学一样利用这些算符来构造场算符
+    \item[Step 4] 仿照一下单粒子态，我们假设不含时的位置算符的形式为
+    \begin{equation*}
+        \hat{x}_j = \left(\frac{\hbar}{m}\right)^\frac{1}{2} \sum_k \frac{1}{\left(2\omega_k N\right)^\frac{1}{2}}\left(\hat{a}_k e^{ijka} + \hat{a}_k^\dagger e^{-ijka}\right)
+    \end{equation*}
+
+    接下来，我们基于此写出连续的场算符的形式
+    \begin{equation*}
+        \hat{\phi}(\vec{x}) = \int \frac{d^3p}{(2\pi)^{\frac{3}{2}}}\frac{1}{(2E_{}\vec{p})^\frac{1}{2}}\left(\hat{a}_{\vec{p}}e^{i\vec{p}\cdot \vec{x}} + \hat{a}_{\vec{p}}^\dagger e^{i\vec{p}\cdot\vec{x}}\right)
+    \end{equation*}
+
+    此处的 $E_{\vec{p}} = +\left(\vec{p}^2 + m^2\right)^{\frac{1}{2}}$,并且我们的产生湮灭算符满足对易关系 $\left[\hat{a}_{\vec{p}},\hat{a}_{\vec{q}}^\dagger\right] = \delta^{(3)}(\vec{p}-\vec{q})$ 
+
+    为了将其转化为四矢量的形式，我们将场算符放入到海森堡绘景当中，我们使用时间演化算符作用到场算符上从而得到所谓的时间依赖场算符
+    \begin{equation*}
+        \hat{\phi}(x) = \hat{\phi}(t,\vec{x}) = \hat{U}^\dagger (t,0)\hat{\phi}(\vec{x})\hat{U}(t,0) = e^{i\hat{H}t}\hat{\phi}e^{-i\hat{H}t}
+    \end{equation*}
+
+    但是实际上，时间演化算符的影响仅仅是之作用在产生湮灭算符之上而已，即 
+    \begin{equation*}
+        \hat{U}^\dagger (t,0)\hat{a}_{\vec{p}}(\vec{x})\hat{U}(t,0) = e^{-iE_{\vec{p}}t}\hat{a}_{\vec{p}}
+    \end{equation*}
+
+    类似的，对于 $\hat{a}_{\vec{p}}^\dagger$ 部分将会导出 $e^{iE_{\vec{p}}t}$
+
+    在加入了时间之后，我们的场算符内的变量变成了四矢量形式
+    \begin{equation*}
+        \hat{\phi}(x) = \int \frac{d^3p}{\left(2\pi\right)^{\frac{3}{2}}}\frac{1}{\left(2E_{\vec{p}}\right)^{\frac{1}{2}}}\left(\hat{a}_{\vec{p}}e^{-ip\cdot x} + \hat{a}_{\vec{p}}^\dagger e^{ip\cdot x}\right)
+    \end{equation*}
+
+    \item[Step 5] 接下来我们来计算一下哈密顿量，在之前，我们就已经得到了哈密顿量的形式为
+    \begin{equation*}
+        \hat{H} = \int d^3x\frac{1}{2}\left\{\left[\partial_0 \hat{\phi}(x)\right]^2 + \left[\nabla\hat{\phi}(x)\right]^2 +m^2 \left[\hat{\phi}(x)\right]^2\right\}
+    \end{equation*}
+
+    通过计算我们可以得到其中的相关项
+    \begin{align*}
+        \partial_0\hat{\phi}(x) &= \int \frac{d^3p}{\left(2\pi\right)^{\frac{3}{2}}}\frac{1}{\left(2E_{\vec{p}}\right)^{\frac{1}{2}}}\left(-iE_{\vec{p}}\right)\left(\hat{a}_{\vec{p}}e^{-ip\cdot x} + \hat{a}_{\vec{p}}^\dagger e^{ip\cdot x}\right) \\
+        \nabla \hat{\phi}(x) &= \frac{d^3p}{\left(2\pi\right)^{\frac{3}{2}}}\frac{1}{\left(2E_{\vec{p}}\right)^{\frac{1}{2}}}\left(i\vec{p}\right)\left(\hat{a}_{\vec{p}}e^{-ip\cdot x} + \hat{a}_{\vec{p}}^\dagger e^{ip\cdot x}\right)
+    \end{align*}
+
+    最终计算得到我们的哈密顿量为
+    \begin{equation*}
+        \hat{H} = \frac{1}{2}\int d^3p E_{\vec{p}}\left(\hat{a}_{\vec{p}}\hat{a}_{\vec{p}}^\dagger + \hat{a}_{\vec{p}}^\dagger \hat{a}_{\vec{p}}\right)
+    \end{equation*}
+
+    对应的能量为
+    \begin{equation*}
+        E = \frac{1}{2}\int d^3p E_{\vec{p}}\left(\hat{a}_{\vec{p}}\hat{a}_{\vec{p}}^\dagger + \frac{1}{2}\delta^{(3)}(0)\right)
+    \end{equation*}
+\end{itemize}
+
+\subsubsection{Normal ordering}
+为了解决能量的无穷大情况，我们定义了一个作用 normal ordering ，我们将其效果定义为
+\begin{equation*}
+    N\left[\hat{A}\hat{B}\hat{C}^\dagger\cdots \hat{X}^\dagger\hat{Y}\hat{Z}\right] = 
+    \begin{pmatrix}
+        Operators\ rearranged\ with\ all \\
+        creation\ operators\ on\ the\ left 
+    \end{pmatrix}
+\end{equation*}
+
+在定义了这个作用之后，我们继续完成我们的正则量子化的第五步，重新给出哈密顿量
+\begin{equation*}
+    \hat{H} = \frac{1}{2}\int d^3p E_{\vec{p}}\left(\hat{a}_{\vec{p}}\hat{a}_{\vec{p}}^\dagger + \hat{a}_{\vec{p}}^\dagger \hat{a}_{\vec{p}}\right)
+\end{equation*}
+
+对其作用上 normal ordering
+\begin{align*}
+    N\left[\hat{H}\right] &= \frac{1}{2}\int d^3p E_{\vec{p}} N\left[\hat{a}_{\vec{p}}\hat{a}_{\vec{p}}^\dagger + \hat{a}_{\vec{p}}^\dagger \hat{a}_{\vec{p}}\right] \\
+    &= \frac{1}{2}\int d^3p E_{\vec{p}}2\hat{a}_{\vec{p}}^dagger\hat{a}_{\vec{p}} \\
+    &=\int d^3 p E_{\vec{p}} \hat{n}_{\vec{p}}
+\end{align*}
+
+
+\section{传播子与微扰}
+
+\subsection{传播子与格林函数}
+
 
 
 \subsection{相互作用绘景}
