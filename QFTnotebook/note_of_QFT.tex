@@ -1534,8 +1534,38 @@ right = 3cm         %右页边距
 
 \section{传播子与微扰}
 
-\subsection{传播子与格林函数}
+在我们执行量子力学的时候，我们有一种方法是通过计算波函数以及作用在其上的算符。另外一种方法是直接考虑某一个给定过程的振幅，例如“对于一个起始于 $(t_y,y)$ 并且终止于 $(x,t_x)$ 的一个例子的振幅”，我们将其记作 $\bra{x(t_x)}\ket{y(t_y)}$，这个振幅就是我们所说的传播子(propagater)。并且一个单粒子的传播子的数学表达我们可以使用粒子的运动方程的格林函数来表示。
 
+\subsection{传播子与格林函数}
+这里我们将要先介绍一下格林函数的概念
+
+首先对于一个微分方程，我们可以使用线性微分算子 $\hat{L}$ 来表示
+\begin{equation*}
+    \hat{L} x(t) = f(t)
+\end{equation*}
+
+我们将一个线性微分算子 $\hat{L}$ 的格林函数 $G(t,u)$ 通过一个方程定义为
+\begin{equation*}
+    \hat{L} G(x,t) = \delta (t - u)
+\end{equation*}
+
+给一个例子来描述一下
+\begin{example}
+    对于一个质量为 $m$ 弹性系数为 $K$ 的谐振子在一个随时间变化的影响 $f(t)$ 的作用下，其运动方程为 
+    \begin{equation*}
+        m\frac{d^2}{dx^2}{x} + Kx = f(t)
+    \end{equation*}
+
+    这里的线性微分算子为 $\displaystyle \hat{L} = m\frac{d^2}{dx^2} + K$，同时，我们可以通过叠加很多的 $\delta$ 函数来表示 $f(t)$，即
+    \begin{equation*}
+        f(t) = \int_0^\infty du f(u) \delta (t - u) 
+    \end{equation*}
+    
+    这时，我将给出这个谐振子的格林函数
+    \begin{equation*}
+        \left[m\frac{d^2}{dx^2} + K\right]G(u,t) = \delta(t - u)
+    \end{equation*}
+\end{example}
 
 
 \subsection{相互作用绘景}

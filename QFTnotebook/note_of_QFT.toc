@@ -26,8 +26,8 @@
 \contentsline {subsection}{\numberline {3.2}场的正则量子化}{24}{subsection.3.2}%
 \contentsline {subsubsection}{\numberline {3.2.1}正则量子化机器}{24}{subsubsection.3.2.1}%
 \contentsline {subsubsection}{\numberline {3.2.2}Normal ordering}{26}{subsubsection.3.2.2}%
-\contentsline {section}{\numberline {4}传播子与微扰}{27}{section.4}%
-\contentsline {subsection}{\numberline {4.1}传播子与格林函数}{27}{subsection.4.1}%
+\contentsline {section}{\numberline {4}传播子与微扰}{26}{section.4}%
+\contentsline {subsection}{\numberline {4.1}传播子与格林函数}{26}{subsection.4.1}%
 \contentsline {subsection}{\numberline {4.2}相互作用绘景}{27}{subsection.4.2}%
 \contentsline {subsection}{\numberline {4.3}散射振幅与其计算}{27}{subsection.4.3}%
 \contentsline {subsection}{\numberline {4.4}路径积分}{27}{subsection.4.4}%
