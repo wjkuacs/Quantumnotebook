@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2025.2.20)  9 MAR 2025 22:35
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2025.2.20)  21 MAR 2025 12:36
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1169,21 +1169,43 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-9.33955pt}.
 
 [26]
+File: 院徽.jpg Graphic file (type bmp)
+<院徽.jpg>
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 21.33955pt, for example:
+(fancyhdr)                \setlength{\headheight}{21.33955pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-9.33955pt}.
+
+[27]
+File: 院徽.jpg Graphic file (type bmp)
+<院徽.jpg>
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 21.33955pt, for example:
+(fancyhdr)                \setlength{\headheight}{21.33955pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-9.33955pt}.
+
+[28]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1586.
+(hyperref)                removing `math shift' on input line 1702.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\phi' on input line 1586.
+(hyperref)                removing `\phi' on input line 1702.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 1586.
+(hyperref)                removing `superscript' on input line 1702.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1586.
+(hyperref)                removing `math shift' on input line 1702.
 
 File: 院徽.jpg Graphic file (type bmp)
 <院徽.jpg>
@@ -1194,21 +1216,28 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-9.33955pt}.
 
-[27] (./note_of_QFT.aux)
+[29] (./note_of_QFT.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2022/07/14>
  ***********
-Package rerunfilecheck Info: File `note_of_QFT.out' has not changed.
-(rerunfilecheck)             Checksum: 2E44B7E14902F0CE8F25BDBC0BF586BC;5332.
+
+
+Package rerunfilecheck Warning: File `note_of_QFT.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `note_of_QFT.out':
+(rerunfilecheck)             Before: E2B001EFC0C2980B8615FDB5EC6ED9FD;5440
+(rerunfilecheck)             After:  11FA5443208CB581118C2E6B60225A7F;5602.
  ) 
 Here is how much of TeX's memory you used:
- 40731 strings out of 474878
- 1015124 string characters out of 5762516
+ 40732 strings out of 474878
+ 1015140 string characters out of 5762516
  1944627 words of memory out of 5000000
- 62109 multiletter control sequences out of 15000+600000
+ 62110 multiletter control sequences out of 15000+600000
  568267 words of font info for 109 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  103i,16n,107p,728b,749s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on note_of_QFT.pdf (27 pages).
+Output written on note_of_QFT.pdf (29 pages).
