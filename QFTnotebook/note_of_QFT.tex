@@ -1575,7 +1575,7 @@ right = 3cm         %右页边距
 在这里我们已经很明晰为什么我们的格林函数需要两个变量了，其中一个是我们所关心的量，在这里的例子里就是时间 $t$ ，而另外一个变量则是为了来描述我们的 $\delta(t - u)$ 函数的位置
 
 
-\subsubsection{量子力学中的传播子}
+\subsection{量子力学中的传播子}
 我们知道描述波函数 $\phi(x,t)$ 变化的方程是薛定谔方程 
 \begin{equation*}
     \hat{H}\phi(x,t) = i\frac{\partial}{\partial t}\phi(x,t)
@@ -1642,13 +1642,18 @@ right = 3cm         %右页边距
     &= \theta(t_x - t_y) \sqrt{\frac{m}{2\pi i(t_x - t_y)}} e^{\frac{im(x - y)^2}{2(t_x - t_y)}}
 \end{align*}
 
-接下来，我们将传播子从空间时空里转换到空间能量中，也就是 $G^{+}(x,y,E)$
+
 
 \subsection{传播子的量子力学与微扰理论}
+在前面的内容当中我们已经利用了我们对量子力学的了解来推导出单粒子传播子的一些特性。事实上，我们想扭转这种情况。如果我们从传播子开始，我们可以了解粒子的哪些信息？通过考虑格林函数的另一种形式，同样是空间的函数，但这次是在频率/能量域中。
+
+接下来，我们将传播子从空间时空里转换到空间能量中，也就是 $G^{+}(x,y,E)$
+
 我们假定粒子产生的时刻为 $t_y = 0$并且湮灭在时刻 $t_x = t$,因此我们的传播子形式为
 \begin{equation*}
     G^{+}(t,x;0,y) = \theta(t) \sum_n \phi_n(x)\phi_n^\star(y)e^{-iE_n t}
 \end{equation*}
+
 
 接下来对时间和能量做一个傅里叶变换，有
 \begin{align*}
@@ -1666,10 +1671,87 @@ right = 3cm         %右页边距
 
 当然，我么也可以计算出其连续形式，这主要取决于 $\theta(t)$
 \begin{equation*}
-    \theta(t) = i \int_{-\infty}^{\infty} \frac{dz}{2\pi}\frac{e^{izt}}{z + i\epsilon}
+    \theta(t) = i \int_{-\infty}^{\infty} \frac{dz}{2\pi}\frac{e^{-izt}}{z + i\epsilon}
 \end{equation*}
 
-借助这个，我们的
+借助这个，我们可以继续计算出其传播子的连续形式
+\begin{align*}
+    G^{+}(x,y,E) &= \int_{-\infty}^{\infty} \int_{0}^{\infty} \frac{i}{2\pi}e^{i(E - E_p -z)t} dt dz\\
+    &= \int_{-\infty}^{\infty} \frac{i}{z + i \epsilon} \delta(E - E_p -z) dz \\
+    &= \frac{i}{E - E_p + i\epsilon}
+\end{align*}
+
+在计算完之后，我们仔细看一看这些传播子能告诉我们一些什么样的信息，这里给出两个信息：
+\begin{enumerate}
+    \item 当 $E = E_n$，即能量等于某个本征态的能量的时候，将会出现奇点
+    \item 奇点处的留数即为我们的 $i$ 倍波函数
+\end{enumerate}
+
+因此，我们可以断言，在我们写下了传播子之后，我们将会知道系统的能量以及波函数的信息。
+
+事实上，我们的传播子在微扰计算当中能起到非常大的作用，在现实当中，很多的量子力学问题都是不能够精确求解的，所以我们发展出了微扰计算方法，这个方法当中，我们将系统的哈密顿量分为两部分：$\hat{H} = \hat{H}_0 + V$，这当中，一部分是被解出来的哈密顿量，另一部分则是微扰项。
+
+回顾一下我们对于格林函数的定义并结合量子力学的薛定谔方程，我们可以将其写为
+\begin{equation*}
+    \left(\hat{H} - \hat{E}\right) G = -i\delta(x - y)
+\end{equation*}
+
+将其写成矩阵形式,我们有 
+\begin{equation*}
+    \left(E - H\right)G = -I
+\end{equation*}
+
+因此，我们可以直接将格林函数写成
+\begin{equation*}
+    G = \frac{1}{E - H}
+\end{equation*}
+
+我们需要牢牢记住的一点是：格林函数描述的是一个粒子从 $y$ 传播到 $x$ 的过程。因此，格林函数使我们能够从传播粒子的角度来解释扰动问题，我们将问题的可解部分视为从一点传播到另一点的粒子，将扰动 $V$ 视为中断传播的散射过程。
+
+基于这一点，我们将一个体系的哈密顿量进行分解
+\begin{align*}
+    G &= \frac{1}{E - H_0 - V} \\
+    &= \frac{1}{E - H_0} + \frac{1}{E - H_0}V\frac{1}{E - H_0} + \frac{1}{E - H_0}V\frac{1}{E - H_0}V\frac{1}{E - H_0} + \cdots
+\end{align*}
+
+在这里面，我们已经解出亦或是可以解出的部分即为
+\begin{equation*}
+    G_0 = \frac{1}{E - H_0}
+\end{equation*}
+
+因此，我们可以将系统本身的格林函数写作
+\begin{align*}
+    G &= G_0 + G_0VG_0 + G_0VG_0VG_0 + \cdots\\
+    &= G_0\left(1 + V G_0 + V G_0 V G_0 + \cdots\right)
+\end{align*}
+
+根据我们之前所描述的，我们已经将问题分解为了两个部分：可解部分视为从一点传播到另一点的粒子，将扰动 $V$ 视为中断传播的散射过程。
+
+接下来我将给出三个图形来描述这个过程
+\begin{figure}[H]
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \includegraphics[width = 0.3\textwidth]{figure/总的格林函数.png}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \includegraphics[width = 0.3\textwidth]{figure/自由粒子格林函数.png}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \includegraphics[width = 0.3\textwidth]{figure/一阶微扰格林函数.png}
+    \end{minipage}
+\end{figure}
+
+基于此，我们可以给出格林函数的微扰展开形式
+\begin{figure}[hbpt]
+    \centering
+    \includegraphics[width = 0.5\textwidth]{figure/格林函数微扰展开.png}
+\end{figure}
+
+
 
 
 
