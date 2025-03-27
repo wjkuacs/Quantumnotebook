@@ -1722,8 +1722,13 @@ right = 3cm         %右页边距
 因此，我们可以将系统本身的格林函数写作
 \begin{align*}
     G &= G_0 + G_0VG_0 + G_0VG_0VG_0 + \cdots\\
-    &= G_0\left(1 + V G_0 + V G_0 V G_0 + \cdots\right)
+    &= G_0\left(1 + V G_0 + V G_0 V G_0 + \cdots\right) \\
+    &= G_0\left(1 + \sum_{n = 1}^{\infty} V G_0^n\right) \\
+    &= \frac{G_0}{1 - V G_0} \\
+    &= \frac{1}{G_0^{-1} - V}
 \end{align*}
+
+注意到，这个最终结果是一个非微扰的结果，因为我们考虑到了其无穷项。
 
 根据我们之前所描述的，我们已经将问题分解为了两个部分：可解部分视为从一点传播到另一点的粒子，将扰动 $V$ 视为中断传播的散射过程。
 
@@ -1757,11 +1762,62 @@ right = 3cm         %右页边距
 
 事实上，我们在计算一个粒子的传播子时，我们并不容易知道粒子的位置信息，因此，我们将使用动量来表示
 \begin{align*}
-    G^{+}_0
+    G^{+}_0(p,t_x;q,t_y) &= \theta(t_x - t_y) \bra{p}\hat{U}(t_x - t_y)\ket{q} \\
+    &= \theta(t_x - t_y) \bra{p}\hat{U}\ket{q}e^{-iE_{\vec{q}}(t_x - t_y)} \\
+    &= \theta(t_x - t_y) \delta(p - q)e^{-iE_{\vec{q}}(t_x - t_y)}
+\end{align*}
+
+通过这个计算我们可以看出，自由粒子是不可以改变他的动量本征态的，受限制于 $\delta(p - q)$ 其形式只能是
+\begin{equation*}
+    G^{+}_0(p,t_x,t_y) = \theta(t_x - t_y)e^{-iE_{\vec{q}}(t_x - t_y)}
+\end{equation*}
+
+当然，这还是不够方便，如果我们使用的是动量和能量，这将会满足我们的实验数据
+\begin{align*}
+    G_0^{+}(p,E) &= \int dt e^{iEt}G_0^{+}(p,t,0) \\
+    &= \int dt e^{iEt}\theta(t)e^{-i(E_{\vec{p}} + i\epsilon) t} \\
+    &= \int_{0}^{\infty} \frac{i}{2\pi(z + i\epsilon)} e^{i(E - E_p -z)t}dt dz\\
+    &= \int_{0}^{\infty} \frac{i}{(z + i\epsilon)} \delta(E - E_p -z) dz\\
+    &= \frac{i}{E - E_p + i\epsilon}
 \end{align*}
 
 
 
+
+
+\subsection{场的传播子}
+
+就目前而止，我们所接触到的都是非相互作用理论，对于这样的理论，我们都可以通过正则量子化将系统的哈密顿量写成对角形式
+\begin{align*}
+    \hat{H}_0 &= \sum_{\vec{p}}E_{\vec{p}}\hat{a}_{\vec{p}}^\dagger\hat{a}_{\vec{p}} \\
+    &\hat{H}_0\ket{\vec{p}} = E_{\vec{p}}\ket{\vec{p}} 
+\end{align*}
+
+而在我们的相互作用理论当中，我们的拉格朗日量中将会在自由标量场的基础上将会多出相互作用项，这样将会导致我们在正则量子化之后得到的哈密顿量将不会是一个对角化的形式（接下来我们对于非相互作用的量都会有一个下标 $0$）
+\begin{equation*}
+    \hat{H} = \hat{H}_0 + \hat{H}^\prime
+\end{equation*}
+
+\begin{table*}[hbpt]
+    \centering
+    \caption{非相互作用与相互作用理论对照}
+    \begin{tabular*}{0.8\textwidth}{cc}
+        \hline
+        非相互作用理论 & 相互作用理论 \\
+        \hline
+        $\hat{H}_0$ & $\hat{H} = \hat{H}_0 + \hat{H}^\prime$ \\
+        \hline 
+        $\ket{0}$ & $\ket{\Omega}$ \\
+        \hline
+        $G_0(x,y)$ & $G(x,y)$ \\
+        \hline
+    \end{tabular*}
+\end{table*}
+
+接下来我们来开始正式的定义一下场的传播子，我们要求在时空点 $(y^0,\vec{y})$ 创造出我们的新粒子，并且与系统发生相互作用，这将可能导致场的激发亦或是其他所有可能涉及的过程，然后这个新粒子将会移动到时空点 $(x^0,\vec{x})$ 湮灭。这个过程的概率幅度将会是我们的传播子 $G(x,y)$，我们将其定义为 
+\begin{equation*}
+    G^{+}(x,y) = \bra{\Omega}\left( Particle\ annihilated\ at\ (x^0,\vec{x})\right)\left(Particle\ created\ at\ (y^0,\vec{y})\right)\ket{\Omega}
+\end{equation*}
 
 
 
