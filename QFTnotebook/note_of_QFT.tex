@@ -1798,26 +1798,58 @@ right = 3cm         %右页边距
     \hat{H} = \hat{H}_0 + \hat{H}^\prime
 \end{equation*}
 
-\begin{table*}[hbpt]
+\begin{table}[hbpt]
     \centering
     \caption{非相互作用与相互作用理论对照}
-    \begin{tabular*}{0.8\textwidth}{cc}
+    \begin{tabular*}{0.4\textwidth}{cc}
         \hline
-        非相互作用理论 & 相互作用理论 \\
-        \hline
-        $\hat{H}_0$ & $\hat{H} = \hat{H}_0 + \hat{H}^\prime$ \\
-        \hline 
-        $\ket{0}$ & $\ket{\Omega}$ \\
-        \hline
-        $G_0(x,y)$ & $G(x,y)$ \\
-        \hline
+        非相互作用理论 & 相互作用理论 \\ \hline
+        $\hat{H}_0$ & $\hat{H} = \hat{H}_0 + \hat{H}^\prime$ \\ \hline 
+        $\ket{0}$ & $\ket{\Omega}$ \\ \hline
+        $G_0(x,y)$ & $G(x,y)$ \\ \hline
     \end{tabular*}
-\end{table*}
+\end{table}
 
 接下来我们来开始正式的定义一下场的传播子，我们要求在时空点 $(y^0,\vec{y})$ 创造出我们的新粒子，并且与系统发生相互作用，这将可能导致场的激发亦或是其他所有可能涉及的过程，然后这个新粒子将会移动到时空点 $(x^0,\vec{x})$ 湮灭。这个过程的概率幅度将会是我们的传播子 $G(x,y)$，我们将其定义为 
 \begin{equation*}
     G^{+}(x,y) = \bra{\Omega}\left( Particle\ annihilated\ at\ (x^0,\vec{x})\right)\left(Particle\ created\ at\ (y^0,\vec{y})\right)\ket{\Omega}
 \end{equation*}
+
+根据这个，给出有相互作用标量场传播子的具体形式
+\begin{align*}
+    G(x,y) &= \bra{\Omega}\hat{\phi}(x)\hat{\phi}^\dagger(y)\ket{\Omega} \\
+    &= \bra{\Omega}e^{i\hat{H}x^0}\hat{\phi}(\vec{x})e^{-i\hat{H}(x^0 - y^0)}\hat{\phi}^\dagger(\vec{y})e^{-i\hat{H}y^0}\ket{\Omega} 
+\end{align*}
+
+需要的话可以进行一个逐项分析
+\begin{itemize}
+    \item $e^{-i\hat{H}y^0}\ket{\Omega}$ 表示的是 真空态 $\ket{\Omega}$ 演化到时间 $t^0$
+    \item $\hat{\phi}^\dagger(\vec{y})e^{-i\hat{H}y^0}\ket{\Omega}$ 表示真空态 $\ket{\Omega}$ 将会在时间点 $y^0$ 位置 $\vec{y}$ 产生一个粒子
+    \item $e^{-i\hat{H}(x^0 - y^0)}\hat{\phi}^\dagger(\vec{y})e^{-i\hat{H}y^0}\ket{\Omega}$ 这一项表明真空态将要演化到时间 $x^0$
+    \item 紧接着，我们将 $e^{i\hat{H}x^0}\hat{\phi}(\vec{x})$ 作用到态上，这表明我们将在 $x^0$ 这个时间湮灭掉这个粒子
+    \item 最后，我们将真空态 $\bra{\Omega}$ 作用回到我们的场上，这是在寻找还有多少初始的真空态留在最终态中。
+\end{itemize}
+
+\subsection{费曼传播子}
+在上面的描述当中，我们可以发现,传播子在一定程度上只能描述粒子的运动，但是却丢失了反粒子的信息，这是我们所不想看见的，为此，理查德费曼提出了费曼传播子，这个传播子将会包含了反粒子的信息。
+
+在这里，将会使用到 \textbf{Wick time-ordering symbol} $T$,需要注意的是这不是一个算符，我们将其定义为
+\begin{equation*}
+    T\hat{\phi}(x^0)\hat{\phi}(y^0) =
+    \begin{cases}
+        \hat{\phi}(y^0)\hat{\phi}(x^0) &\quad x^0 < y^0 \\
+        \hat{\phi}(x^0)\hat{\phi}(y^0) &\quad x^0 > y^0 \\
+    \end{cases}
+\end{equation*}
+
+这将使得我们的标量场总是时间早的在右边，时间晚的在左边，紧接着，我们将费曼传播子定义为
+\begin{align*}
+    G(x,y) &= \bra{\Omega}T\hat{\phi}(x)\hat{\phi}^\dagger(y)\ket{\Omega} \\
+    &= \theta(x^0 - y^0)\bra{\Omega}\hat{\phi}(x)\hat{\phi}^\dagger(y)\ket{\Omega} + \theta(y^0 - x^0)\bra{\Omega}\hat{\phi}^\dagger(y)\hat{\phi}(x)\ket{\Omega}
+\end{align*}
+
+这里的 $\ket{\Omega}$ 就是相互作用系统的基态，而传播子也因此将会有两项，第一项 $x^0$ 晚于 $y^0$ ：它产生了一个粒子在 $\vec{y}$ 并将其传播到了这个粒子即将湮灭的位置 $\vec{x}$ ；第二项 $y^0$ 晚于 $x^0$ ：它产生了一个反粒子在 $\vec{x}$ 并将其传播到了这个反粒子即将湮灭的位置 $\vec{y}$ ，将这两项合并在一起就是总的传播子。
+
 
 
 
