@@ -1850,11 +1850,23 @@ right = 3cm         %右页边距
 
 这里的 $\ket{\Omega}$ 就是相互作用系统的基态，而传播子也因此将会有两项，第一项 $x^0$ 晚于 $y^0$ ：它产生了一个粒子在 $\vec{y}$ 并将其传播到了这个粒子即将湮灭的位置 $\vec{x}$ ；第二项 $y^0$ 晚于 $x^0$ ：它产生了一个反粒子在 $\vec{x}$ 并将其传播到了这个反粒子即将湮灭的位置 $\vec{y}$ ，将这两项合并在一起就是总的传播子。
 
+同样的，如果我们描述的粒子是一个非相互作用的，那么也是一样，只不过基态变为了 $\ket{0}$ ，而传播子也变为了
+\begin{align*}
+    \Delta(x,y) = G(x,y) &= \bra{0}T\hat{\phi}(x)\hat{\phi}^\dagger(y)\ket{0} \\
+    &= \int \frac{d^3p}{\left(2\pi\right)^3\left(2E_{\vec{p}}\right)}\left[\theta(x^0 - y^0)e^{-ip\cdot(x - y)} + \theta(y^0 - x^0)e^{ip\cdot\left(x - y\right)}\right]
+\end{align*}
+
+给出一个图来描述费曼传播子
+\begin{figure}[hbpt]
+    \centering
+    \includegraphics[width = 0.5\textwidth]{figure/费曼传播子.png}
+\end{figure}
 
 
 
 
-\subsection{相互作用绘景}
+
+\section{S Matrix}
 
 
 
@@ -1865,42 +1877,8 @@ right = 3cm         %右页边距
 \subsection{散射振幅与其计算}
 
 
-\subsection{路径积分}
 
 
-
-\subsection{$\phi^4$ Theory}
-
-
-\section{Poincare Algebra}
-
-
-\subsection{Lie Group}
-
-
-
-\subsection{Lie Algebra}
-
-
-
-\subsection{单粒子态}
-
-
-
-
-\subsection{时间反演与空间反演}
-
-
-
-
-\subsection{S 矩阵}
-
-\subsection{共形代数(Conformal Algebra)}
-
-
-
-
-\section{Maxwell Field}
 
 
 
