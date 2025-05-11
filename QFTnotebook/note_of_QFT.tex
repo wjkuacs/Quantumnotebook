@@ -5,6 +5,7 @@
 \usepackage{amsthm}
 \usepackage{amsfonts}
 \usepackage{physics}
+\usepackage{simpler-wick}
 \usepackage{geometry}
 \usepackage{graphicx}
 \usepackage{pgfplots}
@@ -1868,8 +1869,142 @@ right = 3cm         %右页边距
 
 \section{S Matrix}
 
+\subsection{相互作用表象(interaction representation)}
+在讲解 S 矩阵之前，我们需要先介绍一下相互作用表象的概念。我们知道在量子力学当中，我们有两种表象：海森堡表象和薛定谔表象，这两种表象分别对应着算符和态矢量的演化，但是海森堡表象当中算符是时间相关的而太矢量是时间无关的；薛定谔表象则相反，算符是时间无关的而态矢量是时间相关的，除了这两种表象外，为了描述相互作用，我们需要一种算符以及态矢量都随时间演化的表象，这就是相互作用表象。
+
+在我们的理论当中，会有很多的接近于现实世界的一些模型，比如我们的谐振子还有自由粒子等等，但是它们终归不是真的符合现实世界的，因此，我们一般将现实的哈密顿量 $\hat{H}$ 给分成两部分，一部分是自由状态的哈密顿量 $ \hat{H}_0 $ ，而对于那些难以描述的所谓的复杂的过程，我们将其处理为相互作用项 $ \hat{H}^\prime $ ，同时对于自由项，其一定是随着时间演化的且易于求解的，因此我们认为在相互作用绘景下的算符将通过自由项 $ \hat{H}_0 $ 来演化的，即
+\begin{equation}
+    \hat{O}_I(t) = e^{i\hat{H}_0 t}\hat{O}e^{-i\hat{H}_0 t}
+\end{equation} 
+
+很显然，由于我们考虑的是自由项的哈密顿量的演化，所以他一定是遵循海森堡的算符的运动方程
+\begin{equation}
+    i \frac{d\hat{O}_I}{dt} = \left[\hat{O}_I(t) ,\hat{H}_0\right]
+\end{equation}
+
+但是这并没有包含有 $ \hat{H}^\prime $ ，因为一旦我们将其一并考虑进去，我们的态矢量也将一并随时间演化，这是海森堡绘景当中所不曾设计的，因此我们还需要将其与薛定谔绘景当中态矢量随时间演化相结合，可以得到
+\begin{equation}
+    \bar{\phi(t)}\hat{O}\ket{\psi(t)} = \bar{\phi_I(t)}\hat{O}_I\ket{\psi_I(t)}
+\end{equation}
+
+根据薛定谔绘景，我们可以得到
+\begin{equation}
+    \ket{\psi_I(t)} = e^{i\hat{H}_0 t}\ket{\psi(t)}
+\end{equation}
+
+接下来计算一下其关于时间的演化关系
+\begin{eqnarray*}
+    i\frac{d}{dt} \ket{\psi_I(t)} &=& e^{i\hat{H}_0 t}\left(-\hat{H}_0 + i\frac{d}{dt}\right)\ket{\psi(t)} \\
+    &=& e^{i\hat{H}_0 t}\left(-\hat{H}_0 + \hat{H}\right)\ket{\psi(t)} \\
+    &=& e^{i\hat{H}_0 t}\hat{H}^\prime\ket{\psi(t)} \\
+    &=& e^{i\hat{H}_0 t}\hat{H}^\prime e^{-i\hat{H}_0 t}\ket{\psi_I(t)} \\
+    &=& \hat{H}^\prime_I(t)\ket{\psi_I(t)}
+\end{eqnarray*}
+
+其中， $ \displaystyle \hat{H}_I(t) = e^{i\hat{H}_0 t}\hat{H}^\prime e^{-i\hat{H}_0 t} $ 
+
+根据此，我们便可以定义出相互作用绘景：
+\begin{enumerate}
+    \item 算符和态矢量均随时间演化
+    \item 算符的演化由非相互作用部分的哈密顿量所导致
+    \item 态矢量的演化由相互作用部分的哈密顿量所导致
+\end{enumerate}
+
+\subsection{S-matirx}
+s-matirx 的想法由 John Wheeler 所提出，这个东西更像是一个时间演化算符，但不同的是他其中蕴含着散射的过程。
+
+接下来我们给定两个粒子使其发生对心碰撞，接着这两个粒子在碰撞的那一瞬间发生了一系列的复杂反应并最终又以两个粒子散射出去，正如我们之前在相互作用绘景那一章所介绍的，我们一般将这样一个散射过程体系的哈密顿量拆分为两部分，一部分是无相互作用下的哈密顿量量外一部分是相互作用项的哈密顿量。需要注意的是，接下来我们是工作在 Heisenberg representation 的，所以记住我们的态矢量是不随时间演化的，那么对于简单世界（无相互作用）下的两个粒子其动量表象下的态矢量可以记作为 $ \ket{\psi} = \ket{p_2p_1}_{simpleworld} $ ，接着给出另外一个描述两个粒子在动量表象下的态矢量 $ \ket{\phi} = \ket{q_2q_1}_{simpleworld} $ ，与此同时，在现实世界当中给出一个存在的一个散射过程，当两个入射粒子一开始相距非常远的时候(可以认为是 $ t\to -\infty $ 的时候)我们给出一个态矢量 $ \ket{p_1p_2}_{realworld}^{in} $ ，当他们发生完散射之后，可能形成了两个（也有可能是多个或是一个，但这里我们假设是两个）粒子（可能并未发生改变，也有可能是全新的两个粒子），当他们相距非常远的时候(大概是 $ t \to \infty $ 的时候) 给出这个状态下的态矢量 $ \ket{q_1q_2}_{realworld}^{out} $ ，于是，我们可以通过让这两个态矢量作内积来得到这个散射过程的散射振幅 $ \mathcal{A} $  
+\begin{equation}
+    \mathcal{A} = ^{out}_{realworld}\braket{q_1q_2}{p_1p_2}_{realworld}^{in}
+\end{equation}
+
+但是这显然是很难计算出来的，为此我们需要寻找到在之前所定义的简单世界中的振幅与现实世界中的散射振幅之间的关系，为此，我们定义了 S-matrix
+\begin{equation}
+    \mathcal{A} = ^{out}_{realworld}\braket{q_1q_2}{p_1p_2}_{realworld}^{in} = _{simpleworld}\bra{q_1q_2}\hat{S}\ket{q_2q_1}_{simpleworld}
+\end{equation}
+
+因此，这个 $ \hat{S} $ 当中蕴含着我们想要从某个特定的初态到某一个特定的末态的散射振幅的信息，除此以外，为了能够计算出我们想要的散射振幅，我们还需要两样东西
+\begin{enumerate}
+    \item 找到一个合适的简单世界的哈密顿量 $ \hat{H}_0 $ 并以此来描述我们的类似与入态和出态的态矢量
+    \item 计算出 $ \hat{S} $ 的表达形式的方法，这样我们才可以利用 $ _{simpleworld}\bra{q_1q_2}\hat{S}\ket{q_2q_1}_{simpleworld} $ 来计算出我们想要的散射振幅
+\end{enumerate}
 
 
+\subsection{The formular of S-matrix}
+根据上面的讲解，我们知道所谓的入态和出态都是在时间处于无穷的时候，这也就是说在一开始，体系哈密顿量的相互作用项是可以忽略的，这种假设使得我们可以将 realworld 的态矢量写成 simpleworld 的态矢量，即
+\begin{equation}
+    \ket{\phi}_{simpleworld} = \ket{\phi_I(\pm \infty)}
+\end{equation}
+
+这意味着他们是 $ \hat{H}_0 $ 的本征矢量，因此，我们完全可以使用 $ \hat{H}_0 $ 的真空态以及产生湮灭算符来构建出我们的入态和出态.
+
+随着时间的演化，慢慢的 $ \hat{H}_I $ 慢慢的将变得不可忽略，这也使得本征态的演化变得复杂起来，但到最后我们的 $ \hat{H}_I $ 将重新变得可以忽略，我们一般可以用一个系数来表示相互作用项占完整的哈密顿量的比例
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.4\textwidth]{figure/相互作用系数随时间的变化.png}
+\caption{相互作用系数随时间的变化}
+\label{fig1}
+\end{figure}
+
+如此一番定义，其实 $ \hat{S} $ 的形式已经昭然若揭，除此之外，我们还知道，当在初始时刻 $ t=0 $ 时，对于我们之前所提到的三个绘景，其测量应该是一样的，因此我们写出如下的式子，
+\begin{eqnarray}
+    _{simpleworld}\bar{\phi}\hat{S}\ket{\psi}_{simpleworld} &=& \braket{\phi_I(0)}{\psi_I(0)} \nonumber \\
+    &=& \bra{\phi_I(\infty)}\hat{U}_I(\infty,0)\hat{0,-\infty}\ket{\psi_I(-\infty)} \nonumber \\
+    &=& \bra{\phi_I(\infty)}\hat{U}_I(\infty,-\infty)\ket{\psi_I(-\infty)}  \\
+    &=& _{simpleworld}\bar{\phi}\hat{U}_I(\infty,-\infty)\ket{\psi}_{simpleworld}
+\end{eqnarray}
+
+据此，我们断言 $ \hat{S} $ 是相互作用绘景下的时间演化算符 $ \hat{U}_I(t,-t) $ 当 $ t \to \infty $ 的时候的极限。
+
+所以，为了得到我们的 $ \hat{S} $ 的具体形式，我们还需要求解出相互作用绘景下的时间演化算符，在上上节当中我们有提到其方程
+\begin{equation}
+    i\frac{d}{dt}\hat{U}_I(t,t_0) = \hat{H}^\prime_I(t)\hat{U}_I(t,t_0)
+\end{equation}
+
+对于这个方程，我们可以通过不断的迭代求解出一个级数解
+\begin{equation}
+    \hat{U}_I(t,t_0) = 1 + \left(-i\right)\int_{t_0}^{t} dt_1\hat{H}_I(t_1) + \left(-i\right)^2 \int_{t_0}^{t}dt_1\int_{t_0}^{t_1}dt_2\hat{H}_I(t_1)\hat{H}_I(t_2) + \cdots
+\end{equation}
+
+通过观察这个展开式，我们可以发现其积分顺序是完全遵守时间从早到晚的顺序，这意味着我们可以使用 $ \hat{T} $ 来化简这个表达式
+\begin{equation*}
+    \left(-i\right)^2 \int_{t_0}^{t}dt_1\int_{t_0}^{t_1}dt_2\hat{H}_I(t_1)\hat{H}_I(t_2) = \frac{\left(-i\right)^2}{2} \int_{t_0}^{t}dt_1\int_{t_0}^{t}dt_2\hat{T}\left[\hat{H}_I(t_1)\hat{H}_I(t_2)\right]
+\end{equation*}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.6\textwidth]{figure/时间排序示意图.png}
+    \label{fig2}
+    \end{figure}
+
+同理，剩余的部分我也可以用这样的方式来化简，最后我们得到
+\begin{eqnarray*}
+    &&\int_{t_0}^{t_1}dt_1\int_{t_0}^{t_2}dt_2\int_{t_0}^{t_3}dt_3 \cdots \int_{t_0}^{t_{n-1}} dt_n \hat{H}_I(t_1)\hat{H}_I(t_2)\cdots\hat{H}_I(t_n) \\
+    &=&\frac{1}{A_n^n}\int_{t_0}^{t}dt_1\int_{t_0}^{t}dt_2\cdots\int_{t_0}^{t}dt_n \hat{T}\left[\hat{H}_I(t_1)\hat{H}_I(t_2)\cdots\hat{H}_I(t_n)\right]
+\end{eqnarray*}
+
+求和可以得到相互作用绘景下的时间演化算符
+\begin{equation}
+    \hat{U}_I(t,t_0) = T\left\{\exp\left[-i\int_{t_0}^{t}dt^\prime \hat{H}_I(t^\prime)\right]\right\}
+\end{equation}
+
+
+
+终于，可以将 $ \hat{S} $ 求解出来了
+\begin{equation*}
+    \hat{S} = T\left\{\exp\left[-i\int_{-\infty}^{+\infty}dt^\prime \hat{H}_I(t^\prime)\right]\right\}
+\end{equation*}
+
+转化为哈密顿量密度，得到
+\begin{equation}
+    \hat{S} = T\left\{\exp\left[-i\int_{-\infty}^{+\infty}d^4x \hat{H}_I(x)\right]\right\}
+\end{equation}
+
+\begin{equation}
+    \wick{
+        \c1 \phi_1^+ (x)  \c1 \phi_1^- (y)
+    }
+\end{equation}
 
 
 
