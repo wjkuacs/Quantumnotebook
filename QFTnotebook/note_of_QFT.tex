@@ -5,7 +5,6 @@
 \usepackage{amsthm}
 \usepackage{amsfonts}
 \usepackage{physics}
-\usepackage{simpler-wick}
 \usepackage{geometry}
 \usepackage{graphicx}
 \usepackage{pgfplots}
@@ -1535,476 +1534,14 @@ right = 3cm         %右页边距
 
 \section{传播子与微扰}
 
-在我们执行量子力学的时候，我们有一种方法是通过计算波函数以及作用在其上的算符。另外一种方法是直接考虑某一个给定过程的振幅，例如“对于一个起始于 $(t_y,y)$ 并且终止于 $(x,t_x)$ 的一个例子的振幅”，我们将其记作 $\bra{x(t_x)}\ket{y(t_y)}$，这个振幅就是我们所说的传播子(propagater)。并且一个单粒子的传播子的数学表达我们可以使用粒子的运动方程的格林函数来表示。
+\subsection{传播子与格林函数}
 
-\subsection{格林函数}
-这里我们将要先介绍一下格林函数的概念
 
-首先对于一个微分方程，我们可以使用线性微分算子 $\hat{L}$ 来表示
-\begin{equation*}
-    \hat{L} x(t) = f(t)
-\end{equation*}
 
-我们将一个线性微分算子 $\hat{L}$ 的格林函数 $G(t,u)$ 通过一个方程定义为
-\begin{equation*}
-    \hat{L} G(x,t) = \delta (t - u)
-\end{equation*}
+\subsection{相互作用绘景}
 
-给一个例子来描述一下
-\begin{example}
-    对于一个质量为 $m$ 弹性系数为 $K$ 的谐振子在一个随时间变化的影响 $f(t)$ 的作用下，其运动方程为 
-    \begin{equation*}
-        m\frac{d^2}{dx^2}{x} + Kx = f(t)
-    \end{equation*}
 
-    这里的线性微分算子为 $\displaystyle \hat{L} = m\frac{d^2}{dx^2} + K$，同时，我们可以通过叠加很多的 $\delta$ 函数来表示 $f(t)$，即
-    \begin{equation*}
-        f(t) = \int_0^\infty du f(u) \delta (t - u) 
-    \end{equation*}
-    
-    这时，我将给出这个谐振子的格林函数
-    \begin{equation*}
-        \left[m\frac{d^2}{dx^2} + K\right]G(u,t) = \delta(t - u)
-    \end{equation*}
 
-    而原来的运动方程的解为
-    \begin{equation*}
-        x(t) = \int_0^\infty du G(u,t) f(u)
-    \end{equation*}
-\end{example}
-
-在这里我们已经很明晰为什么我们的格林函数需要两个变量了，其中一个是我们所关心的量，在这里的例子里就是时间 $t$ ，而另外一个变量则是为了来描述我们的 $\delta(t - u)$ 函数的位置
-
-
-\subsection{量子力学中的传播子}
-我们知道描述波函数 $\phi(x,t)$ 变化的方程是薛定谔方程 
-\begin{equation*}
-    \hat{H}\phi(x,t) = i\frac{\partial}{\partial t}\phi(x,t)
-\end{equation*}
-
-这里我们只考虑 $(1 + 1)$ 维的时空，接下来我们给出这个薛定谔方程的格林函数的形式
-\begin{equation*}
-    \phi(x,t_x) = \int dy G^{+}(x,t_x;y,t_y)\phi(y,t_y)
-\end{equation*}
-
-这里的 $G^{+}$ 被称为 time-retarded Green's function ，所想表达的是
-\begin{equation*}
-    G^+ = 
-    \begin{cases}
-        G &\quad t_x > t_y \\
-        0 &\quad t_x < t_y
-    \end{cases} 
-    = \theta(t_x - t_y)G
-\end{equation*}
-
-这样的定义将会避免粒子回到之前的时间里，很显然这是不符合物理的。
-
-同理，我们也可以定义出 time-advanced Green's function ,
-\begin{equation*}
-    G^- =
-    \begin{cases}
-        G &\quad t_x < t_y \\
-        0 &\quad t_x > t_y
-    \end{cases}
-    = \theta(t_y - t_x)G
-\end{equation*}
-
-在这里，我们的格林函数传播子将波函数从时空点 $(t_y,y)$ 演化到了时空点 $(t_x,x)$ ，这也是我们将其命名为传播子的原因。
-
-此外，我们可以认为 $\phi(y,t_y),\phi(x,t_x)$ 是在 $(y,t_y),(x,t_x)$ 找到这个粒子的几率波幅，这样的话我们的传播子 $G^+(t_x,x;t_y,y)$ 将会是粒子在 $t_y$ 处于态 $\ket{y}$ ,并且在时刻 $t_x$ 处于态 $\ket{x}$ 的几率波幅，根据这个想法，我们可以将格林函数写为
-\begin{equation*}
-    G^+(t_x,x;t_y,y) = \theta(t_x - t_y) \bra{x(t_x)}\ket{y(t_y)}
-\end{equation*}
-
-而我们的老朋友波函数则是被表示为 $\phi(x,t_x) = \braket{x}{\phi(x)}$ ，这将会是粒子在 $(t_x,x)$ 被找到的概率波幅，因此当我们开始关注粒子将会从哪里开始时，我们的传播子将包含了更多的信息。
-
-根据我们对于传播子 $G^{+}(xt_x,x:t_y,y)$ 的定义，我们结合时间演化算符来计算一下
-\begin{align*}
-    G^{+}(t_x,x;t_y,y) &= \theta(t_x - t_y) \braket{x(t_x)}{y(t_y)} \\
-    &= \theta(t_x - t_y)\bra{x}e^{-i\hat{H}(t_x - t_y)}\ket{y} \\
-    &= \theta(t_x - t_y)\sum_n\bra{x}e^{-i\hat{H}(t_x - t_y)}\ket{n}\bra{n}\ket{y} \\
-    &= \theta(t_x - t_y)\sum_n \phi_n(x)\phi_n^\star(y)e^{-iE_n(t_x - t_y)}
-\end{align*}
-
-接下来我们在计算完传播子的一般情况之后，在来计算一下在非相对论条件下，自由粒子的传播子。
-
-我们知道，对于非相对论情况下的自由粒子，其哈密顿量,本正波函数方程和本征值为
-\begin{align*}
-    \hat{H} &= \frac{\hat{p}^2}{2m} \\
-    \phi(x) &= \frac{1}{\sqrt{L}}e^{ipx} \\
-    E_p &= \frac{p^2}{2m}
-\end{align*}
-
-在这样的情况下，传播子自然可以被写为
-\begin{align*}
-    G^{+}(t_x,x;t_y,y) &= \theta(t_x - t_y) L\int \frac{dp}{2\pi} \phi_p(x) \phi_p^\star(y) e^{-i\frac{p^2}{2m}(t_x - t_y)} \\
-    &= \theta(t_x - t_y) L\int \frac{dp}{2\pi} e^{ip(x - y)} e^{-i\frac{p^2}{2m}(t_x - t_y)} \\
-    &= \theta(t_x - t_y) L\int \frac{dp}{2\pi} e^{i[(x - y)p - \frac{(t_x - t_y)}{2m}p^2]} \\
-    &= \theta(t_x - t_y) \sqrt{\frac{m}{2\pi i(t_x - t_y)}} e^{\frac{im(x - y)^2}{2(t_x - t_y)}}
-\end{align*}
-
-
-
-\subsection{传播子的量子力学与微扰理论}
-在前面的内容当中我们已经利用了我们对量子力学的了解来推导出单粒子传播子的一些特性。事实上，我们想扭转这种情况。如果我们从传播子开始，我们可以了解粒子的哪些信息？通过考虑格林函数的另一种形式，同样是空间的函数，但这次是在频率/能量域中。
-
-接下来，我们将传播子从空间时空里转换到空间能量中，也就是 $G^{+}(x,y,E)$
-
-我们假定粒子产生的时刻为 $t_y = 0$并且湮灭在时刻 $t_x = t$,因此我们的传播子形式为
-\begin{equation*}
-    G^{+}(t,x;0,y) = \theta(t) \sum_n \phi_n(x)\phi_n^\star(y)e^{-iE_n t}
-\end{equation*}
-
-
-接下来对时间和能量做一个傅里叶变换，有
-\begin{align*}
-    G^{+}(x,y,E) &= \int_{-\infty}^{\infty} \theta(t) \sum_n \phi_n(x)\phi_n^\star(y)e^{-iE_n t} e^{iEt} dt \\
-    &= \int_{0}^{\infty}\sum_n \phi_n(x)\phi_n^\star(y)e^{i(E - E_n)t}
-\end{align*}
-
-为了方便，我们给我们的能量 $E_n$ 一个很小的能量跃变 $e^{-\epsilon t}$
-
-于是，我们的传播子可以写为
-\begin{align*}
-    G^{+}(x,y,E) &= \sum_n \int_{0}^{\infty}\phi_n(x)\phi_n^\star(y)e^{i(E - E_n +i\epsilon)}dt \\
-    &= \sum_n \frac{i\phi_n(x)\phi_n^\star(y)}{E - E_n +i\epsilon}
-\end{align*}
-
-当然，我么也可以计算出其连续形式，这主要取决于 $\theta(t)$
-\begin{equation*}
-    \theta(t) = i \int_{-\infty}^{\infty} \frac{dz}{2\pi}\frac{e^{-izt}}{z + i\epsilon}
-\end{equation*}
-
-借助这个，我们可以继续计算出其传播子的连续形式
-\begin{align*}
-    G^{+}(x,y,E) &= \int_{-\infty}^{\infty} \int_{0}^{\infty} \frac{i}{2\pi}e^{i(E - E_p -z)t} dt dz\\
-    &= \int_{-\infty}^{\infty} \frac{i}{z + i \epsilon} \delta(E - E_p -z) dz \\
-    &= \frac{i}{E - E_p + i\epsilon}
-\end{align*}
-
-在计算完之后，我们仔细看一看这些传播子能告诉我们一些什么样的信息，这里给出两个信息：
-\begin{enumerate}
-    \item 当 $E = E_n$，即能量等于某个本征态的能量的时候，将会出现奇点
-    \item 奇点处的留数即为我们的 $i$ 倍波函数
-\end{enumerate}
-
-因此，我们可以断言，在我们写下了传播子之后，我们将会知道系统的能量以及波函数的信息。
-
-事实上，我们的传播子在微扰计算当中能起到非常大的作用，在现实当中，很多的量子力学问题都是不能够精确求解的，所以我们发展出了微扰计算方法，这个方法当中，我们将系统的哈密顿量分为两部分：$\hat{H} = \hat{H}_0 + V$，这当中，一部分是被解出来的哈密顿量，另一部分则是微扰项。
-
-回顾一下我们对于格林函数的定义并结合量子力学的薛定谔方程，我们可以将其写为
-\begin{equation*}
-    \left(\hat{H} - \hat{E}\right) G = -i\delta(x - y)
-\end{equation*}
-
-将其写成矩阵形式,我们有 
-\begin{equation*}
-    \left(E - H\right)G = -I
-\end{equation*}
-
-因此，我们可以直接将格林函数写成
-\begin{equation*}
-    G = \frac{1}{E - H}
-\end{equation*}
-
-我们需要牢牢记住的一点是：格林函数描述的是一个粒子从 $y$ 传播到 $x$ 的过程。因此，格林函数使我们能够从传播粒子的角度来解释扰动问题，我们将问题的可解部分视为从一点传播到另一点的粒子，将扰动 $V$ 视为中断传播的散射过程。
-
-基于这一点，我们将一个体系的哈密顿量进行分解
-\begin{align*}
-    G &= \frac{1}{E - H_0 - V} \\
-    &= \frac{1}{E - H_0} + \frac{1}{E - H_0}V\frac{1}{E - H_0} + \frac{1}{E - H_0}V\frac{1}{E - H_0}V\frac{1}{E - H_0} + \cdots
-\end{align*}
-
-在这里面，我们已经解出亦或是可以解出的部分即为
-\begin{equation*}
-    G_0 = \frac{1}{E - H_0}
-\end{equation*}
-
-因此，我们可以将系统本身的格林函数写作
-\begin{align*}
-    G &= G_0 + G_0VG_0 + G_0VG_0VG_0 + \cdots\\
-    &= G_0\left(1 + V G_0 + V G_0 V G_0 + \cdots\right) \\
-    &= G_0\left(1 + \sum_{n = 1}^{\infty} V G_0^n\right) \\
-    &= \frac{G_0}{1 - V G_0} \\
-    &= \frac{1}{G_0^{-1} - V}
-\end{align*}
-
-注意到，这个最终结果是一个非微扰的结果，因为我们考虑到了其无穷项。
-
-根据我们之前所描述的，我们已经将问题分解为了两个部分：可解部分视为从一点传播到另一点的粒子，将扰动 $V$ 视为中断传播的散射过程。
-
-接下来我将给出三个图形来描述这个过程
-\begin{figure}[H]
-    \begin{minipage}{0.3\textwidth}
-        \centering
-        \includegraphics[width = 0.3\textwidth]{figure/总的格林函数.png}
-    \end{minipage}
-    \hfill
-    \begin{minipage}{0.3\textwidth}
-        \centering
-        \includegraphics[width = 0.3\textwidth]{figure/自由粒子格林函数.png}
-    \end{minipage}
-    \hfill
-    \begin{minipage}{0.3\textwidth}
-        \centering
-        \includegraphics[width = 0.3\textwidth]{figure/一阶微扰格林函数.png}
-    \end{minipage}
-\end{figure}
-
-基于此，我们可以给出格林函数的微扰展开形式
-\begin{figure}[hbpt]
-    \centering
-    \includegraphics[width = 0.5\textwidth]{figure/格林函数微扰展开.png}
-\end{figure}
-
-
-
-
-
-事实上，我们在计算一个粒子的传播子时，我们并不容易知道粒子的位置信息，因此，我们将使用动量来表示
-\begin{align*}
-    G^{+}_0(p,t_x;q,t_y) &= \theta(t_x - t_y) \bra{p}\hat{U}(t_x - t_y)\ket{q} \\
-    &= \theta(t_x - t_y) \bra{p}\hat{U}\ket{q}e^{-iE_{\vec{q}}(t_x - t_y)} \\
-    &= \theta(t_x - t_y) \delta(p - q)e^{-iE_{\vec{q}}(t_x - t_y)}
-\end{align*}
-
-通过这个计算我们可以看出，自由粒子是不可以改变他的动量本征态的，受限制于 $\delta(p - q)$ 其形式只能是
-\begin{equation*}
-    G^{+}_0(p,t_x,t_y) = \theta(t_x - t_y)e^{-iE_{\vec{q}}(t_x - t_y)}
-\end{equation*}
-
-当然，这还是不够方便，如果我们使用的是动量和能量，这将会满足我们的实验数据
-\begin{align*}
-    G_0^{+}(p,E) &= \int dt e^{iEt}G_0^{+}(p,t,0) \\
-    &= \int dt e^{iEt}\theta(t)e^{-i(E_{\vec{p}} + i\epsilon) t} \\
-    &= \int_{0}^{\infty} \frac{i}{2\pi(z + i\epsilon)} e^{i(E - E_p -z)t}dt dz\\
-    &= \int_{0}^{\infty} \frac{i}{(z + i\epsilon)} \delta(E - E_p -z) dz\\
-    &= \frac{i}{E - E_p + i\epsilon}
-\end{align*}
-
-
-
-
-
-\subsection{场的传播子}
-
-就目前而止，我们所接触到的都是非相互作用理论，对于这样的理论，我们都可以通过正则量子化将系统的哈密顿量写成对角形式
-\begin{align*}
-    \hat{H}_0 &= \sum_{\vec{p}}E_{\vec{p}}\hat{a}_{\vec{p}}^\dagger\hat{a}_{\vec{p}} \\
-    &\hat{H}_0\ket{\vec{p}} = E_{\vec{p}}\ket{\vec{p}} 
-\end{align*}
-
-而在我们的相互作用理论当中，我们的拉格朗日量中将会在自由标量场的基础上将会多出相互作用项，这样将会导致我们在正则量子化之后得到的哈密顿量将不会是一个对角化的形式（接下来我们对于非相互作用的量都会有一个下标 $0$）
-\begin{equation*}
-    \hat{H} = \hat{H}_0 + \hat{H}^\prime
-\end{equation*}
-
-\begin{table}[hbpt]
-    \centering
-    \caption{非相互作用与相互作用理论对照}
-    \begin{tabular*}{0.4\textwidth}{cc}
-        \hline
-        非相互作用理论 & 相互作用理论 \\ \hline
-        $\hat{H}_0$ & $\hat{H} = \hat{H}_0 + \hat{H}^\prime$ \\ \hline 
-        $\ket{0}$ & $\ket{\Omega}$ \\ \hline
-        $G_0(x,y)$ & $G(x,y)$ \\ \hline
-    \end{tabular*}
-\end{table}
-
-接下来我们来开始正式的定义一下场的传播子，我们要求在时空点 $(y^0,\vec{y})$ 创造出我们的新粒子，并且与系统发生相互作用，这将可能导致场的激发亦或是其他所有可能涉及的过程，然后这个新粒子将会移动到时空点 $(x^0,\vec{x})$ 湮灭。这个过程的概率幅度将会是我们的传播子 $G(x,y)$，我们将其定义为 
-\begin{equation*}
-    G^{+}(x,y) = \bra{\Omega}\left( Particle\ annihilated\ at\ (x^0,\vec{x})\right)\left(Particle\ created\ at\ (y^0,\vec{y})\right)\ket{\Omega}
-\end{equation*}
-
-根据这个，给出有相互作用标量场传播子的具体形式
-\begin{align*}
-    G(x,y) &= \bra{\Omega}\hat{\phi}(x)\hat{\phi}^\dagger(y)\ket{\Omega} \\
-    &= \bra{\Omega}e^{i\hat{H}x^0}\hat{\phi}(\vec{x})e^{-i\hat{H}(x^0 - y^0)}\hat{\phi}^\dagger(\vec{y})e^{-i\hat{H}y^0}\ket{\Omega} 
-\end{align*}
-
-需要的话可以进行一个逐项分析
-\begin{itemize}
-    \item $e^{-i\hat{H}y^0}\ket{\Omega}$ 表示的是 真空态 $\ket{\Omega}$ 演化到时间 $t^0$
-    \item $\hat{\phi}^\dagger(\vec{y})e^{-i\hat{H}y^0}\ket{\Omega}$ 表示真空态 $\ket{\Omega}$ 将会在时间点 $y^0$ 位置 $\vec{y}$ 产生一个粒子
-    \item $e^{-i\hat{H}(x^0 - y^0)}\hat{\phi}^\dagger(\vec{y})e^{-i\hat{H}y^0}\ket{\Omega}$ 这一项表明真空态将要演化到时间 $x^0$
-    \item 紧接着，我们将 $e^{i\hat{H}x^0}\hat{\phi}(\vec{x})$ 作用到态上，这表明我们将在 $x^0$ 这个时间湮灭掉这个粒子
-    \item 最后，我们将真空态 $\bra{\Omega}$ 作用回到我们的场上，这是在寻找还有多少初始的真空态留在最终态中。
-\end{itemize}
-
-\subsection{费曼传播子}
-在上面的描述当中，我们可以发现,传播子在一定程度上只能描述粒子的运动，但是却丢失了反粒子的信息，这是我们所不想看见的，为此，理查德费曼提出了费曼传播子，这个传播子将会包含了反粒子的信息。
-
-在这里，将会使用到 \textbf{Wick time-ordering symbol} $T$,需要注意的是这不是一个算符，我们将其定义为
-\begin{equation*}
-    T\hat{\phi}(x^0)\hat{\phi}(y^0) =
-    \begin{cases}
-        \hat{\phi}(y^0)\hat{\phi}(x^0) &\quad x^0 < y^0 \\
-        \hat{\phi}(x^0)\hat{\phi}(y^0) &\quad x^0 > y^0 \\
-    \end{cases}
-\end{equation*}
-
-这将使得我们的标量场总是时间早的在右边，时间晚的在左边，紧接着，我们将费曼传播子定义为
-\begin{align*}
-    G(x,y) &= \bra{\Omega}T\hat{\phi}(x)\hat{\phi}^\dagger(y)\ket{\Omega} \\
-    &= \theta(x^0 - y^0)\bra{\Omega}\hat{\phi}(x)\hat{\phi}^\dagger(y)\ket{\Omega} + \theta(y^0 - x^0)\bra{\Omega}\hat{\phi}^\dagger(y)\hat{\phi}(x)\ket{\Omega}
-\end{align*}
-
-这里的 $\ket{\Omega}$ 就是相互作用系统的基态，而传播子也因此将会有两项，第一项 $x^0$ 晚于 $y^0$ ：它产生了一个粒子在 $\vec{y}$ 并将其传播到了这个粒子即将湮灭的位置 $\vec{x}$ ；第二项 $y^0$ 晚于 $x^0$ ：它产生了一个反粒子在 $\vec{x}$ 并将其传播到了这个反粒子即将湮灭的位置 $\vec{y}$ ，将这两项合并在一起就是总的传播子。
-
-同样的，如果我们描述的粒子是一个非相互作用的，那么也是一样，只不过基态变为了 $\ket{0}$ ，而传播子也变为了
-\begin{align*}
-    \Delta(x,y) = G(x,y) &= \bra{0}T\hat{\phi}(x)\hat{\phi}^\dagger(y)\ket{0} \\
-    &= \int \frac{d^3p}{\left(2\pi\right)^3\left(2E_{\vec{p}}\right)}\left[\theta(x^0 - y^0)e^{-ip\cdot(x - y)} + \theta(y^0 - x^0)e^{ip\cdot\left(x - y\right)}\right]
-\end{align*}
-
-给出一个图来描述费曼传播子
-\begin{figure}[hbpt]
-    \centering
-    \includegraphics[width = 0.5\textwidth]{figure/费曼传播子.png}
-\end{figure}
-
-
-
-
-
-\section{S Matrix}
-
-\subsection{相互作用表象(interaction representation)}
-在讲解 S 矩阵之前，我们需要先介绍一下相互作用表象的概念。我们知道在量子力学当中，我们有两种表象：海森堡表象和薛定谔表象，这两种表象分别对应着算符和态矢量的演化，但是海森堡表象当中算符是时间相关的而太矢量是时间无关的；薛定谔表象则相反，算符是时间无关的而态矢量是时间相关的，除了这两种表象外，为了描述相互作用，我们需要一种算符以及态矢量都随时间演化的表象，这就是相互作用表象。
-
-在我们的理论当中，会有很多的接近于现实世界的一些模型，比如我们的谐振子还有自由粒子等等，但是它们终归不是真的符合现实世界的，因此，我们一般将现实的哈密顿量 $\hat{H}$ 给分成两部分，一部分是自由状态的哈密顿量 $ \hat{H}_0 $ ，而对于那些难以描述的所谓的复杂的过程，我们将其处理为相互作用项 $ \hat{H}^\prime $ ，同时对于自由项，其一定是随着时间演化的且易于求解的，因此我们认为在相互作用绘景下的算符将通过自由项 $ \hat{H}_0 $ 来演化的，即
-\begin{equation}
-    \hat{O}_I(t) = e^{i\hat{H}_0 t}\hat{O}e^{-i\hat{H}_0 t}
-\end{equation} 
-
-很显然，由于我们考虑的是自由项的哈密顿量的演化，所以他一定是遵循海森堡的算符的运动方程
-\begin{equation}
-    i \frac{d\hat{O}_I}{dt} = \left[\hat{O}_I(t) ,\hat{H}_0\right]
-\end{equation}
-
-但是这并没有包含有 $ \hat{H}^\prime $ ，因为一旦我们将其一并考虑进去，我们的态矢量也将一并随时间演化，这是海森堡绘景当中所不曾设计的，因此我们还需要将其与薛定谔绘景当中态矢量随时间演化相结合，可以得到
-\begin{equation}
-    \bar{\phi(t)}\hat{O}\ket{\psi(t)} = \bar{\phi_I(t)}\hat{O}_I\ket{\psi_I(t)}
-\end{equation}
-
-根据薛定谔绘景，我们可以得到
-\begin{equation}
-    \ket{\psi_I(t)} = e^{i\hat{H}_0 t}\ket{\psi(t)}
-\end{equation}
-
-接下来计算一下其关于时间的演化关系
-\begin{eqnarray*}
-    i\frac{d}{dt} \ket{\psi_I(t)} &=& e^{i\hat{H}_0 t}\left(-\hat{H}_0 + i\frac{d}{dt}\right)\ket{\psi(t)} \\
-    &=& e^{i\hat{H}_0 t}\left(-\hat{H}_0 + \hat{H}\right)\ket{\psi(t)} \\
-    &=& e^{i\hat{H}_0 t}\hat{H}^\prime\ket{\psi(t)} \\
-    &=& e^{i\hat{H}_0 t}\hat{H}^\prime e^{-i\hat{H}_0 t}\ket{\psi_I(t)} \\
-    &=& \hat{H}^\prime_I(t)\ket{\psi_I(t)}
-\end{eqnarray*}
-
-其中， $ \displaystyle \hat{H}_I(t) = e^{i\hat{H}_0 t}\hat{H}^\prime e^{-i\hat{H}_0 t} $ 
-
-根据此，我们便可以定义出相互作用绘景：
-\begin{enumerate}
-    \item 算符和态矢量均随时间演化
-    \item 算符的演化由非相互作用部分的哈密顿量所导致
-    \item 态矢量的演化由相互作用部分的哈密顿量所导致
-\end{enumerate}
-
-\subsection{S-matirx}
-s-matirx 的想法由 John Wheeler 所提出，这个东西更像是一个时间演化算符，但不同的是他其中蕴含着散射的过程。
-
-接下来我们给定两个粒子使其发生对心碰撞，接着这两个粒子在碰撞的那一瞬间发生了一系列的复杂反应并最终又以两个粒子散射出去，正如我们之前在相互作用绘景那一章所介绍的，我们一般将这样一个散射过程体系的哈密顿量拆分为两部分，一部分是无相互作用下的哈密顿量量外一部分是相互作用项的哈密顿量。需要注意的是，接下来我们是工作在 Heisenberg representation 的，所以记住我们的态矢量是不随时间演化的，那么对于简单世界（无相互作用）下的两个粒子其动量表象下的态矢量可以记作为 $ \ket{\psi} = \ket{p_2p_1}_{simpleworld} $ ，接着给出另外一个描述两个粒子在动量表象下的态矢量 $ \ket{\phi} = \ket{q_2q_1}_{simpleworld} $ ，与此同时，在现实世界当中给出一个存在的一个散射过程，当两个入射粒子一开始相距非常远的时候(可以认为是 $ t\to -\infty $ 的时候)我们给出一个态矢量 $ \ket{p_1p_2}_{realworld}^{in} $ ，当他们发生完散射之后，可能形成了两个（也有可能是多个或是一个，但这里我们假设是两个）粒子（可能并未发生改变，也有可能是全新的两个粒子），当他们相距非常远的时候(大概是 $ t \to \infty $ 的时候) 给出这个状态下的态矢量 $ \ket{q_1q_2}_{realworld}^{out} $ ，于是，我们可以通过让这两个态矢量作内积来得到这个散射过程的散射振幅 $ \mathcal{A} $  
-\begin{equation}
-    \mathcal{A} = ^{out}_{realworld}\braket{q_1q_2}{p_1p_2}_{realworld}^{in}
-\end{equation}
-
-但是这显然是很难计算出来的，为此我们需要寻找到在之前所定义的简单世界中的振幅与现实世界中的散射振幅之间的关系，为此，我们定义了 S-matrix
-\begin{equation}
-    \mathcal{A} = ^{out}_{realworld}\braket{q_1q_2}{p_1p_2}_{realworld}^{in} = _{simpleworld}\bra{q_1q_2}\hat{S}\ket{q_2q_1}_{simpleworld}
-\end{equation}
-
-因此，这个 $ \hat{S} $ 当中蕴含着我们想要从某个特定的初态到某一个特定的末态的散射振幅的信息，除此以外，为了能够计算出我们想要的散射振幅，我们还需要两样东西
-\begin{enumerate}
-    \item 找到一个合适的简单世界的哈密顿量 $ \hat{H}_0 $ 并以此来描述我们的类似与入态和出态的态矢量
-    \item 计算出 $ \hat{S} $ 的表达形式的方法，这样我们才可以利用 $ _{simpleworld}\bra{q_1q_2}\hat{S}\ket{q_2q_1}_{simpleworld} $ 来计算出我们想要的散射振幅
-\end{enumerate}
-
-
-\subsection{The formular of S-matrix}
-根据上面的讲解，我们知道所谓的入态和出态都是在时间处于无穷的时候，这也就是说在一开始，体系哈密顿量的相互作用项是可以忽略的，这种假设使得我们可以将 realworld 的态矢量写成 simpleworld 的态矢量，即
-\begin{equation}
-    \ket{\phi}_{simpleworld} = \ket{\phi_I(\pm \infty)}
-\end{equation}
-
-这意味着他们是 $ \hat{H}_0 $ 的本征矢量，因此，我们完全可以使用 $ \hat{H}_0 $ 的真空态以及产生湮灭算符来构建出我们的入态和出态.
-
-随着时间的演化，慢慢的 $ \hat{H}_I $ 慢慢的将变得不可忽略，这也使得本征态的演化变得复杂起来，但到最后我们的 $ \hat{H}_I $ 将重新变得可以忽略，我们一般可以用一个系数来表示相互作用项占完整的哈密顿量的比例
-\begin{figure}[ht]
-\centering
-\includegraphics[width=0.4\textwidth]{figure/相互作用系数随时间的变化.png}
-\caption{相互作用系数随时间的变化}
-\label{fig1}
-\end{figure}
-
-如此一番定义，其实 $ \hat{S} $ 的形式已经昭然若揭，除此之外，我们还知道，当在初始时刻 $ t=0 $ 时，对于我们之前所提到的三个绘景，其测量应该是一样的，因此我们写出如下的式子，
-\begin{eqnarray}
-    _{simpleworld}\bar{\phi}\hat{S}\ket{\psi}_{simpleworld} &=& \braket{\phi_I(0)}{\psi_I(0)} \nonumber \\
-    &=& \bra{\phi_I(\infty)}\hat{U}_I(\infty,0)\hat{0,-\infty}\ket{\psi_I(-\infty)} \nonumber \\
-    &=& \bra{\phi_I(\infty)}\hat{U}_I(\infty,-\infty)\ket{\psi_I(-\infty)}  \\
-    &=& _{simpleworld}\bar{\phi}\hat{U}_I(\infty,-\infty)\ket{\psi}_{simpleworld}
-\end{eqnarray}
-
-据此，我们断言 $ \hat{S} $ 是相互作用绘景下的时间演化算符 $ \hat{U}_I(t,-t) $ 当 $ t \to \infty $ 的时候的极限。
-
-所以，为了得到我们的 $ \hat{S} $ 的具体形式，我们还需要求解出相互作用绘景下的时间演化算符，在上上节当中我们有提到其方程
-\begin{equation}
-    i\frac{d}{dt}\hat{U}_I(t,t_0) = \hat{H}^\prime_I(t)\hat{U}_I(t,t_0)
-\end{equation}
-
-对于这个方程，我们可以通过不断的迭代求解出一个级数解
-\begin{equation}
-    \hat{U}_I(t,t_0) = 1 + \left(-i\right)\int_{t_0}^{t} dt_1\hat{H}_I(t_1) + \left(-i\right)^2 \int_{t_0}^{t}dt_1\int_{t_0}^{t_1}dt_2\hat{H}_I(t_1)\hat{H}_I(t_2) + \cdots
-\end{equation}
-
-通过观察这个展开式，我们可以发现其积分顺序是完全遵守时间从早到晚的顺序，这意味着我们可以使用 $ \hat{T} $ 来化简这个表达式
-\begin{equation*}
-    \left(-i\right)^2 \int_{t_0}^{t}dt_1\int_{t_0}^{t_1}dt_2\hat{H}_I(t_1)\hat{H}_I(t_2) = \frac{\left(-i\right)^2}{2} \int_{t_0}^{t}dt_1\int_{t_0}^{t}dt_2\hat{T}\left[\hat{H}_I(t_1)\hat{H}_I(t_2)\right]
-\end{equation*}
-
-\begin{figure}[ht]
-    \centering
-    \includegraphics[width=0.6\textwidth]{figure/时间排序示意图.png}
-    \label{fig2}
-    \end{figure}
-
-同理，剩余的部分我也可以用这样的方式来化简，最后我们得到
-\begin{eqnarray*}
-    &&\int_{t_0}^{t_1}dt_1\int_{t_0}^{t_2}dt_2\int_{t_0}^{t_3}dt_3 \cdots \int_{t_0}^{t_{n-1}} dt_n \hat{H}_I(t_1)\hat{H}_I(t_2)\cdots\hat{H}_I(t_n) \\
-    &=&\frac{1}{A_n^n}\int_{t_0}^{t}dt_1\int_{t_0}^{t}dt_2\cdots\int_{t_0}^{t}dt_n \hat{T}\left[\hat{H}_I(t_1)\hat{H}_I(t_2)\cdots\hat{H}_I(t_n)\right]
-\end{eqnarray*}
-
-求和可以得到相互作用绘景下的时间演化算符
-\begin{equation}
-    \hat{U}_I(t,t_0) = T\left\{\exp\left[-i\int_{t_0}^{t}dt^\prime \hat{H}_I(t^\prime)\right]\right\}
-\end{equation}
-
-
-
-终于，可以将 $ \hat{S} $ 求解出来了
-\begin{equation*}
-    \hat{S} = T\left\{\exp\left[-i\int_{-\infty}^{+\infty}dt^\prime \hat{H}_I(t^\prime)\right]\right\}
-\end{equation*}
-
-转化为哈密顿量密度，得到
-\begin{equation}
-    \hat{S} = T\left\{\exp\left[-i\int_{-\infty}^{+\infty}d^4x \hat{H}_I(x)\right]\right\}
-\end{equation}
-
-\begin{equation}
-    \wick{
-        \c1 \phi_1^+ (x)  \c1 \phi_1^- (y)
-    }
-\end{equation}
 
 
 
@@ -2012,8 +1549,42 @@ s-matirx 的想法由 John Wheeler 所提出，这个东西更像是一个时间
 \subsection{散射振幅与其计算}
 
 
+\subsection{路径积分}
 
 
+
+\subsection{$\phi^4$ Theory}
+
+
+\section{Poincare Algebra}
+
+
+\subsection{Lie Group}
+
+
+
+\subsection{Lie Algebra}
+
+
+
+\subsection{单粒子态}
+
+
+
+
+\subsection{时间反演与空间反演}
+
+
+
+
+\subsection{S 矩阵}
+
+\subsection{共形代数(Conformal Algebra)}
+
+
+
+
+\section{Maxwell Field}
 
 
 
