@@ -1,0 +1,171 @@
+\chapter{\protect\hyperlink{:}{附录}}
+\addtocontents{toc}{\protect\hypertarget{:}{}}
+
+
+\section{\protect\hyperlink{:}{微分形式}}
+\addtocontents{toc}{\protect\hypertarget{:}{}}
+
+微分形式是一个数学里的一种方法，利用这种方法，在力学当中将会有很大的便利。
+
+首先，这是一个在研究多元函数微积分的时候所引入的，那么我们就从此处开始。假设我们有一个二元函数 $f(x,y)$ ，我们现在研究一下他的二重积分
+
+\begin{equation}\label{eq:double_integral}
+    I = \iint_D f(x,y) dx dy
+\end{equation}
+
+在大多数情况下，我们可以直接求解这个二重积分，但是有的时候，我们需要对这个二重积分的变量进行代换以此来简化计算
+\begin{equation}
+    \begin{cases}
+        x = x(u,v) \\
+        y = y(u,v)
+    \end{cases}
+\end{equation}
+
+在此变量代换下，我们的积分将变为
+\begin{equation}
+    I = \iint f(x,y) \left| \frac{\partial(x,y)}{\partial(u,v)} \right| du dv
+\end{equation}
+
+其中 $\displaystyle \left| \frac{\partial(x,y)}{\partial(u,v)} \right| = \frac{\partial x}{\partial u}\frac{\partial y}{\partial v} - \frac{\partial x}{\partial v}\frac{\partial y}{\partial u}$ 为坐标变换的雅可比行列式。这就告诉我们，坐标变换之后，我们还需要给被积函数乘上一个雅可比行列式，但是除此以外，我们还可以使用外代数的一种代数乘法来进行代替。
+
+首先，我们可以将之前的二元积分 $\ref{eq:double_integral}$ 的积分微元 $dxdy$ 重写为 $dx \wedge dy$ ，我们将其称之为 \textbf{外积} ，这种乘法满足关系
+\begin{equation}
+    dx \wedge dy = -dy \wedge dx
+\end{equation}
+
+这也就是说，外积运算不能够对易，但是是反对易的，因此我们也会得到这样的关系
+\begin{equation}
+    dx \wedge dx = - dx \wedge dx = 0,\qquad dy \wedge dy = - dy \wedge dy = 0
+\end{equation}
+
+有了这个外代数，我们来计算一下上面的二重积分 $\ref{eq:double_integral}$ 的积分微元在坐标变换下的表现
+\begin{eqnarray}
+    dx \wedge dy &=& \left(\frac{\partial x}{\partial u} du + \frac{\partial y}{\partial v} dv\right) \wedge \left(\frac{\partial y}{\partial u} du + \frac{\partial y}{\partial v} dv\right) \nonumber \\
+    &=& \frac{\partial x}{\partial u} \frac{\partial y}{\partial v} du \wedge dv + \frac{\partial y}{\partial u} \frac{\partial x}{\partial v} dv \wedge du \nonumber \\
+    &=& \left(\frac{\partial x}{\partial u} \frac{\partial y}{\partial v} - \frac{\partial y}{\partial u} \frac{\partial x}{\partial v}\right) du \wedge dv \nonumber \\
+    &=& \left| \frac{\partial(x,y)}{\partial(u,v)} \right| du \wedge dv
+\end{eqnarray}
+
+可以看到，利用外代数二元函数积分的坐标变换多出来的雅可比行列式自动就出现了那么同理，对于一个 $n$ 元函数积分，我们可以将其积分微元写成
+\begin{equation}
+    dx^1 \wedge dx^2 \wedge \cdots \wedge dx^n
+\end{equation}
+
+他们之间满足
+\begin{equation}
+    dx^i \wedge dx^j = -dx^j \wedge dx^i,\qquad dx^i \wedge dx^i = 0
+\end{equation}
+
+接下来，我们将被积函数 $f(x^1,x^2,\cdots,x^n)$ 和 积分微元 $dx^1 \wedge dx^2 \wedge \cdots \wedge dx^n$ 乘在一起称为 $n$ 重微分形式，简称 $n$ 形式，记作 $\omega$
+\begin{equation}
+    \omega = f(x^1,x^2,\cdots,x^n) dx^1 \wedge dx^2 \wedge \cdots \wedge dx^n
+\end{equation} 
+
+而 $n$ 重积分则被记为
+\begin{equation}
+    I = \int_D \omega
+\end{equation}
+
+
+
+
+
+
+
+
+
+
+
+
+\section{\protect\hyperlink{:}{张量代数}}
+\addtocontents{toc}{\protect\hypertarget{:}{}}
+
+
+
+
+
+\section{\protect\hyperlink{:}{Numerator Algebra}}
+\addtocontents{toc}{\protect\hypertarget{:}{}}
+Pauli matrix:
+\begin{equation}
+    \sigma^1 = 
+    \begin{pmatrix}
+        0 & 1 \\
+        1 & 0
+    \end{pmatrix},
+    \sigma^2 =
+    \begin{pmatrix}
+        0 & -i \\
+        i & 0
+    \end{pmatrix},
+    \sigma^3 =
+    \begin{pmatrix}
+        1 & 0 \\
+        0 & -1
+    \end{pmatrix}
+\end{equation}
+
+将其整合成一个四元组，得到我们的类似于四矢量形式的泡利矩阵：
+\begin{equation}
+    \sigma^\mu = \left(1,\vec{\sigma}\right),\qquad \bar{\sigma}^\mu = \left(1,-\vec{\sigma}\right)
+\end{equation}
+
+这两个新的 Pauli matirx 代表一个由单位矩阵和三个标准的泡利矩阵组成的四元组 $2 \times 2$ 矩阵，它在相对论量子力学中扮演着重要的角色，用于将三维的旋量和矢量推广到满足洛伦兹不变性的四维形式。
+
+于是我们有 Dirac Matrix:
+\begin{equation}
+    \gamma^\mu = 
+    \begin{pmatrix}
+        0 & \sigma^\mu \\
+        \bar{\sigma}^\mu & 0
+    \end{pmatrix},
+    \qquad \gamma^5 = \gamma^0\gamma^1\gamma^2\gamma^3 = 
+    \begin{pmatrix}
+        -1 & 0 \\
+        0 & 1
+    \end{pmatrix}
+\end{equation}
+
+其所遵循的反对易关系
+\begin{equation}
+    \left\{\gamma^\mu,\gamma^\nu\right\} = 2 g^{\mu\nu}
+\end{equation}
+
+
+Simplify the $\gamma$ matrix\cite{2}:
+
+\begin{eqnarray*}
+    \gamma^\mu \gamma_\mu &=& 4 \\
+    \gamma^\mu \gamma^\nu \gamma_\mu &=& -2 \gamma^\nu \\
+    \gamma^\mu \gamma^\nu \gamma^\rho \gamma_\mu &=& 4 g^{\nu\rho} \\
+    \gamma^\mu \gamma^\nu \gamma^\rho \gamma^\sigma \gamma_\mu &=& -2 \gamma^\sigma \gamma^\rho \gamma^\nu
+\end{eqnarray*}
+
+Trace of $\gamma$ matrix:
+\begin{eqnarray*}
+    \tr(\mathbf{1}) &=& 4\\
+    \tr( any\ odd\ \#\  of\ \gamma) &=& 0 \\
+    \tr(\gamma^\mu\gamma^\nu) &=& 4g^{\mu\nu} \\
+    \tr(\gamma^\mu\gamma^\nu\gamma^\rho\gamma^\sigma) &=& 4\left(g^{\mu\nu}g^{\rho\sigma} - g^{\mu\rho}g^{\nu\sigma} + g^{\mu\sigma}g^{\nu\rho}\right) \\
+    \tr(\gamma^5) &=& 0 \\
+    \tr(\gamma^\mu\gamma^\nu\gamma^5) &=& 0 \\
+    \tr(\gamma^\mu\gamma^\nu\gamma^\rho\gamma^\sigma\gamma^5) &=& -4i\epsilon^{\mu\nu\rho\sigma} 
+\end{eqnarray*}
+
+
+
+
+
+\section{\protect\hyperlink{:}{Polarization of External Particles}}
+\addtocontents{toc}{\protect\hypertarget{:}{}}
+
+
+
+
+
+\section{\protect\hyperlink{:}{Feynman Rules}}
+\addtocontents{toc}{\protect\hypertarget{:}{}}
+
+
+
+

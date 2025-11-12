@@ -1,0 +1,420 @@
+\chapter{\protect\hyperlink{:}{经典力学、经典场论与狭义相对论复习}}
+\addtocontents{toc}{\protect\hypertarget{:}{}}
+有一定的量子场论基础的人都知道，即使没有经典场论的基础（或者说是没有经典连续场的基础）也是无伤大雅的，因为量子场可以不依赖于经典连续场引入，但是就我个人认为，学习和重温量子场论中的基本概念以及很多的处理方法是必要的。同时，从经典场出发进行量子化得到粗糙的量子场，再根据其存在的漏洞进行正规化、重整化以获得具有预言能力的量子场论。
+
+在这一部分，或者说这一次汇报中，我将讨论经典力学，经典场论以及狭义相对论的几个方面。
+
+
+\section{\protect\hyperlink{:}{伽利略变换}}
+\addtocontents{toc}{\protect\hypertarget{:}{}}
+考虑两个沿着$x$轴方向相对运动的惯性观察者，在$t=0$时，两者是互相重合的，并且我们假设它们之间的相对运动的速度（即相对速度）为常数，他们将会分别对应到两个参考系$S$和$S^\prime$,我们可以给出它们此时之间的坐标变换关系：
+\begin{align*}
+    S\to S^\prime:
+    \begin{cases}
+        &t^\prime=t\\
+        &x^\prime=x-vt\\
+        &y^\prime=y\\
+        &z^\prime=z
+    \end{cases}
+\end{align*}
+
+我们将其使用矩阵语言来进行表示就是：
+\begin{align*}
+    \begin{pmatrix}
+        t^\prime\\x^\prime\\y^\prime\\z^\prime
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        1&0&0&0\\
+        -v&1&0&0\\
+        0&0&1&0\\
+        0&0&0&1
+    \end{pmatrix}
+    \begin{pmatrix}
+        t\\x\\y\\z
+    \end{pmatrix}
+\end{align*}
+
+同时，值得注意的是，我们连续地做两次伽利略变换得到的还会是伽利略变换，对于任意一个伽利略变换也都存在一个逆变换（将速度从$v$改成$-v$即可）,当$v=0$时的伽利略变换将会是一个恒等变换，当然，伽利略变换也满足结合律，这也就是说，伽利略变换在数学上是构成了一个群的，并且，由于该群的变换参数$v$是一个可以连续变化的，因此他将对应着一个连续群（李群）的数学结构，叫作“伽利略变换群”，并且，容易发现，经典力学中的牛顿运动定律
+\begin{align*}
+    \vec{F}=m\vec{a}=m\frac{d^2}{dt^2}\vec{x}
+\end{align*}
+
+在伽利略变换下可以保持数学形式不变，用现代理论物理的语言来说，这意味着伽利略变换时牛顿运动定律的一个对称性，但是，其所导出的速度的相对关系为
+\begin{align*}
+    u^\prime&=\frac{d x^\prime}{dt^\prime}\\
+    &=\frac{d(x-vt)}{dt}\\
+    &=u-v
+\end{align*}
+
+很显然，这是非常符合日常生活经验和直觉的，直到迈克尔逊莫雷实验的出现，告诉我们，\textbf{真空中光速不变},但是很显然，伽利略
+
+
+
+
+\section{\protect\hyperlink{:}{经典力学}}
+\addtocontents{toc}{\protect\hypertarget{:}{}}
+写这一部分的内容，主要是为了让接下来在讲解经典力学以及经典场论时都有一定的物理基础，并且明白，为什么我们的拉格朗日力学所研究的空间是位形空间，需要的是广义坐标$q$,广义速度$\dot{q}$,而哈密顿力学研究的是相空间，使用的是正则坐标$q$,正则动量$p$。在搞明白了这些之后，我们才能真正的理解经典力学，并且向着经典场论靠近。
+
+
+\subsection{\protect\hyperlink{:}{位形、位形空间、广义坐标、广义速度}}
+\addtocontents{toc}{\protect\hypertarget{:}{}}
+
+\subsubsection{\protect\hyperlink{:}{位形、位形空间}}
+\addtocontents{toc}{\protect\hypertarget{:}{}}
+
+位形，是我们对粒子在空间中的位置概念的推广，其定义我们一般写为
+\begin{definition}[位形]
+    粒子系统中各个粒子的空间位置，或者更一般的物流系统在空间中的形状、分布。
+\end{definition}
+
+位形既然是粒子的空间位置，因此一个物理系统的某个量与位置相关，就可以用位形描述。例如：空间中某点的粒子密度 $\rho(x)$ ，即为密度位形，某点的温度 $T(x)$ ，即为温度位形。
+
+\begin{definition}[位形空间]
+    系统所有可能的位形的集合。位形空间的一点(或者说是一个元素)即为系统可能的一种位形。
+\end{definition}
+
+位形是粒子的空间位置，位形空间是位形的集合，所以位形空间就是粒子在空间所有可能的位置的集合，例如粒子在一张二维水平面上，则粒子的位形空间就是这个水平面。粒子被限制在某个圆环内，则其位形空间就是这个圆环。
+
+由于有时间维度的影响，物理系统会随着时间演化，从位形空间的一点转移到另外一点，其画出的曲线即为位形空间中的轨迹。但是此时，我们只是考虑了粒子位置的连续改变。如果考虑时间维度，我们可以得到如下更大的空间
+\begin{figure}[hbpt]
+    \centering
+    \includegraphics[width = 0.5\textwidth]{figure/位形空间.png}
+    \caption{位形空间随时间变化图}
+\end{figure}
+
+这条在时间维度与位形空间共同组成的空间画出的轨迹被称为世界线（world line）。
+
+它与位形空间中的轨迹的区别在于，虽然位形空间中的轨迹与时间线都依赖于时间的演化，但是位形空间中两点 $a(t_1,x_1)$ 和 $b(t_1,x_2)$ 的连接得到的轨迹只是位形的连续变化，其轨迹上的每一点都是位形。而世界线上的任意两点的连接是在时间上的连续变化，其上的每一点都是时间。
+
+\subsubsection{\protect\hyperlink{:}{广义坐标}}
+\addtocontents{toc}{\protect\hypertarget{:}{}}
+
+\begin{definition}[广义坐标]
+    任何一组可以唯一确定系统某一位形的独立参数
+\end{definition}
+
+
+
+我们知道，对于一个空间，我们可以使用像爱因斯坦那样的，将所有的都几何化，这样我们所得到的任何的结论都将与参考系（进而是坐标系）的选取无关了，但是当我们要开始计算一些具体的东西的时候，比如某人跑了多快等问题，我们将要落实到具体的计算上，因此，我们便需要坐标并依靠坐标建立起一个度量系统来帮助我们对物理世界进行一个描述，也就是利用坐标来对空间参数化，只要给出一组数，就可以确定空间中的一点。而这组数字就被称为“坐标”。例如，对于三维空间的点粒子，我们分别有：直角坐标 $(x,y,z)$，柱坐标 $(r,\phi,z)$ ，球坐标 $(r,\theta,\phi)$
+点粒子在空间中的位置的参数化是普通坐标，而位形是点粒子位置概念的推广。自然而然，我们就称对位形空间的参数化为广义坐标。
+
+这也就告诉了我们，描述一个物理系统的广义坐标的数量应该是等于位形空间的维数的。
+\begin{equation}
+    \text{位形空间的维数} = \text{独立广义坐标的个数}
+\end{equation}
+
+
+我们知道，广义坐标是对位形空间的参数化，对于同一个物理系统，我们可以选取不同参数化的方法。一般而言，如果在一组广义坐标下复杂的运动方程，换成另一组广义坐标经常就变得容易求解。例如球对称引力场中粒子的运动，运动方程在球坐标下就比直角坐标下要简单得多。
+
+现在假设我们有两组广义坐标 $\{q^a\} , \{\tilde{q}^a\}$ 用来描述同一个位形空间，那么对于某一个点 $P$ ,其对应的 $\{q^a\}$ 坐标的数值表示为 $ \left. q^a \right|_P$,其对应的 $\{\tilde{q}^a\}$ 坐标的数值表示为 $ \left. \tilde{q}^a \right|_P$,并且这两组坐标的数值满足函数关系
+\begin{equation}
+    \left.\tilde{q}^q\right|_P = f^a\left(\mathbf{q}|_P \right)
+\end{equation}
+
+
+\subsubsection{\protect\hyperlink{:}{广义速度、速度相空间}}
+\addtocontents{toc}{\protect\hypertarget{:}{}}
+
+我们的经典力学，在一开始被创造出来的目的就是为了研究物理系统随着时间的演化，但是如果我们想要完完全全地将一个物理系统给描述清楚，我们到底需要多少的信息呢？这一点，泰勒展开给出了答案：
+\begin{equation}
+    f(t) = f(t_0) + f^{\prime}(t_0)(t - t_0) + \frac{1}{2}f^{\prime\prime}(t_0)(t - t_0)^2 + \frac{1}{3!}f^{\prime\prime\prime}(t_0)(t - t_0)^3 + \cdots
+\end{equation}
+
+这告诉我们，要是想完全决定一个函数的形式，我们需要知道该函数在某一点的无限阶导数，在我们这里，就是在说，要是想完全确定一个系统的演化，我们至少要知道位置、速度、加速度、加加速度等无穷多的信息，而实际上，我们一般只需要知道一个系统的位置与速度即可，这也就是说，我们至少要有如下的关系
+\begin{equation}
+    f^{\prime\prime}(t) = F(f(t),f^{\prime}(t))
+\end{equation}
+基于此关系，我们会发现，三阶导数可以被表达为
+\begin{equation}
+    f^{\prime\prime\prime}(t) = \frac{d}{dt}F(f(t),f^{\prime}(t)) = \frac{\partial F}{\partial f} f^\prime + \frac{\partial F}{\partial f^\prime} f^{\prime\prime} = \frac{\partial F}{\partial f} f^\prime + \frac{\partial F}{\partial f^\prime}F(f,f^{\prime})
+\end{equation}
+即，我们的三阶导数也能够被函数和一阶导所决定，对于更为高阶的导数，也可以不断地往下类推，于是我们要想描述出一个物理系统，知道位置和速度就足够了。
+
+所以，只要系统的位形的演化能够满足一个二阶微分方程，那么知道此时此刻的广义坐标（$q$）以及广义速度（$\dot{q}$）就可以完完全全地确定此后任意时刻系统的演化。既然广义速度与广义坐标可以包含系统演化的全部信息，我们便可以将广义速度与广义坐标合在一起组成一个能够确定系统的物理状态的态（state），而对于这些所有状态的合集，即为状态空间，称为 $\textbf{相空间}$,而我们的相空间的维数即为
+\begin{equation}
+    \text{相空间的维数} = \text{唯一确定系统演化的独立参数的个数} 
+\end{equation}
+对于点粒子系统，我们的速度相空间（就是由广义坐标与广义速度张成的相空间）总是偶数维的。
+
+将时间轴加入进来，速度相空间中的点也随时间演化扫出一条条的曲线来，如图\ref{fig:velocity-phase-space}所示。但是因为给定一个时刻的状态，就唯一决定了此前和此后所有时刻的状态。所以速度相空间中的点随时间扫出的曲线是永不相交的。
+\begin{figure}[hbpt]
+    \centering
+    \includegraphics[width = 0.5\textwidth]{figure/速度相空间.png}
+    \caption{速度相空间随时间变化图}
+    \label{fig:velocity-phase-space}
+\end{figure}
+
+\subsubsection{\protect\hyperlink{:}{约束、自由度}}
+\addtocontents{toc}{\protect\hypertarget{:}{}}
+\begin{definition}[约束]
+    在物理系统的状态空间中，约束是指由于运动学上的限制，系统的广义坐标与广义速度仅能取值于状态空间的某个子空间，从而导致部分状态不可达的条件。这些限制规定了系统可实现的运动范围和可能的演化路径。
+\end{definition}
+
+这个定义耶告诉了我们，约束是“运动学”的概念，与相互作用、动力学无关。
+
+事实上，对于约束，有很多的分类方式，例如：对是否显含时间来分，则分为定常约束和非定常约束；根据约束方程是等式还是不等式来分，则分为双侧约束和单侧约束。但是我们最为常用的分类，则是完整约束（几何约束）和非完整约束。
+
+对于完整约束，其为广义坐标之间的约束关系，通过这样的约束，我们可以知道有一些广义坐标其实并不是独立的，我们完全可以将其用别的广义坐标来表示。如果一个系统的所有约束都是完整约束，那么我们称这样的系统为\textbf{完整约束系统（holonomic\ system）}。
+
+接下来，设一个系统，用 $m$ 个位形参量 ${q^1,\cdots,q^m}$ 描述的系统，存在且仅存在 $k$ 个独立的完整约束
+\begin{equation}\label{eq:yueshu}
+    \phi_\alpha (t_,q^1,\cdots,q^m) = 0,\qquad \alpha = 1,2,\cdots,k
+\end{equation}
+则系统的广义坐标数为
+\begin{equation}
+    s = m - k
+\end{equation}
+
+这就表明，如果一个系统由 $N$ 个粒子组成，并且存在 $k$ 个完整约束，如果我们使用牛顿力学的话，我们需要求解 $N$ 个运动方程，以及 $k$ 个约束方程，即 $(3N + k)$ 个方程（并且极大可能是互相耦合的），这将会使得系统的求解变得非常困难，而拉格朗日力学，如果我们一开始就选择出合适的广义坐标 ${q^1,q^2,\cdots,q^{3N - k}}$ ，那么我们将只需要求解这 $(3N - k)$ 个独立的广义坐标方程，这将会极大地降低我们求解该系统的难度。
+
+但是我们还有另外一种约束，非完整约束（non-holonomic\ system），即不可以写为式 $\ref{eq:yueshu}$形式的约束，其中最为典型以及重要的便是\textbf{不可积微分约束（non-integrable\ differential\ constraints）}其为广义坐标与广义速度之间的约束关系，这种约束关系不能通过积分得到广义坐标的关系，因此我们不能将其用其他的广义坐标来表示，比如这个样子：
+\begin{equation}
+    \phi(t,q^1,\cdots,q^m,\dot{q}^1,\cdots,\dot{q}^m) = 0
+\end{equation}
+
+
+但是也存在一些可积的微分约束，对于这类微分约束也是完整约束。
+
+对于存在非完整约束的一个系统，我们都将其称之为\textbf{非完整约束系统（non-holonomic\ system）}。
+
+事实上，完整约束直接消除了广义坐标之间的独立性，表明广义坐标之间有约束关系。
+这种关系既体现在广义坐标之间，也体现在广义坐标的“变分”之间。由约束方程 $\phi(t,\vec{q})$ 变分可以得到
+\begin{equation}\label{eq:constraint-variation}
+    \delta \phi = \sum_{a = 1}^{m} \frac{\partial \phi}{\partial q^a} \delta q^a = 0
+\end{equation}
+
+这表明广义坐标的变分之间也并非是独立的，而是满足如式 $\ref{eq:constraint-variation}$ 的线性关系的，并且有很直观的几何意义，如图 $\ref{fig:constraint-variation}$
+
+\begin{figure}[hbpt]
+    \centering
+    \includegraphics[width = 0.5\textwidth]{figure/constraint-variation.png}
+    \caption{完整约束变分的几何意义}
+    \label{fig:constraint-variation}
+\end{figure}
+
+一个完整约束可视为位形空间中的一张曲面，系统的位形限制在这张曲面上，因此广义坐标的变分也必然限制在约束面上，而式 $\ref{eq:constraint-variation}$ 中的 $\displaystyle \frac{\partial \phi}{\partial q^a}$ 即为约束面在位形空间的梯度，也即约束面的法向量 $\nabla \phi$，同时式 $\ref{eq:constraint-variation}$ 也表明广义坐标变分 $\delta \vec{q}$ 与约束面的法向量 $\nabla \phi$ 垂直，即切于约束面。
+
+对于非完整系统无法用代数方法消除广义坐标之间的独立性，但是因为广义速度之间存在约束关系，这就同样导致广义坐标的“变分”之间存在关系。
+
+综上所述，对于完整系统，每一个完整约束都可以降低一个独立广义坐标变分的数目；对于非完整系统，其中的非完整约束，虽然不能够降低独立广义坐标的数目，但是能够降低独立广义坐标“变分”的数目，这也表明相较于广义坐标的数目本身，广义坐标变分的数目更加能够反映出系统的性质，这也是我们定义自由度的时候并没有将其定义为独立广义坐标数目而是定义为独立广义坐标变分的数目的原因。
+
+\begin{definition}[自由度]
+    独立广义坐标变分的数目
+\end{definition}
+
+同时，我们还有如下的关系：
+\begin{equation}
+    \text{自由度} = \frac{1}{2} \times \text{相空间的维数}
+\end{equation}
+
+
+
+
+
+\subsection{\protect\hyperlink{:}{相对论时空}}
+\addtocontents{toc}{\protect\hypertarget{:}{}}
+
+\subsubsection{\protect\hyperlink{:}{时空}}
+\addtocontents{toc}{\protect\hypertarget{:}{}}
+在物理学当中，事件（event）是指在某个时刻发生在某个空间位置的物理现象。我们可以用一个四维向量来描述事件的时空位置，这个四维向量被称为\textbf{时空点}，其形式为
+\begin{equation}
+    {ct, x, y, z} \equiv {x^0,x^1,x^3,x^4} \equiv {x^\mu} ,\qquad \mu = 0,1,2,3
+\end{equation}
+
+而对于全体时空点的集合，则被称为 \textbf{时空}，在数学上，对于时空的严格表述是所谓的 $4$ 维流形。
+
+
+\subsubsection{\protect\hyperlink{:}{度规}}
+\addtocontents{toc}{\protect\hypertarget{:}{}}
+度规的出现是自然的，我们在一个空间当中，最基础的问题就是如何在其中测量得到距离。我们常见的空间欧几里得空间并且使用直角坐标系来进行空间的参数化，我们可以非常熟练的得到距离，使用勾股定理即可，但在别的时空，我们并不能保证，勾股定理在其中的适用性。因此，度规的出现，其主要是为了解决不一样空间(流形)的距离计算的问题，例如，在如果在一个 $2$ 维欧式空间（即 $2$ 维平面）当中，两点之间的距离为 $\displaystyle s^2 = (x_2 - x_1)^2 + (y_2 - y_1)^2$,而如果是计算球面上两个点的距离，则不能够是 $\displaystyle (\theta_2 - \theta_1)^2 + (\phi_2 - \phi_1)^2$ ，而是遵循以下的形式(无穷小距离)：
+\begin{equation}
+    ds^2 = R^2\left(d\theta^2 + \sin^2\theta d\phi^2\right) = 
+    \begin{pmatrix}
+        d\theta & d\phi
+    \end{pmatrix}
+    \begin{pmatrix}
+        R^2 & 0\\
+        0 & R^2\sin^2\theta
+    \end{pmatrix}
+    \begin{pmatrix}
+        d\theta\\
+        d\phi
+    \end{pmatrix}
+\end{equation}
+
+对于这样的形式，我们可以看出无穷小距离的平方总是可以表示为一个坐标微分 ${dq^a}$ 的二次型，我们将其称之为线元，一般记作 $ds^2$ ,其普遍形式为
+\begin{equation}
+    ds^2 = 
+    \begin{pmatrix}
+        dq^1 & \cdots & dq^s
+    \end{pmatrix}
+    \begin{pmatrix}
+        g_{11} & \cdots & g_{1s}\\
+        \vdots & \ddots & \vdots\\
+        g_{s1} & \cdots & g_{ss}
+    \end{pmatrix}
+    \begin{pmatrix}
+        dq^1\\
+        \vdots\\
+        dq^s
+    \end{pmatrix}
+\end{equation}
+
+而这里的二次型系数所构成的对称矩阵 $g_{ab}$ 就是我们的\textbf{度规}。
+
+接下来给出一些常见的度规张量
+\begin{itemize}
+    \item $2$ 维欧氏空间，取直角坐标 $\{x,y\}$ ，
+    \begin{equation}
+        ds^2 = dx^2 + dy^2 =
+        \begin{pmatrix}
+            dx & dy
+        \end{pmatrix}
+        \begin{pmatrix}
+            1 & 0\\
+            0 & 1
+        \end{pmatrix}
+        \begin{pmatrix}
+            dx\\
+            dy
+        \end{pmatrix}
+    \end{equation}
+
+    简写一下，即
+    \begin{equation}
+        ds^2 = 
+        \delta_{ij} dx^i dx^j   ,\qquad
+        \delta_{ij} = 
+        \begin{pmatrix}
+            1 & 0\\
+            0 & 1
+        \end{pmatrix}
+        ,\qquad i,j = 1,2
+    \end{equation}
+    \item $2$ 维欧氏空间，取极坐标 $\{r,\phi\}$ ，
+    \begin{equation}
+        ds^2 = (dr)^2 + r^2(d\phi)^2 =
+        \begin{pmatrix}
+            dr & d\phi
+        \end{pmatrix}
+        \begin{pmatrix}
+            1 & 0\\
+            0 & r^2
+        \end{pmatrix}
+        \begin{pmatrix}
+            dr\\
+            d\phi
+        \end{pmatrix}
+    \end{equation}
+
+    简写一下，即
+    \begin{equation}
+        ds^2 = 
+        g_{ij} dx^i dx^j   ,\qquad
+        g_{ij} = 
+        \begin{pmatrix}
+            1 & 0\\
+            0 & r^2
+        \end{pmatrix}
+        ,\qquad i,j = r,\phi
+    \end{equation}
+    \item 
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+
+\subsection{\protect\hyperlink{:}{相空间、正则坐标、正则动量}}
+\addtocontents{toc}{\protect\hypertarget{:}{}}
+
+
+
+
+
+
+\section{\protect\hyperlink{:}{经典场论}}
+\addtocontents{toc}{\protect\hypertarget{:}{}}
+
+
+\subsection{\protect\hyperlink{:}{从粒子到场}}
+\addtocontents{toc}{\protect\hypertarget{:}{}}
+了看清楚如何将经典力学框架从点粒子拓展到场，我们考察一个 $n$ 自由度的点粒
+子系统，其广义坐标为 $q_i$,其中 $i = 1, 2, 3..., n$, 广义动量为 $p_i$,其中 $i = 1, 2, ..., n$, 系统的哈密顿量为 $H(q_i, p_i)$(表达式中的 $q_i$ 和 $p_i$ 分别代表所有的广义坐标和广义动量)。则相应的相空间作用
+量为
+\begin{equation}
+    S[q_i(t),p_i(t)] = \int dt \left[\sum_i p_i \dot{q}_i - H(q_i,p_i)\right]
+\end{equation}
+
+由相空间的最小作用量原理即可以得到哈密顿正则方程
+\begin{equation}
+    \dot{q}_i = \frac{\partial H}{\partial p_i},\qquad \dot{p}_i = -\frac{\partial H}{\partial q_i}
+\end{equation}
+
+进一步，对于任意两个物理量的泊松括号则是
+\begin{equation}
+    \left[A,B\right] = \sum_i \left(\frac{\partial A}{\partial q_i}\frac{\partial B}{\partial p_i} - \frac{\partial B}{\partial q_i}\frac{\partial A}{\partial p_i} \right)
+\end{equation}
+
+现在，设想将上面的代表不同坐标的指标记号 $i$ 替换成记号 $\sigma$ ，并设想 $\sigma$ 可以连续取值 (因而这时自由度数目为无穷大)，事实上根据我们在经典力学当中所学到的，我们可以将所有对 $i$ 的求和替换成对连续变量
+$\sigma$ 的积分，将 $H(q_i, p_i)$ 重记为泛函 $H[q_\sigma,p_\sigma]$, 将物理量 $A(q_i, p_i)$, $B(q_i, p_i)$ 分别重记为泛函 $A[q_\sigma,p_\sigma]$,$B[q_\sigma,p_\sigma]$, 并将对 $q_\sigma,p_\sigma$ 的偏导改写成泛函导数。因而即有相空间作用量
+\begin{equation}
+    S[q_\sigma(t),p_\sigma(t)] = \int dt \left[\int d\sigma p_\sigma \dot{q}_\sigma - H[q_\sigma,p_\sigma]\right]
+\end{equation}
+以及对应的哈密顿正则方程
+\begin{equation}
+    \dot{q}_\sigma = \frac{\delta H}{\delta p_\sigma},\qquad \dot{p}_\sigma = -\frac{\delta H}{\delta q_\sigma}
+\end{equation}
+
+其中的泛函导数可以由变分法得到
+\begin{equation}
+    \delta H\left[q_\sigma,p_\sigma\right] = \int d\sigma \left[\frac{\delta H}{\delta q_\sigma} \delta q_\sigma + \frac{\delta H}{\delta p_\sigma} \delta p_\sigma\right]
+\end{equation}
+
+泊松括号则是
+\begin{equation}
+    \left[A,B\right] = \int d\sigma \left(\frac{\delta A}{\delta q_\sigma}\frac{\delta B}{\delta p_\sigma} - \frac{\delta B}{\delta q_\sigma}\frac{\delta A}{\delta p_\sigma} \right)
+\end{equation}
+
+注意到 $q_\sigma,p_\sigma$ 均依赖于连续指标 $\sigma$ ，因此当然可以看成是 $\sigma$ 的函数，从而我们可以
+再次改变一下记号，记 
+\begin{equation}
+    \phi(\sigma,t) = q_\sigma(t),\qquad \pi(\sigma,t) = p_\sigma(t)
+\end{equation}
+从而上一段的方程可以再次改写，其中相空间作用量应该改写为
+\begin{equation}
+    S[\phi(\sigma,t),\pi(\sigma,t)] = \int dtd\sigma \left[\pi(\sigma,t),\dot{\phi}(\sigma,t)\right] - \int dt H \left[\phi(\sigma,t) , \pi(\sigma,t)\right]
+\end{equation}
+
+其中 $\displaystyle \dot{\phi}(\sigma,t) = \frac{\partial}{\partial t} \phi(\sigma,t)$ \\
+则对应的哈密顿正则方程为
+\begin{equation}
+    \dot{\phi}(\sigma,t) = \frac{\delta H}{\delta \pi (\sigma,t)} , \qquad \dot{\pi}(\sigma,t) = - \frac{\delta H}{\delta \phi(\sigma,t)}
+\end{equation}
+
+事实上，我们正常在运算的时候，都是进行等时的运算。因此，我们完全可以将式子里面的时间 $t$ 给省略，接着继续进行变分法，得到
+\begin{equation}
+    \delta H\left[\phi(\sigma),\pi(\sigma)\right] = \int d\sigma \left[\frac{\delta H}{\delta \phi(\sigma)}\delta \phi(\sigma) + \frac{\delta H}{\delta \pi(\sigma)}\delta \pi(\sigma)\right]
+\end{equation}
+
+进一步的，物理量的泊松括号为
+\begin{equation}
+    \left[A,B\right] = \int d\sigma \left[\frac{\delta A}{\delta \phi(\sigma)}\frac{\delta B}{\delta \pi(\sigma)} - \frac{\delta A}{\delta \pi(\sigma)}\frac{\delta B}{\delta \phi(\sigma)}\right]
+\end{equation}
+
+如果我们利用 $\displaystyle \frac{\delta \phi(\sigma)}{\delta \phi(\sigma^\prime)} = \delta(\sigma - \sigma^\prime),\frac{\delta \pi(\sigma)}{\delta \pi(\sigma^\prime)} = \delta(\sigma - \sigma^\prime),\frac{\delta \phi(\sigma)}{\delta \pi(\sigma^\prime)} = \frac{\delta \pi(\sigma)}{\delta \phi(\sigma^\prime)} = 0$,我们将会得到基本的泊松括号
+\begin{equation}
+    \left[\phi(\sigma,t),\pi(\sigma^\prime,t)\right] = \delta(\sigma - \sigma^\prime),\left[\phi(\sigma,t),\pi(\sigma^\prime,t)\right] = \left[\phi(\sigma^\prime,t),\pi(\sigma,t)\right] = 0
+\end{equation}
+
+于是我们可以得到哈密顿正则方程的另外一种形式
+\begin{equation}
+    \dot{\phi} (\sigma,t) = \left[\phi(\sigma,t),H\right],\qquad \dot{\pi} (\sigma,t) = \left[pi(\sigma,t),H\right]
+\end{equation}
