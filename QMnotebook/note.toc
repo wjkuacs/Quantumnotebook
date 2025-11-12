@@ -1,0 +1,87 @@
+\contentsline {section}{\numberline {1}\hyperlink {:}{旧量子论}}{4}{section.1}%
+\hypertarget {:}{}
+\contentsline {subsection}{\numberline {1.1}能量量子化}{4}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}光量子化}{5}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}量子化条件——系统缓变不变量}{5}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}角动量量子化}{7}{subsection.1.4}%
+\contentsline {subsection}{\numberline {1.5}量子化条件——玻尔索末菲量子化条件}{8}{subsection.1.5}%
+\contentsline {section}{\numberline {2}\hyperlink {:}{物质波理论}}{9}{section.2}%
+\hypertarget {:}{}
+\contentsline {subsection}{\numberline {2.1}德布罗意——波粒二象性}{9}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}薛定谔方程}{10}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}含时薛定谔方程}{11}{subsection.2.3}%
+\contentsline {section}{\numberline {3}\hyperlink {:}{量子力学的形式理论}}{11}{section.3}%
+\hypertarget {:}{}
+\contentsline {subsection}{\numberline {3.1}量子力学的基本假设（公理）}{11}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Hilbert Space}{12}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}态矢量的加法运算}{12}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}态矢量的数乘}{12}{subsubsection.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.3}零元（加法单位元）}{13}{subsubsection.3.2.3}%
+\contentsline {subsubsection}{\numberline {3.2.4}内积}{13}{subsubsection.3.2.4}%
+\contentsline {subsubsection}{\numberline {3.2.5}态矢量的线性独立，正交完备}{13}{subsubsection.3.2.5}%
+\contentsline {paragraph}{线性独立}{13}{section*.3}%
+\contentsline {paragraph}{正交性}{13}{section*.4}%
+\contentsline {paragraph}{完备性}{13}{section*.5}%
+\contentsline {subsubsection}{\numberline {3.2.6}施密特正交化}{13}{subsubsection.3.2.6}%
+\contentsline {subsubsection}{\numberline {3.2.7}投影算符}{13}{subsubsection.3.2.7}%
+\contentsline {subsubsection}{\numberline {3.2.8}连续化态矢量}{13}{subsubsection.3.2.8}%
+\contentsline {subsubsection}{\numberline {3.2.9}表象}{14}{subsubsection.3.2.9}%
+\contentsline {subsubsection}{\numberline {3.2.10}算符（力学量）}{14}{subsubsection.3.2.10}%
+\contentsline {subsubsection}{\numberline {3.2.11}态矢量的矩阵表示}{15}{subsubsection.3.2.11}%
+\contentsline {subsection}{\numberline {3.3}厄米算符}{17}{subsection.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.1}本征方程}{17}{subsubsection.3.3.1}%
+\contentsline {subsubsection}{\numberline {3.3.2}本征值、本征矢量的求解}{17}{subsubsection.3.3.2}%
+\contentsline {subsubsection}{\numberline {3.3.3}对易}{18}{subsubsection.3.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.4}期望值}{19}{subsubsection.3.3.4}%
+\contentsline {paragraph}{经典统计学的期望值}{19}{section*.6}%
+\contentsline {paragraph}{量子力学的期望值}{19}{section*.7}%
+\contentsline {subsection}{\numberline {3.4}对于哥本哈根诠释的评论}{19}{subsection.3.4}%
+\contentsline {section}{\numberline {4}定态薛定谔方程}{21}{section.4}%
+\contentsline {subsection}{\numberline {4.1}一维无限方势阱}{21}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}一维谐振子}{22}{subsection.4.2}%
+\contentsline {subsubsection}{\numberline {4.2.1}经典力学}{22}{subsubsection.4.2.1}%
+\contentsline {subsubsection}{\numberline {4.2.2}量子力学}{23}{subsubsection.4.2.2}%
+\contentsline {paragraph}{偏微分方程解法}{23}{section*.9}%
+\contentsline {paragraph}{代数解法}{24}{section*.10}%
+\contentsline {subsubsection}{\numberline {4.2.3}含时薛定谔方程简论}{25}{subsubsection.4.2.3}%
+\contentsline {subsection}{\numberline {4.3}自由粒子}{25}{subsection.4.3}%
+\contentsline {paragraph}{自由粒子的波包}{26}{section*.11}%
+\contentsline {paragraph}{$|g(k)|$对波包的影响}{27}{section*.13}%
+\contentsline {paragraph}{$g(k)$的辐角}{27}{section*.16}%
+\contentsline {paragraph}{群速度与相速度}{30}{section*.18}%
+\contentsline {subsection}{\numberline {4.4}狄拉克函数势}{30}{subsection.4.4}%
+\contentsline {subsubsection}{\numberline {4.4.1}束缚态与散射态}{30}{subsubsection.4.4.1}%
+\contentsline {subsubsection}{\numberline {4.4.2}求解}{31}{subsubsection.4.4.2}%
+\contentsline {subsubsection}{\numberline {4.4.3}讨论$E>0$}{32}{subsubsection.4.4.3}%
+\contentsline {paragraph}{透射率与反射率}{32}{section*.20}%
+\contentsline {subsection}{\numberline {4.5}有限方势垒}{33}{subsection.4.5}%
+\contentsline {section}{\numberline {5}三维薛定谔方程}{34}{section.5}%
+\contentsline {subsection}{\numberline {5.1}数学准备————球坐标系，$\nabla $算符}{34}{subsection.5.1}%
+\contentsline {subsubsection}{\numberline {5.1.1}$\nabla $算符与它的运算}{35}{subsubsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.2}三维球坐标系的定态薛定谔方程}{35}{subsection.5.2}%
+\contentsline {subsubsection}{\numberline {5.2.1}角动量方程}{36}{subsubsection.5.2.1}%
+\contentsline {subsubsection}{\numberline {5.2.2}径向方程}{37}{subsubsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.3}二维空间中的角动量}{38}{subsection.5.3}%
+\contentsline {subsubsection}{\numberline {5.3.1}经典力学中的角动量}{38}{subsubsection.5.3.1}%
+\contentsline {subsubsection}{\numberline {5.3.2}量子力学中的角动量}{38}{subsubsection.5.3.2}%
+\contentsline {subsubsection}{\numberline {5.3.3}本征值}{38}{subsubsection.5.3.3}%
+\contentsline {subsubsection}{\numberline {5.3.4}三维空间中的角动量}{39}{subsubsection.5.3.4}%
+\contentsline {subsection}{\numberline {5.4}Stern-Gerlach Experiment}{40}{subsection.5.4}%
+\contentsline {section}{\numberline {6}量子多体系统}{43}{section.6}%
+\contentsline {subsection}{\numberline {6.1}张量积的性质}{43}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}量子多体系统的薛定谔方程}{45}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}全同粒子}{46}{subsection.6.3}%
+\contentsline {paragraph}{泡利不相容原理}{48}{section*.22}%
+\contentsline {subsection}{\numberline {6.4}量子多体系统的一维无限位能阱}{48}{subsection.6.4}%
+\contentsline {subsection}{\numberline {6.5}期望值}{49}{subsection.6.5}%
+\contentsline {section}{\numberline {7}不含时微扰理论}{50}{section.7}%
+\contentsline {subsection}{\numberline {7.1}非简并微扰理论}{50}{subsection.7.1}%
+\contentsline {subsubsection}{\numberline {7.1.1}微扰理论一般公式推导}{50}{subsubsection.7.1.1}%
+\contentsline {subsubsection}{\numberline {7.1.2}一级近似理论}{51}{subsubsection.7.1.2}%
+\contentsline {paragraph}{能量的一级修正}{51}{section*.25}%
+\contentsline {paragraph}{波函数的一级修正}{52}{section*.26}%
+\contentsline {paragraph}{能量的二级修正}{52}{section*.27}%
+\contentsline {subsection}{\numberline {7.2}简并微扰理论}{53}{subsection.7.2}%
+\contentsline {subsubsection}{\numberline {7.2.1}二重简并}{53}{subsubsection.7.2.1}%
+\contentsline {section}{\numberline {8}变分原理}{56}{section.8}%
+\contentsline {section}{\numberline {9}WKB方法}{58}{section.9}%

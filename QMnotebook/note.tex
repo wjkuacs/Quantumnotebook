@@ -11,7 +11,11 @@
 \pgfplotsset{compat=1.18}
 \usepackage{caption}
 \usepackage{subcaption}
-\usepackage{hyperref}
+\usepackage[pdfborder={0 0 0}]{hyperref}
+
+
+
+
 \usepackage{float}
 \usepackage{fancyhdr}
 
@@ -109,9 +113,8 @@ right = 3cm         %右页边距
 
 
 
-
-\section{旧量子论}
-
+\section{\protect\hyperlink{:}{旧量子论}}
+\addtocontents{toc}{\protect\hypertarget{:}{}}
 
 
 
@@ -378,7 +381,8 @@ Einstein的意思是，拉动绳子的过程当中，系统的能量会改变，
 
 
 
-\section{物质波理论}
+\section{\protect\hyperlink{:}{物质波理论}}
+\addtocontents{toc}{\protect\hypertarget{:}{}}
 1923年，德布罗意在光的“波粒二象性”理论的启发下，提出了物质波的理论，这个理论为后来的薛定谔方程的出现埋下了伏笔，同时，也将引出除了大众所熟知的“哥本哈根诠释”外的另外一个观点——玻姆诠释。
 
 \subsection{德布罗意——波粒二象性}
@@ -471,7 +475,9 @@ Einstein的意思是，拉动绳子的过程当中，系统的能量会改变，
 
 
 
-\section{量子力学的公理化体系——哥本哈根诠释}
+
+\section{\protect\hyperlink{:}{量子力学的形式理论}}
+\addtocontents{toc}{\protect\hypertarget{:}{}}
 尽管我知道接下来这样写这个笔记会很突兀，一下子跳入了抽象的量子力学的公理化体系，去直接讲Hilbert空间、态矢量等等这样的抽象概念，但是我依然觉得我应该这样做。
 
 \subsection{量子力学的基本假设（公理）}
@@ -1570,12 +1576,14 @@ $\exists\ket{0}\in\bb{H}$,对于这个元素，我们将会有以下性质
 \]
 从$\delta(x)$函数的图我们可以定义出波函数的两个态
 \subsubsection{束缚态与散射态}
-\[
-\begin{cases}
-    \text{束缚态},V(x)<0\\
-    \text{散射态},V(x)>0    
-\end{cases}
-\]
+关于束缚态，我们有很容易的区分方式，只需要对势能进行判断即可:
+
+\begin{enumerate}
+    \item[$\cdot$] 束缚态: $V < 0$
+    \item[$\cdot$] 散射态: $V > 0$
+\end{enumerate}
+
+
 \subsubsection{求解}
 
 我们的任务首先是对$x\neq 0$部分的求解，在这部分，势能$V(x)$为$0$，因此薛定谔方程可以直接写为
