@@ -1,0 +1,501 @@
+\chapter{\protect\hyperlink{:}{S Matrix and Scattering Theory}}
+\addtocontents{toc}{\protect\hypertarget{:}{}}
+
+\section{\protect\hyperlink{:}{S-matirx}}
+\addtocontents{toc}{\protect\hypertarget{:}{}}
+
+
+
+\subsection{\protect\hyperlink{:}{相互作用表象(interaction representation)}}
+\addtocontents{toc}{\protect\hypertarget{:}{}}
+
+在讲解 S 矩阵之前，我们需要先介绍一下相互作用表象的概念。我们知道在量子力学当中，我们有两种表象：海森堡表象和薛定谔表象，这两种表象分别对应着算符和态矢量的演化，但是海森堡表象当中算符是时间相关的而太矢量是时间无关的；薛定谔表象则相反，算符是时间无关的而态矢量是时间相关的，除了这两种表象外，为了描述相互作用，我们需要一种算符以及态矢量都随时间演化的表象，这就是相互作用表象。
+
+在我们的理论当中，会有很多的接近于现实世界的一些模型，比如我们的谐振子还有自由粒子等等，但是它们终归不是真的符合现实世界的，因此，我们一般将现实的哈密顿量 $\hat{H}$ 给分成两部分，一部分是自由状态的哈密顿量 $ \hat{H}_0 $ ，而对于那些难以描述的所谓的复杂的过程，我们将其处理为相互作用项 $ \hat{H}^\prime $ ，同时对于自由项，其一定是随着时间演化的且易于求解的，因此我们认为在相互作用绘景下的算符将通过自由项 $ \hat{H}_0 $ 来演化的，即
+\begin{equation}
+    \hat{O}_I(t) = e^{i\hat{H}_0 t}\hat{O}e^{-i\hat{H}_0 t}
+\end{equation} 
+
+很显然，由于我们考虑的是自由项的哈密顿量的演化，所以他一定是遵循海森堡的算符的运动方程
+\begin{equation}
+    i \frac{d\hat{O}_I}{dt} = \left[\hat{O}_I(t) ,\hat{H}_0\right]
+\end{equation}
+
+但是这并没有包含有 $ \hat{H}^\prime $ ，因为一旦我们将其一并考虑进去，我们的态矢量也将一并随时间演化，这是海森堡绘景当中所不曾设计的，因此我们还需要将其与薛定谔绘景当中态矢量随时间演化相结合，可以得到
+\begin{equation}
+    \bra{\phi(t)}\hat{O}\ket{\psi(t)} = \bra{\phi_I(t)}\hat{O}_I\ket{\psi_I(t)}
+\end{equation}
+
+根据薛定谔绘景，我们可以得到
+\begin{equation}
+    \ket{\psi_I(t)} = e^{i\hat{H}_0 t}\ket{\psi(t)}
+\end{equation}
+
+接下来计算一下其关于时间的演化关系
+\begin{eqnarray*}
+    i\frac{d}{dt} \ket{\psi_I(t)} &=& e^{i\hat{H}_0 t}\left(-\hat{H}_0 + i\frac{d}{dt}\right)\ket{\psi(t)} \\
+    &=& e^{i\hat{H}_0 t}\left(-\hat{H}_0 + \hat{H}\right)\ket{\psi(t)} \\
+    &=& e^{i\hat{H}_0 t}\hat{H}^\prime\ket{\psi(t)} \\
+    &=& e^{i\hat{H}_0 t}\hat{H}^\prime e^{-i\hat{H}_0 t}\ket{\psi_I(t)} \\
+    &=& \hat{H}^\prime_I(t)\ket{\psi_I(t)}
+\end{eqnarray*}
+
+其中， $ \displaystyle \hat{H}_I(t) = e^{i\hat{H}_0 t}\hat{H}^\prime e^{-i\hat{H}_0 t} $ 
+
+根据此，我们便可以定义出相互作用绘景：
+\begin{enumerate}
+    \item 算符和态矢量均随时间演化
+    \item 算符的演化由非相互作用部分的哈密顿量所导致
+    \item 态矢量的演化由相互作用部分的哈密顿量所导致
+\end{enumerate}
+
+\subsection{\protect\hyperlink{:}{The formular of S-matrix}}
+\addtocontents{toc}{\protect\hypertarget{:}{}}
+
+s-matirx 的想法由 John Wheeler 所提出，这个东西更像是一个时间演化算符，但不同的是他其中蕴含着散射的过程。
+
+接下来我们给定两个粒子使其发生对心碰撞，接着这两个粒子在碰撞的那一瞬间发生了一系列的复杂反应并最终又以两个粒子散射出去，正如我们之前在相互作用绘景那一章所介绍的，我们一般将这样一个散射过程体系的哈密顿量拆分为两部分，一部分是无相互作用下的哈密顿量量外一部分是相互作用项的哈密顿量。需要注意的是，接下来我们是工作在 Heisenberg representation 的，所以记住我们的态矢量是不随时间演化的，那么对于简单世界（无相互作用）下的两个粒子其动量表象下的态矢量可以记作为 $ \ket{\psi} = \ket{p_2p_1}_{simpleworld} $ ，接着给出另外一个描述两个粒子在动量表象下的态矢量 $ \ket{\phi} = \ket{q_2q_1}_{simpleworld} $ ，与此同时，在现实世界当中给出一个存在的一个散射过程，当两个入射粒子一开始相距非常远的时候(可以认为是 $ t\to -\infty $ 的时候)我们给出一个态矢量 $ \ket{p_1p_2}_{realworld}^{in} $ ，当他们发生完散射之后，可能形成了两个（也有可能是多个或是一个，但这里我们假设是两个）粒子（可能并未发生改变，也有可能是全新的两个粒子），当他们相距非常远的时候(大概是 $ t \to \infty $ 的时候) 给出这个状态下的态矢量 $ \ket{q_1q_2}_{realworld}^{out} $ ，于是，我们可以通过让这两个态矢量作内积来得到这个散射过程的散射振幅 $ \mathcal{A} $  
+\begin{equation}
+    \mathcal{A} = ^{out}_{realworld}\braket{q_1q_2}{p_1p_2}_{realworld}^{in}
+\end{equation}
+
+但是这显然是很难计算出来的，为此我们需要寻找到在之前所定义的简单世界中的振幅与现实世界中的散射振幅之间的关系，为此，我们定义了 S-matrix
+\begin{equation}
+    \mathcal{A} = ^{out}_{realworld}\braket{q_1q_2}{p_1p_2}_{realworld}^{in} = _{simpleworld}\bra{q_1q_2}\hat{S}\ket{q_2q_1}_{simpleworld}
+\end{equation}
+
+因此，这个 $ \hat{S} $ 当中蕴含着我们想要从某个特定的初态到某一个特定的末态的散射振幅的信息，除此以外，为了能够计算出我们想要的散射振幅，我们还需要两样东西
+\begin{enumerate}
+    \item 找到一个合适的简单世界的哈密顿量 $ \hat{H}_0 $ 并以此来描述我们的类似与入态和出态的态矢量
+    \item 计算出 $ \hat{S} $ 的表达形式的方法，这样我们才可以利用 $ _{simpleworld}\bra{q_1q_2}\hat{S}\ket{q_2q_1}_{simpleworld} $ 来计算出我们想要的散射振幅
+\end{enumerate}
+
+
+根据上面的讲解，我们知道所谓的入态和出态都是在时间处于无穷的时候，这也就是说在一开始，体系哈密顿量的相互作用项是可以忽略的，这种假设使得我们可以将 realworld 的态矢量写成 simpleworld 的态矢量，即
+\begin{equation}
+    \ket{\phi}_{simpleworld} = \ket{\phi_I(\pm \infty)}
+\end{equation}
+
+这意味着他们是 $ \hat{H}_0 $ 的本征矢量，因此，我们完全可以使用 $ \hat{H}_0 $ 的真空态以及产生湮灭算符来构建出我们的入态和出态.
+
+随着时间的演化，慢慢的 $ \hat{H}_I $ 慢慢的将变得不可忽略，这也使得本征态的演化变得复杂起来，但到最后我们的 $ \hat{H}_I $ 将重新变得可以忽略，我们一般可以用一个系数来表示相互作用项占完整的哈密顿量的比例
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.4\textwidth]{figure/相互作用系数随时间的变化.png}
+\caption{相互作用系数随时间的变化}
+\label{fig1}
+\end{figure}
+
+如此一番定义，其实 $ \hat{S} $ 的形式已经昭然若揭，除此之外，我们还知道，当在初始时刻 $ t=0 $ 时，对于我们之前所提到的三个绘景，其测量应该是一样的，因此我们写出如下的式子，
+\begin{eqnarray}
+    _{simpleworld}\bra{\phi}\hat{S}\ket{\psi}_{simpleworld} &=& \braket{\phi_I(0)}{\psi_I(0)} \nonumber \\
+    &=& \bra{\phi_I(\infty)}\hat{U}_I(\infty,0)\hat{0,-\infty}\ket{\psi_I(-\infty)} \nonumber \\
+    &=& \bra{\phi_I(\infty)}\hat{U}_I(\infty,-\infty)\ket{\psi_I(-\infty)}  \\
+    &=& _{simpleworld}\bar{\phi}\hat{U}_I(\infty,-\infty)\ket{\psi}_{simpleworld}
+\end{eqnarray}
+
+据此，我们断言 $ \hat{S} $ 是相互作用绘景下的时间演化算符 $ \hat{U}_I(t,-t) $ 当 $ t \to \infty $ 的时候的极限。
+
+所以，为了得到我们的 $ \hat{S} $ 的具体形式，我们还需要求解出相互作用绘景下的时间演化算符，在上上节当中我们有提到其方程
+\begin{equation}
+    i\frac{d}{dt}\hat{U}_I(t,t_0) = \hat{H}^\prime_I(t)\hat{U}_I(t,t_0)
+\end{equation}
+
+对于这个方程，我们可以通过不断的迭代求解出一个级数解
+\begin{equation}
+    \hat{U}_I(t,t_0) = 1 + \left(-i\right)\int_{t_0}^{t} dt_1\hat{H}_I(t_1) + \left(-i\right)^2 \int_{t_0}^{t}dt_1\int_{t_0}^{t_1}dt_2\hat{H}_I(t_1)\hat{H}_I(t_2) + \cdots
+\end{equation}
+
+通过观察这个展开式，我们可以发现其积分顺序是完全遵守时间从早到晚的顺序，这意味着我们可以使用 $ \hat{T} $ 来化简这个表达式
+\begin{equation*}
+    \left(-i\right)^2 \int_{t_0}^{t}dt_1\int_{t_0}^{t_1}dt_2\hat{H}_I(t_1)\hat{H}_I(t_2) = \frac{\left(-i\right)^2}{2} \int_{t_0}^{t}dt_1\int_{t_0}^{t}dt_2\hat{T}\left[\hat{H}_I(t_1)\hat{H}_I(t_2)\right]
+\end{equation*}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.6\textwidth]{figure/时间排序示意图.png}
+    \label{fig2}
+    \end{figure}
+
+同理，剩余的部分我也可以用这样的方式来化简，最后我们得到
+\begin{eqnarray*}
+    &&\int_{t_0}^{t_1}dt_1\int_{t_0}^{t_2}dt_2\int_{t_0}^{t_3}dt_3 \cdots \int_{t_0}^{t_{n-1}} dt_n \hat{H}_I(t_1)\hat{H}_I(t_2)\cdots\hat{H}_I(t_n) \\
+    &=&\frac{1}{A_n^n}\int_{t_0}^{t}dt_1\int_{t_0}^{t}dt_2\cdots\int_{t_0}^{t}dt_n \hat{T}\left[\hat{H}_I(t_1)\hat{H}_I(t_2)\cdots\hat{H}_I(t_n)\right]
+\end{eqnarray*}
+
+求和可以得到相互作用绘景下的时间演化算符
+\begin{equation}
+    \hat{U}_I(t,t_0) = T\left\{\exp\left[-i\int_{t_0}^{t}dt^\prime \hat{H}_I(t^\prime)\right]\right\}
+\end{equation}
+
+
+
+终于，可以将 $ \hat{S} $ 求解出来了
+\begin{equation*}
+    \hat{S} = T\left\{\exp\left[-i\int_{-\infty}^{+\infty}dt^\prime \hat{H}_I(t^\prime)\right]\right\}
+\end{equation*}
+
+转化为哈密顿量密度，得到
+\begin{equation}
+    \hat{S} = T\left\{\exp\left[-i\int_{-\infty}^{+\infty}d^4x \hat{H}_I(x)\right]\right\}
+\end{equation}
+
+\begin{equation}
+    \wick{
+        \c1 \phi_1^+ (x)  \c1 \phi_1^- (y)
+    }
+\end{equation}
+
+
+
+
+\section{\protect\hyperlink{:}{Wick 定理}}
+\addtocontents{toc}{\protect\hypertarget{:}{}}
+
+\subsection{\protect\hyperlink{:}{Why Wick's Theorm}}
+\addtocontents{toc}{\protect\hypertarget{:}{}}
+
+从之前的讨论当中，我们知道想要去计算出散射振幅，求解
+\begin{equation}
+    \bra{0}\hat{S}\ket{0} = \left\langle 0 \left|T\left\{\exp\left[-i\int_{-\infty}^{+\infty}d^4x \hat{H}_I(x)\right]\right\}\right|0\right\rangle
+\end{equation}
+
+我们可以通过围绕展开的方式求解 $ \left\langle 0 \left|T\left\{\exp\left[-i\int_{-\infty}^{+\infty}d^4x \hat{H}_I(x)\right]\right\}\right|0\right\rangle $ 
+
+\begin{equation}
+    \hat{S} = T\left[1 - i\int d^4 z \hat{\mathcal{H}}_I(z) + \frac{(-i)^2}{2!} d^4y d^4w \hat{\mathcal{H}}_I(y) \hat{\mathcal{H}}_I(w) + \cdots\right]
+\end{equation}
+
+这意味着我们需要去求解形如这样的真空期望值
+\begin{equation}
+    \bra{0}T[\hat{A}\hat{B}\cdots\hat{Z}]\ket{0}
+\end{equation}
+
+可是，我们需要根据这一系列算符的时间顺序来求解，很显然，这是费时费力并且容易出错的，因此我们必须寻求一个简单的方法来求解真空期望值，这就不得不回想起之前所得到的一种排序算符 $N$，
+\begin{equation}
+    \bra{0}N[\hat{A}\hat{B}\cdots\hat{Z}]\ket{0}
+\end{equation}
+
+这是非常容易计算的，我们只需要将产生算符放在湮灭算符的左边就行，例如对于一个场算符 $\hat{\phi}$ ,其是由产生算符和湮灭算符构成的 $\hat{\phi} = \hat{\phi}^+ \hat{\phi}^-$ ，因此，我们有 $\hat{\phi}^-\ket{0} = 0 , \bra{0}\hat{\phi}^+ = 0$ ，根据这个，我们先考虑一个最简单的情况，找一找 $\bra{0}T[\hat{A}\hat{B}]\ket{0}$ 和 $\bra{0}N[\hat{A}\hat{B}]\ket{0}$ 之间的关系，
+
+首先计算一下 $\hat{A}\hat{B}$
+\begin{equation}
+    \hat{A}\hat{B} = \left(\hat{A}^+ + \hat{A}^-\right)\left(\hat{B}^+ + \hat{B}^-\right) = \hat{A}^+\hat{B}^+ + \hat{A}^+\hat{B}^- + \hat{A}^-\hat{B}^+ + \hat{A}^-\hat{B}^-
+\end{equation}
+
+通过使用 normal ordering ，可以得到 
+\begin{equation}
+    N[\hat{A}\hat{B}] = \hat{A}^+\hat{B}^+ + \hat{A}^-\hat{B}^- + \hat{A}^+\hat{B}^- + \hat{B}^+\hat{A}^-
+\end{equation}
+
+给出 $\hat{A}\hat{B}$ 与 $N[\hat{A}\hat{B}]$ 之间的不同
+\begin{equation}
+    \hat{A}\hat{B} - N[\hat{A}\hat{B}] = \hat{A}^-\hat{B}^+ + \hat{B}^+\hat{A}^- = [\hat{A}^-,\hat{B}^+]
+\end{equation}
+
+基于此，先给出 $T[\hat{A}(x)\hat{B}(y)]$ 的形式
+\begin{equation}
+    T[\hat{A}(x)\hat{B}(y)] = 
+    \begin{cases}
+        \hat{A}(x)\hat{B}(y) &\quad x^0 < y^0 \\
+        \hat{B}(y)\hat{A}(x) &\quad x^0 > y^0 
+    \end{cases}
+\end{equation}
+
+可以发现，貌似有个规律
+\begin{equation}
+    T[\hat{A}(x)\hat{B}(y)] - N[\hat{A}(x)\hat{B}(y)] = 
+    \begin{cases}
+        [\hat{A}^-(x)\hat{B}^+(y)] &\quad x^0 < y^0 \\
+        [\hat{B}^-(y)\hat{A}^+(x)] &\quad x^0 > y^0
+    \end{cases}
+\end{equation}
+
+之前有提到过，$\hat{\phi}^-\ket{0} = 0 , \bra{0}\hat{\phi}^+ = 0$，因此，我们的 normal ordering 的真空期望值为 $0$，于是，我们可以得到关系
+\begin{equation}
+    \bra{0}T[\hat{A}(x)\hat{B}(y)]\ket{0} = 
+    \begin{cases}
+        \bra{0}[\hat{A}^-(x)\hat{B}^+(y)]\ket{0} &\quad x^0 < y^0 \\
+        \bra{0}[\hat{B}^-(y)\hat{A}^+(x)]\ket{0} &\quad x^0 > y^0
+    \end{cases}
+\end{equation}
+
+如果我们在这个时候取 $\hat{A} = \hat{B} = \phi$ ，那么该真空期望值将会刚刚好是费曼传播子，当然，我们也为此定义出一个新的运算 $\mathbf{contraction}$ (说真的，不知道为什么这个 $simpler-wick$ 宏包没办法敲进去 $\hat{A}$ 和 $\hat{B}$)。
+
+\begin{equation}
+    \wick{
+        \c1 A   \c1 B
+    } = T[\hat{A}\hat{B}] - N[\hat{A}\hat{B}]
+\end{equation}
+
+从上面的式子当中，我们可以知道，这个 contraction 是一个对易子，并且该对易子当中均为产生湮灭算符，于是我们可以将其使用自由标量场理论 $\hat{\phi},\partial_\mu \hat{\phi},\hat{\phi}^2$ 将其表示出来,并通过最为基本的产生湮灭算符 $\hat{a}_p,\hat{a}_{p}^\dagger$，即 
+\begin{eqnarray*}
+    \hat{A}^{-} &=& \sum_i \alpha_i \hat{a}_i \\
+    \hat{B}^{+} &=& \sum_i \beta_i \hat{a}_i^\dagger
+\end{eqnarray*}
+
+可以简单计算到，对于 $[\hat{A}^-,\hat{B}^+] = \hat{A}^-\hat{B}^+ - \hat{B}^+\hat{A}^-$
+\begin{equation}
+    \hat{A}^-\hat{B}^+ - \hat{B}^+\hat{A}^- = \alpha_i \beta_j \left(\hat{a}_i \hat{a}_j^\dagger - \hat{a}_j^\dagger\hat{a}_i\right) = \alpha_i \beta_j [\hat{a}_j^\dagger,\hat{a}_i] = \alpha_i \beta_j \delta_{ij} = \alpha_i \beta_i
+\end{equation}
+
+同理 $[\hat{B}^-,\hat{A}^+]$ 也是如此，这也就是说我们的 contraction 是一个 c-number ，故
+\begin{equation}
+    \wick{
+        \c1 A   \c1 B
+    } = 
+    \wick{
+        \c1 A   \c1 B
+    }\braket{0}{0} =
+    \bra{0}
+    \wick{
+        \c1 A   \c1 B
+    }\ket{0} = 
+    \bra{0}T[\hat{A}\hat{B}]\ket{0}
+\end{equation}
+
+除此以外，由于 $\wick{\c1 A \c1 B}$ 经过证明是一个 c-number ，所以我们的 $N,T$ 对他来说并不会产生什么直接的作用，也就是说
+\begin{equation}
+    T[\hat{A}\hat{B}] = N[\hat{A}\hat{B}] + \wick{\c1 A \c1 B} = N[\hat{A}\hat{B} + \wick{\c1 A \c1 B}]
+\end{equation}
+
+扩展到多个算符，那么我们将会有
+\begin{theorem}{Wick's Theorm}
+    \begin{equation}
+        T[\hat{A}\hat{B}\hat{C}\cdots\hat{Z}] = N\left[\hat{A}\hat{B}\hat{C}\cdots\hat{Z} + \ all\ possible\ constraction\ of\ \hat{A}\hat{B}\hat{C}\cdots\hat{Z}\right]
+    \end{equation}
+\end{theorem}
+
+
+OK,有了这样一个利器，我们将可以更加容易的完成对于 $T[\cdots]$ 的真空期望值的计算，接下来我们给出一个例子来见识到我们的 Wick's Theorm 的强大力量。
+\begin{example}
+    求解一下 $T[\hat{A}\hat{B}\hat{C}\hat{D}]$ 的真空期望值。
+    \begin{solution}
+        \begin{eqnarray*}
+            T[\hat{A}\hat{B}\hat{C}\hat{D}] &=& N[\hat{A}\hat{B}\hat{C}\hat{D}] + N[\wick{\c1 A \c1 B C D}] + N[\wick{\c1 A B \c1 C D}] + N[\wick{\c1 A B C \c1 D}] + N[\hat{A}\wick{\c1 B \c1 C}\hat{D}] + N[\wick{A \c1 B C \c1 D}] + N[\hat{A}\hat{B}\wick{\c1 C \c1 D}] \\
+            && + N[\wick{\c1 A \c1 B \c2 C \c2 D}] + N[\wick{\c1 A \c2 B \c1 C \c2 D}] + N[\wick{\c1 A \c2 B \c2 C \c1 D}]
+        \end{eqnarray*}
+
+        我们也不能忘记，在之前，就已经证明出 contraction 是一个 c-number ，因此我们是完全可以将其从 normal ordering 当中提取出来的，同时，考虑到 $\bra{0}N[\cdots]\ket{0} = 0$ ,我们可以知道，只有当 normal ordering 当中全部都变成了constration 的时候，其才会对真空期望值产生一定的贡献(对于我们目前计算的，就是指第二行的三个量)，于是我们可以得到
+        \begin{eqnarray*}
+            \left\langle 0 \left|T[\hat{A}\hat{B}\hat{C}\hat{D}]\right|0 \right\rangle &=& \left\langle 0 \left|T[\hat{A}\hat{B}]\right|0 \right\rangle\left\langle 0 \left|T[\hat{C}\hat{D}]\right|0 \right\rangle + \left\langle 0 \left|T[\hat{A}\hat{C}]\right|0 \right\rangle\left\langle 0 \left|T[\hat{B}\hat{D}]\right|0 \right\rangle + \left\langle 0 \left|T[\hat{A}\hat{D}]\right|0 \right\rangle\left\langle 0 \left|T[\hat{B}\hat{C}]\right|0 \right\rangle
+        \end{eqnarray*} 
+    \end{solution}
+\end{example}
+
+基于如上例子所计算出来的结果，我们将其运用到场算符之上
+\begin{eqnarray*}
+    \left\langle 0 \left|T[\hat{\phi}(x_1)\hat{\phi}(x_2)\hat{\phi}(x_3)\hat{\phi}(x_4)]\right|0 \right\rangle &=& \left\langle 0 \left|\hat{\phi}(x_1)\hat{\phi}(x_2)\hat{\phi}(x_3)\hat{\phi}(x_4)\right|0 \right\rangle \\
+    &=& \left\langle 0 \left|T[\hat{\phi}(x_1)\hat{\phi}(x_2)]\right|0 \right\rangle\left\langle 0 \left|T[\hat{\phi}(x_3)\hat{\phi}(x_4)]\right|0 \right\rangle + \left\langle 0 \left|T[\hat{\phi}(x_1)\hat{\phi}(x_3)]\right|0 \right\rangle\left\langle 0 \left|T[\hat{\phi}(x_2)\hat{\phi}(x_4)]\right|0 \right\rangle \\
+    &+& \left\langle 0 \left|T[\hat{\phi}(x_1)\hat{\phi}(x_4)]\right|0 \right\rangle\left\langle 0 \left|T[\hat{\phi}(x_2)\hat{\phi}(x_3)]\right|0 \right\rangle
+\end{eqnarray*}
+
+根据我们之前所提到的标量场的费曼传播子形式是一致的，于是我们有
+\begin{equation*}
+    \left\langle 0 \left|\hat{\phi}(x_1)\hat{\phi}(x_2)\hat{\phi}(x_3)\hat{\phi}(x_4)\right|0 \right\rangle = \Delta(x_1 - x_2)\Delta(x_3 - x_4) + \Delta(x_1 - x_3)\Delta(x_2 - x_4) + \Delta(x_1 - x_4)\Delta(x_2 - x_3)
+\end{equation*}
+
+很显然，wick's theorem 给我们计算真空期望值带来了很大的便利以及非常直观的物理图像，接下来我们需要做的，就是去计算我们的 $\hat{S}$ 矩阵。
+
+
+\subsection{\protect\hyperlink{:}{Expanding the S-matrix by Wick's Theorm}}
+\addtocontents{toc}{\protect\hypertarget{:}{}}
+
+首先给定几个符号规则
+
+\begin{table}[hbpt]
+\begin{minipage}{0.5\textwidth}
+    \centering
+    \begin{tikzpicture}
+        \begin{feynman}
+          % 顶点
+          \vertex (a) at (0,0) {$\bigcirc $};
+          \vertex [right=2cm of a] (b);
+          
+          % 粒子线
+          \diagram* {
+            (a) -- [solid,edge label=$\phi(z)$] (b)
+          };
+        \end{feynman}
+    \end{tikzpicture}
+\end{minipage}
+\hfill
+\begin{minipage}{0.5\textwidth}
+    这是最简单的相互作用哈密顿量 $\hat{H}_I(z)$,它包含一个标量场 $\phi(z)$ 和一个源场 $J(z)$,
+    \begin{equation*}
+        \hat{H}_I(z) = J(z)\phi(z)
+    \end{equation*}
+\end{minipage}
+\end{table}
+
+\begin{table}[hbpt]
+    \begin{minipage}{0.5\textwidth}
+        \centering
+        \begin{tikzpicture}
+            \begin{feynman}
+                \vertex (a) {$\bullet$};
+                \vertex [above right=2cm of a] (b){$\phi(z)$};
+                \vertex [below right=2cm of a] (c){$\phi(z)$};
+                \vertex [above left=2cm of a] (d){$\phi(z)$};
+                \vertex [below left=2cm of a] (e){$\phi(z)$};
+
+                \diagram* {
+                    (a) -- [solid] (b),
+                    (a) -- [solid] (c),
+                    (a) -- [solid] (d),
+                    (a) -- [solid] (e)
+                };
+            \end{feynman}
+        \end{tikzpicture}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.5\textwidth}
+        这是最简单的自相互作用哈密顿量 $\hat{H}_I(z)$,我们一般将其称之为 $\phi^4$ 理论，其相互作用部分的哈密顿量为
+        \begin{equation*}
+            \hat{H}_I(z) = \frac{\lambda}{4!}\phi^4(z)
+        \end{equation*}
+    \end{minipage}
+\end{table}
+
+\begin{table}[hbpt]
+    \begin{minipage}{0.5\textwidth}
+        \centering
+        \begin{tikzpicture}
+            \begin{feynman}
+                \vertex (a) ;
+                \vertex [right=2cm of a] (b){$\phi(z)$};
+                \vertex [above left=2cm of a] (c){$\psi^\dagger(z)$};
+                \vertex [below left=2cm of a] (d){$\psi(z)$};
+                \diagram* {
+                    (a) -- [solid] (b),
+                    (c) -- [anti fermion] (a),
+                    (d) -- [fermion] (a)
+                };
+            \end{feynman}
+        \end{tikzpicture}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.5\textwidth}
+        这种相互作用是由 YuKawa 所提出的，其相互作用部分的哈密顿量 $\hat{H}_I(z)$为
+        \begin{equation*}
+            \hat{H}_I(z) = g \psi^\dagger(z)\psi(z)\phi(z)
+        \end{equation*}
+    \end{minipage}
+\end{table}
+
+\begin{table}[hbpt]
+    \begin{minipage}{0.5\textwidth}
+        \centering
+        \begin{tikzpicture}
+            \begin{feynman}
+                \vertex (a) ;
+                \vertex [right=2cm of a] (b);
+                \vertex [above left=2cm of a] (c){$\psi^\dagger(x)$};
+                \vertex [below left=2cm of a] (d){$\psi(x)$};
+                \vertex [above right=2cm of b] (e){$\psi^\dagger(y)$};
+                \vertex [below right=2cm of b] (f){$\psi(y)$};
+                \diagram* {
+                    (a) -- [boson,edge label=$V(x - y)$] (b),
+                    (c) -- [anti fermion] (a),
+                    (d) -- [fermion] (a),
+                    (e) -- [anti fermion] (b),
+                    (f) -- [fermion] (b)
+                };
+            \end{feynman}
+        \end{tikzpicture}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.5\textwidth}
+        最后一个例子是一种非常有用的非相对论的相互作用，其可以用来描述库伦相互作用，其相互作用部分的哈密顿量 $\hat{H}_I(z)$为
+        \begin{equation*}
+            \hat{H}_I(z) = \frac{1}{2}\psi^\dagger(x)\psi^\dagger(y)V(x - y)\delta(x^0 - y^0)\psi(y)\psi(x)
+        \end{equation*}
+    \end{minipage}
+\end{table}
+
+在介绍完一些相互作用以及图形上的表示之后，我们将会以 $\phi^4$ 相互作用作为例子来展开 $T[\hat{\phi}(x_1)\hat{\phi}(x_2)\hat{\phi}(x_3)\hat{\phi}(x_4)]$ 的真空期望值，首先，给出该相互作用的拉格朗日量
+\begin{equation}
+    \mathcal{L} = \frac{1}{2}\left[\partial_\mu \phi(x)\right]^2 - \frac{1}{2}m^2\phi^2(x) - \frac{\lambda}{4!}\phi^4(x)
+\end{equation}
+
+该拉格朗日量其前面一部分为自由 Klein-Gordon 场的拉格朗日量，我们可以将这部分通过正则量子化的方法得到系统的哈密顿量
+\begin{equation}
+    \hat{\mathcal{H}}_0 = \frac{1}{2}\left[\left(\frac{\partial \hat{\phi}}{\partial t}\right) + \left(\nabla\hat{\phi}\right)^2 + m^2\hat{\phi}^2\right] 
+\end{equation}
+
+而相互作用部分的哈密顿量则为
+\begin{equation}
+    \hat{\mathcal{H}}_I = \frac{\lambda}{4!}\phi^4(x)
+\end{equation}
+
+接下来，给出一个具体的过程来展开一下这个过程的 $\hat{S}$ 矩阵
+\begin{example}
+    考虑一个过程，其入态为一个处于 $p$ 的动量本征态的粒子，而其出态为一个处于 $q$ 的动量本征态的粒子，接下来计算一下这个过程的振幅
+    \begin{solution}
+        \begin{enumerate}
+            \item[Step 1] 计算一下振幅 $\mathcal{A}$
+            \begin{equation}
+                \mathcal{A} = ^{out}\braket{q}{p}^{in} = \bra{q}\hat{S}\ket{p} = (2\pi)^3 \left(2E_{\vec{q}}\right)^{\frac{1}{2}} \left(2E_{\vec{p}}\right)^{\frac{1}{2}}\bra{0}\hat{a}_{\vec{q}}\hat{S}\hat{a}_{\vec{p}}^\dagger\ket{0}
+            \end{equation}
+
+            其中，我们的$\displaystyle \ket{p} = (2\pi)^\frac{3}{2} \left(2E_{\vec{q}}\right)^{\frac{1}{2}}\hat{a}_{\vec{p}}^\dagger\ket{0}$
+            \item[Step 2] 将 $\hat{S}$ 从 Dyson's 表示进行展开，从而得到
+            \begin{equation}
+                \hat{S} = T\left[1 - \frac{i\lambda}{4!}\int d^4z \hat{\phi}^4(z) + \frac{\left(-i\right)^2}{2!}\left(\frac{\lambda}{4!}\right)^2 \int d^4 x d^4 y \hat{\phi}^4(x)\hat{\phi}^4(y) + \cdots\right]
+            \end{equation}
+            \item[Step 3] 将我们展开之后的 $\hat{S}$ 代入到 $\mathcal{A}$ 当中
+            \begin{eqnarray*}
+                \mathcal{A} &=& \bra{q}\hat{S}\ket{p} \\
+                &=& (2\pi)^3 \left(2E_{\vec{q}}\right)^{\frac{1}{2}} \left(2E_{\vec{p}}\right)^{\frac{1}{2}} T\left[\bra{0}\hat{a}_{\vec{q}}\hat{a}_{\vec{p}}^\dagger\ket{0} + \int d^4z \left(\frac{-i\lambda}{4!}\right)\bra{0}\hat{a}_{\vec{q}}\hat{\phi}^4(z)\hat{a}_{\vec{p}}^\dagger\ket{0}\right. \\
+                && \left. + \int d^4x d^4y \left(\frac{-i\lambda}{4!}\right)\bra{0}\hat{a}_{\vec{q}}\hat{\phi}^4(x)\hat{\phi}^4(y)\hat{a}_{\vec{p}}^\dagger\ket{0} + \cdots\right]
+            \end{eqnarray*}
+
+            于是，我们可以很自然的将振幅变成每一阶振幅的总和，即
+            \begin{equation}
+                \mathcal{A} = \mathcal{A}^{(0)} + \mathcal{A}^{(1)} + \mathcal{A}^{(2)} + \mathcal{A}^{(3)} + \cdots
+            \end{equation}
+            \item[Step 4] 得到了展开后的振幅之后，我们可以看出，真空期望值我们完全可以使用上一节得到的 Wick's Theorm 来展开，接下来开始
+            \begin{itemize}
+                \item 计算领头阶的真空期望值，这很容易
+                \begin{equation*}
+                    \mathcal{A}^{(0)} \propto T\left[\bra{0}\hat{a}_{\vec{q}}\hat{a}_{\vec{p}}^\dagger\ket{0}\right] = \wick{\c1 a_{\vec{q}} \c1 a_{\vec{p}}} = \delta^{(3)}(\vec{q} - \vec{p})
+                \end{equation*}
+                \item 计算一下较为复杂的一阶振幅当中的真空期望值，通过 wick constraction 我们可以得到
+                \begin{eqnarray*}
+                    \mathcal{A}^{(1)} &\propto& \int d^4z \left(\frac{-i\lambda}{4!}\right)\bra{0}T[\hat{a}_{\vec{q}}\hat{\phi}^4(z)\hat{a}_{\vec{p}}^\dagger]\ket{0} \\
+                    &=& \int d^4z \left(\frac{-i\lambda}{4!}\right)\left[3 \bra{0} \hat{a}_{\vec{q}}\hat{a}_{\vec{p}}^\dagger\ket{0}\bra{0} \hat{\phi}(x)\hat{\phi}(x) \ket{0}\bra{0} \hat{\phi}(x)\hat{\phi}(x) \ket{0} + 12 \bra{0} \hat{a}_{\vec{q}}\hat{\phi}\ket{0}\bra{0} \hat{\phi}\hat{\phi}\ket{0}\bra{0} \hat{\phi}\hat{a}_{\vec{p}}^\dagger\ket{0} \right]
+                \end{eqnarray*}
+
+                这很复杂（至少对我来说），我们需要分别计算一下这里面出现的几个真空期望值,借用一下之前的结论（我们考虑的是一个自由标量场的 $\phi^4$ 理论），其场算符在 $\ket{p}$ 的动量本征态下的形式为
+                \begin{equation}
+                    \hat{\phi}(z) = \int \frac{d^3 \vec{p}}{\left(2\pi\right)^{\frac{3}{2}}} \frac{1}{\left(2 E_{\vec{p}}\right)^{\frac{1}{2}}}\left(\hat{a}_{\vec{p}}e^{-ip \cdot z} + \hat{a}_{\vec{p}}^\dagger e^{ip \cdot z}\right)
+                \end{equation}
+
+                根据该场算符的形式，我们可以计算得到
+                \begin{eqnarray*}
+                    \bra{0} \hat{\phi}\hat{\phi} \ket{0} &=& \Delta(z - z)\\
+                    &=& \int \frac{d^4 k}{(2\pi)^4} \frac{e^{-ik(z - z)}}{k^2 - m^2 + i\epsilon}\\
+                    \bra{0} \hat{a}_{\vec{q}}\hat{\phi} \ket{0} &=& \int d^3 \vec{q} d^3 \vec{p} \braket{\vec{q}}{\vec{p}}e^{i p \cdot z} \\
+                    &=& \int d^3 \vec{q} e^{iq\cdot z} \\
+                    \bra{0} \hat{\phi}\hat{a}_{\vec{p}}^\dagger \ket{0} &=& 
+                \end{eqnarray*}
+                \item 
+            \end{itemize}
+            \item[Step 5] 
+        \end{enumerate}
+    \end{solution}
+\end{example}
+
+
+
+
+
+
+
+
+\section{\protect\hyperlink{:}{散射振幅与其计算}}
+\addtocontents{toc}{\protect\hypertarget{:}{}}
+
+
+
+

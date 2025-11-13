@@ -1,0 +1,116 @@
+\contentsline {chapter}{\numberline {第一章}\hyperlink {:}{经典力学、经典场论与狭义相对论复习}}{1}{chapter.1}%
+\hypertarget {:}{}
+\contentsline {section}{\numberline {1.1}\hyperlink {:}{伽利略变换}}{1}{section.1.1}%
+\hypertarget {:}{}
+\contentsline {section}{\numberline {1.2}\hyperlink {:}{经典力学}}{2}{section.1.2}%
+\hypertarget {:}{}
+\contentsline {subsection}{\numberline {1.2.1}\hyperlink {:}{位形、位形空间、广义坐标、广义速度}}{2}{subsection.1.2.1}%
+\hypertarget {:}{}
+\contentsline {subsubsection}{\numberline {1.2.1.1}\hyperlink {:}{位形、位形空间}}{2}{subsubsection.1.2.1.1}%
+\hypertarget {:}{}
+\contentsline {subsubsection}{\numberline {1.2.1.2}\hyperlink {:}{广义坐标}}{2}{subsubsection.1.2.1.2}%
+\hypertarget {:}{}
+\contentsline {subsubsection}{\numberline {1.2.1.3}\hyperlink {:}{广义速度、速度相空间}}{3}{subsubsection.1.2.1.3}%
+\hypertarget {:}{}
+\contentsline {subsubsection}{\numberline {1.2.1.4}\hyperlink {:}{约束、自由度}}{4}{subsubsection.1.2.1.4}%
+\hypertarget {:}{}
+\contentsline {subsection}{\numberline {1.2.2}\hyperlink {:}{相对论时空}}{6}{subsection.1.2.2}%
+\hypertarget {:}{}
+\contentsline {subsubsection}{\numberline {1.2.2.1}\hyperlink {:}{时空}}{6}{subsubsection.1.2.2.1}%
+\hypertarget {:}{}
+\contentsline {subsubsection}{\numberline {1.2.2.2}\hyperlink {:}{度规}}{6}{subsubsection.1.2.2.2}%
+\hypertarget {:}{}
+\contentsline {subsection}{\numberline {1.2.3}\hyperlink {:}{相空间、正则坐标、正则动量}}{7}{subsection.1.2.3}%
+\hypertarget {:}{}
+\contentsline {section}{\numberline {1.3}\hyperlink {:}{经典场论}}{7}{section.1.3}%
+\hypertarget {:}{}
+\contentsline {subsection}{\numberline {1.3.1}\hyperlink {:}{从粒子到场}}{7}{subsection.1.3.1}%
+\hypertarget {:}{}
+\contentsline {chapter}{\numberline {第二章}\hyperlink {:}{量子力学、为什么我们需要量子场论}}{9}{chapter.2}%
+\hypertarget {:}{}
+\contentsline {section}{\numberline {2.1}\hyperlink {:}{量子力学}}{9}{section.2.1}%
+\hypertarget {:}{}
+\contentsline {section}{\numberline {2.2}\hyperlink {:}{场算符(Field operators)}}{9}{section.2.2}%
+\hypertarget {:}{}
+\contentsline {subsection}{\numberline {2.2.1}\hyperlink {:}{坐标与动量表象}}{9}{subsection.2.2.1}%
+\hypertarget {:}{}
+\contentsline {subsection}{\numberline {2.2.2}\hyperlink {:}{简单谐振子(Simple harmonic oscillators)}}{9}{subsection.2.2.2}%
+\hypertarget {:}{}
+\contentsline {subsection}{\numberline {2.2.3}\hyperlink {:}{占有数表象(Occupation number representation)}}{10}{subsection.2.2.3}%
+\hypertarget {:}{}
+\contentsline {subsection}{\numberline {2.2.4}\hyperlink {:}{场算符的诞生}}{13}{subsection.2.2.4}%
+\hypertarget {:}{}
+\contentsline {subsection}{\numberline {2.2.5}\hyperlink {:}{场的动力学与举例}}{14}{subsection.2.2.5}%
+\hypertarget {:}{}
+\contentsline {subsubsection}{\numberline {2.2.5.1}\hyperlink {:}{电磁场}}{14}{subsubsection.2.2.5.1}%
+\hypertarget {:}{}
+\contentsline {subsection}{\numberline {2.2.6}\hyperlink {:}{拉格朗日场论}}{15}{subsection.2.2.6}%
+\hypertarget {:}{}
+\contentsline {subsection}{\numberline {2.2.7}\hyperlink {:}{哈密顿场论}}{15}{subsection.2.2.7}%
+\hypertarget {:}{}
+\contentsline {section}{\numberline {2.3}\hyperlink {:}{Lorentz Invariance}}{17}{section.2.3}%
+\hypertarget {:}{}
+\contentsline {subsection}{\numberline {2.3.1}\hyperlink {:}{洛伦兹变换的具体形式}}{17}{subsection.2.3.1}%
+\hypertarget {:}{}
+\contentsline {subsection}{\numberline {2.3.2}\hyperlink {:}{生成元(generator)}}{18}{subsection.2.3.2}%
+\hypertarget {:}{}
+\contentsline {subsubsection}{\numberline {2.3.2.1}\hyperlink {:}{转动}}{18}{subsubsection.2.3.2.1}%
+\hypertarget {:}{}
+\contentsline {subsubsection}{\numberline {2.3.2.2}\hyperlink {:}{boost}}{20}{subsubsection.2.3.2.2}%
+\hypertarget {:}{}
+\contentsline {subsection}{\numberline {2.3.3}\hyperlink {:}{诺特定理}}{21}{subsection.2.3.3}%
+\hypertarget {:}{}
+\contentsline {subsection}{\numberline {2.3.4}\hyperlink {:}{Symmetry}}{22}{subsection.2.3.4}%
+\hypertarget {:}{}
+\contentsline {subsection}{\numberline {2.3.5}\hyperlink {:}{Proof of Noether's theorem}}{23}{subsection.2.3.5}%
+\hypertarget {:}{}
+\contentsline {chapter}{\numberline {第三章}\hyperlink {:}{Klein-Gordon Field}}{27}{chapter.3}%
+\hypertarget {:}{}
+\contentsline {section}{\numberline {3.1}\hyperlink {:}{The Klein-Gordon equation}}{27}{section.3.1}%
+\hypertarget {:}{}
+\contentsline {section}{\numberline {3.2}\hyperlink {:}{场的正则量子化}}{27}{section.3.2}%
+\hypertarget {:}{}
+\contentsline {subsection}{\numberline {3.2.1}\hyperlink {:}{正则量子化的基本流程}}{27}{subsection.3.2.1}%
+\hypertarget {:}{}
+\contentsline {subsection}{\numberline {3.2.2}\hyperlink {:}{Normal ordering}}{29}{subsection.3.2.2}%
+\hypertarget {:}{}
+\contentsline {chapter}{\numberline {第四章}\hyperlink {:}{传播子与微扰}}{30}{chapter.4}%
+\hypertarget {:}{}
+\contentsline {section}{\numberline {4.1}\hyperlink {:}{格林函数}}{30}{section.4.1}%
+\hypertarget {:}{}
+\contentsline {section}{\numberline {4.2}\hyperlink {:}{量子力学中的传播子}}{30}{section.4.2}%
+\hypertarget {:}{}
+\contentsline {section}{\numberline {4.3}\hyperlink {:}{传播子的量子力学与微扰理论}}{32}{section.4.3}%
+\hypertarget {:}{}
+\contentsline {section}{\numberline {4.4}\hyperlink {:}{场的传播子}}{35}{section.4.4}%
+\hypertarget {:}{}
+\contentsline {section}{\numberline {4.5}\hyperlink {:}{费曼传播子}}{35}{section.4.5}%
+\hypertarget {:}{}
+\contentsline {chapter}{\numberline {第五章}\hyperlink {:}{S Matrix and Scattering Theory}}{37}{chapter.5}%
+\hypertarget {:}{}
+\contentsline {section}{\numberline {5.1}\hyperlink {:}{S-matirx}}{37}{section.5.1}%
+\hypertarget {:}{}
+\contentsline {subsection}{\numberline {5.1.1}\hyperlink {:}{相互作用表象(interaction representation)}}{37}{subsection.5.1.1}%
+\hypertarget {:}{}
+\contentsline {subsection}{\numberline {5.1.2}\hyperlink {:}{The formular of S-matrix}}{38}{subsection.5.1.2}%
+\hypertarget {:}{}
+\contentsline {section}{\numberline {5.2}\hyperlink {:}{Wick 定理}}{40}{section.5.2}%
+\hypertarget {:}{}
+\contentsline {subsection}{\numberline {5.2.1}\hyperlink {:}{Why Wick's Theorm}}{40}{subsection.5.2.1}%
+\hypertarget {:}{}
+\contentsline {subsection}{\numberline {5.2.2}\hyperlink {:}{Expanding the S-matrix by Wick's Theorm}}{42}{subsection.5.2.2}%
+\hypertarget {:}{}
+\contentsline {section}{\numberline {5.3}\hyperlink {:}{散射振幅与其计算}}{44}{section.5.3}%
+\hypertarget {:}{}
+\contentsline {chapter}{\numberline {第六章}\hyperlink {:}{附录}}{45}{chapter.6}%
+\hypertarget {:}{}
+\contentsline {section}{\numberline {6.1}\hyperlink {:}{微分形式}}{45}{section.6.1}%
+\hypertarget {:}{}
+\contentsline {section}{\numberline {6.2}\hyperlink {:}{张量代数}}{46}{section.6.2}%
+\hypertarget {:}{}
+\contentsline {section}{\numberline {6.3}\hyperlink {:}{Numerator Algebra}}{46}{section.6.3}%
+\hypertarget {:}{}
+\contentsline {section}{\numberline {6.4}\hyperlink {:}{Polarization of External Particles}}{47}{section.6.4}%
+\hypertarget {:}{}
+\contentsline {section}{\numberline {6.5}\hyperlink {:}{Feynman Rules}}{47}{section.6.5}%
+\hypertarget {:}{}
